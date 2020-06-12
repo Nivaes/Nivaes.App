@@ -105,7 +105,7 @@
         #region Json Serialization
 
         /// <summary>Crate a object for a byte array.</summary>
-        /// <param name="data">Serialization object. In byte array format.</param>
+        /// <param name="json">Serialization object. In byte array format.</param>
         /// <returns>Reference to <see cref="DataModel"/> object.</returns>
         [DebuggerStepThrough]
         public static TModel DeserializeDataContractJson<TModel>(string json)

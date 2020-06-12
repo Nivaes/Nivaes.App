@@ -1,17 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <PackageId>Nivaes.Shared</PackageId>
+    <Title>Nivaes Shared</Title>
+    <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
+    <Product>Guid utils</Product>
+    <Description>Nivaes shared.</Description>
+    <PackageTags>Nivaes</PackageTags>
     <AssemblyName>Nivaes.Shared</AssemblyName>
     <RootNamespace>Nivaes</RootNamespace>
   </PropertyGroup>
- 
+
+  <ItemGroup>
+    <None Include="Images\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="8.6.2" />
     <PackageReference Include="FluentValidation.ValidatorAttribute" Version="8.6.1" />
-    <!--<PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>-->
+    </PackageReference>
     <PackageReference Include="Nivaes.Async" Version="1.1.0" />
     <PackageReference Include="protobuf-net.Grpc" Version="1.0.90" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
@@ -19,7 +29,4 @@
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Nivaes.Compilers.Toolset\Nivaes.Compilers.Toolset.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-  </ItemGroup>
 </Project>
