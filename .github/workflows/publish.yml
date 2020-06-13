@@ -10,10 +10,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v1
+      # - name: Setup dotnet
+      #   uses: actions/setup-dotnet@v1
+      #   with:
+      #     dotnet-version: 3.1.301
+
+      - name: Generate build number
+        uses: einaregilsson/build-number@v2 
         with:
-          dotnet-version: 3.1.301
+          token: ${{secrets.github_token}}        
+    - name: Print new build number
+        run: echo "Build number is $BUILD_NUMBER"
 
       # Publish
       - name: publish on version change
