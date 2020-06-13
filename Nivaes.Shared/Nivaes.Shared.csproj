@@ -9,7 +9,7 @@
     <PackageTags>Nivaes</PackageTags>
     <AssemblyName>Nivaes.Shared</AssemblyName>
     <RootNamespace>Nivaes</RootNamespace>
-    <LangVersion>8.0</LangVersion>
+    <!--<LangVersion>8.0</LangVersion>-->
   </PropertyGroup>
 
   <ItemGroup>
