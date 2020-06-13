@@ -4,4 +4,4 @@ Nivaes Shared components
 
 ### Actions
 
-![ContinuousIntegration](https://github.com/Nivaes/Nivaes.Async/workflows/ContinuousIntegration/badge.svg)
+![ContinuousIntegration](https://github.com/Nivaes/Nivaes.Shared/workflows/ContinuousIntegration/badge.svg)
