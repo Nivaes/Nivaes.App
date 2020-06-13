@@ -18,19 +18,8 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.x
-#        source-url: https://nuget.pkg.github.com/Nivaes/index.json   
-
-    - uses: actions/labeler@v2
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-    #- uses: nuget/setup-nuget@v1
-    #  with:
-    #    nuget-api-key: ${{ secrets.NIVAES_GITHUB_TOKEN }}
     
     - name: Install dependencies
-      #env:
-      #  NUGET_AUTH_TOKEN: ${{secrets.NIVAES_GITHUB_TOKEN}}
-      #nuget sources add -name "private-packages" -Source https://nuget.pkg.github.com/yanjingzhu/index.json -StorePasswordInClearText -Username yanjingzhu -Password ${env:Password}
       run: dotnet restore
 
     - name: Build
