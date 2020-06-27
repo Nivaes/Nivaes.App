@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netcoreapp3.1;net5.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
-    <AssemblyName>Nivaes.Center.UnitTest</AssemblyName>
-    <RootNamespace>Nivaes.Center.UnitTest</RootNamespace>
+    <AssemblyName>Nivaes.Shared.UnitTest</AssemblyName>
+    <RootNamespace>Nivaes.UnitTest</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
@@ -24,6 +24,8 @@
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Nivaes.Shared\Nivaes.Shared.csproj" />
+    <ProjectReference Include="..\..\Sources\Nivaes.Shared\Nivaes.Shared.csproj" />
+    <ProjectReference Include="..\Nivaes..Shared.Test\Nivaes.Shared.Test.csproj" />
   </ItemGroup>
+
 </Project>
