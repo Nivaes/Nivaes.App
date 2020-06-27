@@ -11,9 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{2762D7A2-F0CC-4ABE-92E2-B830E381B010}"
-	ProjectSection(SolutionItems) = preProject
-		Sources\Directory.Build.props = Sources\Directory.Build.props
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{C140FE19-6EFA-4221-A282-A74107325715}"
 EndProject
