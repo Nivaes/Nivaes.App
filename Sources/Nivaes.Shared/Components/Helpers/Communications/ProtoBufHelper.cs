@@ -36,25 +36,27 @@
 
         public static byte[] Serialize<T>(T value)
         {
-            using var ms = new MemoryStream();
+            using (var ms = new MemoryStream())
+            {
+                Default.Serialize(ms, value);
 
-            Default.Serialize(ms, value);
-
-            return ms.ToArray();
+                return ms.ToArray();
+            }
         }
 
         public static T Deserialize<T>(byte[] payload)
         {
             try
             {
-                using var ms = new MemoryStream(payload);
+                using (var ms = new MemoryStream(payload))
+                {
+                    var aa = ProtoBufHelper.Default.Deserialize(ms, null, typeof(T));
 
-                var aa = ProtoBufHelper.Default.Deserialize(ms, null, typeof(T));
+                    //var aa = System.Runtime.Serialization.FormatterServices.GetUninitializedObject(typeof(T));
+                    //var cc = ProtoBufHelper.Default.Deserialize(ms, aa, typeof(T));
 
-                //var aa = System.Runtime.Serialization.FormatterServices.GetUninitializedObject(typeof(T));
-                //var cc = ProtoBufHelper.Default.Deserialize(ms, aa, typeof(T));
-
-                return (T)aa;
+                    return (T)aa;
+                }
             }
             catch (ArgumentException ex)
             {
