@@ -1,6 +1,6 @@
 ﻿<Project>
 
-  <PropertyGroup Condition="$(MSBuildProjectName.Contains('UnitTest')) == 'False'">
+  <PropertyGroup Condition="$(MSBuildProjectName.Contains('Test')) == 'False'">
     <Copyright>Copyright (c) Nivaes Systems</Copyright>
     <PackageProject>https://github.com/Nivaes</PackageProject>
     <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
@@ -17,7 +17,7 @@
   
   <PropertyGroup>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.0.10</Version>
+    <Version>1.0.11</Version>
   </PropertyGroup>
   
   <PropertyGroup>
