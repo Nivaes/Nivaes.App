@@ -1,12 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1;net5.0</TargetFrameworks>
-    
-    
+
     <AssemblyName>Nivaes</AssemblyName>
     <RootNamespace>Nivaes</RootNamespace>
     
     <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Nivaes.Shared</PackageId>
+    <Title>Nivaes Shared</Title>
+
+    <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
+    <Product>Nivaes shared</Product>
+    <Description>Guid shared.</Description>
+    <PackageTags>Nivaes</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

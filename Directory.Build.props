@@ -4,6 +4,7 @@
     <Copyright>Copyright (c) Nivaes Systems</Copyright>
     <PackageProject>https://github.com/Nivaes</PackageProject>
     <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
     <Authors>Nivaes Systems</Authors>
     <Company>Nivaes Systems</Company>
     <Owners>Nivaes</Owners>
@@ -16,7 +17,7 @@
   
   <PropertyGroup>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.0.9</Version>
+    <Version>1.0.10</Version>
   </PropertyGroup>
   
   <PropertyGroup>

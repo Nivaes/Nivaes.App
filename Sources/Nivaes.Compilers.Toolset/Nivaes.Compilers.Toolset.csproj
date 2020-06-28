@@ -8,6 +8,20 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <PackageId>Nivaes.Compilers.Toolset</PackageId>
+    <Title>Nivaes compilers toolset</Title>
+
+    <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
+    <Product>Guid Compiler Toolset</Product>
+    <Description>Nivaes compiler toolset.</Description>
+    <PackageTags>Nivaes;roslyn</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Images\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <PropertyGroup>
     <RestoreAdditionalProjectSources>https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet5/nuget/v3/index.json ;$(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
   </PropertyGroup>
 
