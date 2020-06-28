@@ -19,6 +19,7 @@
 
         private string mTaxVat;
 
+        [Display(Name = "TaxVat")]
         [MaxLength(20)]
         [ConcurrencyCheck]
         [Required]
