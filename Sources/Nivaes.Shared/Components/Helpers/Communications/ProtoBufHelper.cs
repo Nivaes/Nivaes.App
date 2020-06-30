@@ -60,11 +60,11 @@
             }
             catch (ArgumentException ex)
             {
-                throw new NetException($"Error deserializing {typeof(T).FullName}", ex);
+                throw new CommunicationException($"Error deserializing {typeof(T).FullName}", ex);
             }
             catch (Exception ex)
             {
-                throw new NetException($"Error deserializing {typeof(T).FullName}", ex);
+                throw new CommunicationException($"Error deserializing {typeof(T).FullName}", ex);
             }
         }
 

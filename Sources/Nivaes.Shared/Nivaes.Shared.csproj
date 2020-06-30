@@ -35,6 +35,22 @@
     <PackageReference Include="System.ServiceModel.Primitives" Version="4.7.0" />
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="Components\Exception\LocationString\ConnectionExceptionLocalizationString.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConnectionExceptionLocalizationString.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Update="Components\Exception\LocationString\ConnectionExceptionLocalizationString.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ConnectionExceptionLocalizationString.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Nivaes</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
 
   <!--<ItemGroup>
     <ProjectReference Include="..\..\Sources\Nivaes.Compilers.Toolset\Nivaes.Compilers.Toolset.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="true" />
