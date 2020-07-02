@@ -35,6 +35,4 @@ jobs:
       #  repo-owner:  'nivaes'
       #  gh-user:  'andrechi1'
       #  token:  ${{ secrets.GITHUB_TOKEN }}
-      run: dotnet nuget push './Artifacts/**/*.nupkg' -s https://nuget.pkg.github.com/nivaes/index.json -k ${GITHUB_TOKEN}  
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+      run: dotnet nuget push './Artifacts/**/*.nupkg'
