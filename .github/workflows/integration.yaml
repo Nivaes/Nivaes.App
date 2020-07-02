@@ -32,13 +32,13 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: name.zip
-        path: ./artifacts/**/*.nupkg
+        path: ./Artifacts/**/*.nupkg
 
     - name: Publish
       uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
       with:
         nupkg-path:  './Artifacts/**/*.nupkg'
         repo-owner:  'nivaes'
-        gh-user:  'andrechi1'
+        gh-user:  'nivaes'
         token:  ${{ secrets.GITHUB_TOKEN }}
       #run: dotnet nuget push './Artifacts/**/*.nupkg'
