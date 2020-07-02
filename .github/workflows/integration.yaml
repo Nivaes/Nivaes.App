@@ -35,10 +35,10 @@ jobs:
         path: ./Artifacts/**/*.nupkg
 
     - name: Publish
-      #uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
-      #with:
-      #  nupkg-path:  './Artifacts/**/*.nupkg'
-      #  repo-owner:  'nivaes'
-      #  gh-user:  'nivaes'
-      #  token:  ${{ secrets.GITHUB_TOKEN }}
-      run: dotnet nuget push './Artifacts/**/*.nupkg'
+      uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
+      with:
+        nupkg-path:  './Artifacts/**/*.nupkg'
+        repo-owner:  'nivaes'
+        gh-user:  'nivaes'
+        token:  ${{ secrets.GITHUB_TOKEN }}
+      #run: dotnet nuget push './Artifacts/**/*.nupkg'
