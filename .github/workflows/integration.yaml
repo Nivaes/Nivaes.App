@@ -28,6 +28,30 @@ jobs:
     #- name: Test
     #  run: dotnet test --no-restore --verbosity detailed
 
+    - name: Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ github.workspace }}-${{ env.name }}-name	
+        path: ./Artifact/**/*.nupkg
+
+
+    - name: Version and Tag
+      id: bump_version
+      uses: mathieudutour/github-tag-action@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Prep Version String
+      run: echo ::set-env name=VERSION_NUMBER::$(echo ${{ steps.bump_version.outputs.new_tag }} | sed 's/[v]//g')
+
+    - name: Define Package Name
+      run: echo ::set-env name=PACKAGE_NAME::$"Example.PackageName/bin/Release/Example.PackageName.${{ env.VERSION_NUMBER }}.nupkg"
+
+    - name: Set Nuget Package Version
+      uses: roryprimrose/set-vs-sdk-project-version@v1
+      with:
+        version: ${{ env.VERSION_NUMBER }}
+
     - name: Publish
       #uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
       #with:
