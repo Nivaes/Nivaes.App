@@ -31,7 +31,7 @@
         [OperationContract(Name = "validate.password")]
         ValueTask<ValidatePasswordResult> ValidatePassword(PasswordRequest request);
 
-        ValueTask<IEnumerable<IdentityErrorResponse>> ValidatorNewAccount(AccountDataModel account);
+        ValueTask<IEnumerable<ErrorResponse>> ValidatorNewAccount(AccountDataModel account);
     }
 
     [ProtoContract(Name = "ExistsAccountResult", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
@@ -53,7 +53,7 @@
         public bool AccountCreated { get; set; }
 
         [ProtoMember(3, Name = "Errors")]
-        public IEnumerable<IdentityErrorResponse> Errors { get; set; }
+        public IEnumerable<ErrorResponse> Errors { get; set; }
     }
 
     [ProtoContract(Name = "GetAccountResult", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
@@ -92,7 +92,7 @@
         public bool AccountUpdate { get; set; }
 
         [ProtoMember(3, Name = "Errors")]
-        public IEnumerable<IdentityErrorResponse> Errors { get; set; }
+        public IEnumerable<ErrorResponse> Errors { get; set; }
     }
 
     [ProtoContract(Name = "ValidatePassword", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
@@ -103,7 +103,7 @@
         public bool IsValid { get; set; }
 
         [ProtoMember(2, Name = "Errors")]
-        public IEnumerable<IdentityErrorResponse> Errors { get; set; }
+        public IEnumerable<ErrorResponse> Errors { get; set; }
     }
 
     [ProtoContract(Name = "PasswordRequest", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = true)]

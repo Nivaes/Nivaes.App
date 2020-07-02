@@ -3,7 +3,7 @@
     using ProtoBuf;
 
     [ProtoContract(Name = "IdentityErrorResponse", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None)]
-    public class IdentityErrorResponse
+    public class ErrorResponse
     {
         [ProtoMember(1, Name = "Code")]
         public string Code { get; set; }

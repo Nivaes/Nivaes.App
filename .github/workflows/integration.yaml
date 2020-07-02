@@ -24,3 +24,9 @@ jobs:
 
     - name: Test
       run: dotnet test --configuration Release --verbosity normal 
+
+    - name: Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ env.name }}-name	
+        path: ${{ github.workspace }}/artifact/**/*.nupkg
