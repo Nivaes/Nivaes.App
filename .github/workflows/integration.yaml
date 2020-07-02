@@ -32,30 +32,13 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: name.zip
-        path: ./Artifacts/**/*.nupkg
-
-    - name: Version and Tag
-      id: bump_version
-      uses: mathieudutour/github-tag-action@v1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Prep Version String
-      run: echo ::set-env name=VERSION_NUMBER::$(echo ${{ steps.bump_version.outputs.new_tag }} | sed 's/[v]//g')
-
-    - name: Define Package Name
-      run: echo ::set-env name=PACKAGE_NAME::$"Example.PackageName/bin/Release/Example.PackageName.${{ env.VERSION_NUMBER }}.nupkg"
-
-    - name: Set Nuget Package Version
-      uses: roryprimrose/set-vs-sdk-project-version@v1
-      with:
-        version: ${{ env.VERSION_NUMBER }}
+        path: ./artifacts/**/*.nupkg
 
     - name: Publish
-      #uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
-      #with:
-      #  nupkg-path:  './artifacts/**/*.nupkg'
-      #  repo-owner:  'nivaes'
-      #  gh-user:  'andrechi1'
-      #  token:  ${{ secrets.GITHUB_TOKEN }}
-      run: dotnet nuget push './Artifacts/**/*.nupkg'
+      uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
+      with:
+        nupkg-path:  './Artifacts/**/*.nupkg'
+        repo-owner:  'nivaes'
+        gh-user:  'andrechi1'
+        token:  ${{ secrets.GITHUB_TOKEN }}
+      #run: dotnet nuget push './Artifacts/**/*.nupkg'
