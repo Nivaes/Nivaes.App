@@ -33,5 +33,5 @@ jobs:
       with:
         nupkg-path:  './artifacts/**/*.nupkg'
         repo-owner:  'nivaes'
-        gh-user:  'nivaes'
+        gh-user:  'andrechi1'
         token:  ${{ secrets.GITHUB_TOKEN }}
