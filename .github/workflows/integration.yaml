@@ -29,9 +29,12 @@ jobs:
     #  run: dotnet test --no-restore --verbosity detailed
 
     - name: Publish
-      uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
-      with:
-        nupkg-path:  './artifacts/**/*.nupkg'
-        repo-owner:  'nivaes'
-        gh-user:  'andrechi1'
-        token:  ${{ secrets.GITHUB_TOKEN }}
+      #uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
+      #with:
+      #  nupkg-path:  './artifacts/**/*.nupkg'
+      #  repo-owner:  'nivaes'
+      #  gh-user:  'andrechi1'
+      #  token:  ${{ secrets.GITHUB_TOKEN }}
+      run: dotnet nuget push './artifacts/**/*.nupkg' -s https://nuget.pkg.github.com/nivaes/index.json -k ${GITHUB_TOKEN}  
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
