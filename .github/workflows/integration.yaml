@@ -32,8 +32,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: ${{ github.workspace }}-${{ env.name }}-name	
-        path: ./Artifact/**/*.nupkg
-
+        path: ./Artifacts/**/*.nupkg
 
     - name: Version and Tag
       id: bump_version
