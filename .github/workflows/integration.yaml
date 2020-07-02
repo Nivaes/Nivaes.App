@@ -19,11 +19,14 @@ jobs:
       with:
         dotnet-version: 5.0.100-preview.6.20318.15
 
+    - name: Install dependencies
+      run: dotnet restore
+
     - name: Build
-      run: dotnet build --configuration Release
+      run: dotnet build --configuration Release --no-restore
 
     - name: Test
-      run: dotnet test --configuration Release --verbosity normal 
+      run: dotnet test --no-restore --verbosity diagnostic
 
     - name: Artifact
       uses: actions/upload-artifact@v2
