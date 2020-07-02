@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
-
+    <IsPackable>false</IsPackable>
     
     <AssemblyName>Nivaes.Shared.Test</AssemblyName>
     <RootNamespace>Nivaes.Test</RootNamespace>
