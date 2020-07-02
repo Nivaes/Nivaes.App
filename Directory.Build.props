@@ -17,7 +17,7 @@
   
   <PropertyGroup>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.0.15</Version>
+    <Version>1.0.16</Version>
   </PropertyGroup>
   
   <PropertyGroup>
@@ -28,7 +28,7 @@
     <LangVersion>latest</LangVersion>
     <!--<NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000</NoWarn>-->
 
-    <IsTestProject>$(MSBuildProjectName.Contains('UnitTest'))</IsTestProject>
+    <IsTestProject>$(MSBuildProjectName.Contains('Test'))</IsTestProject>
     
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
     <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' and '$(IsTestProject)' != 'true'">true</GeneratePackageOnBuild>
