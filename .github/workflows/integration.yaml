@@ -25,11 +25,19 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release
 
-    - name: Test
-      run: dotnet test --no-restore --verbosity diagnostic
+    #- name: Test
+    #  run: dotnet test --no-restore --verbosity detailed
 
     - name: Artifact
       uses: actions/upload-artifact@v2
       with:
         name: ${{ env.name }}-name	
         path: ${{ github.workspace }}/artifact/**/*.nupkg
+
+    #- name: Publish
+    #  uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
+    #  with:
+    #    nupkg-path:  './artifacts/**/*.nupkg'
+    #    #repo-owner:  'tanaka-takayoshi'
+    #    #gh-user:  'tanaka-takayoshi'
+    #    token:  ${{ secrets.GITHUB_TOKEN }}
