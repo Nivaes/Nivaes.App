@@ -15,6 +15,6 @@
         public bool AccountCreated { get; set; }
 
         [DataMember(Name = "Errors")]
-        public IEnumerable<ErrorResponse> Errors { get; set; }
+        public IEnumerable<ErrorResponse> Errors { get; set; } = Array.Empty<ErrorResponse>();
     }
 }

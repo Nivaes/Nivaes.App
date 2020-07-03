@@ -6,9 +6,9 @@
     public class LoginUserModel
     {
         [DataMember(Name = "User")]
-        public string User { get; set; }
+        public string User { get; set; } = string.Empty;
 
         [DataMember(Name = "Password")]
-        public string Password { get; set; }
+        public string Password { get; set; } = string.Empty;
     }
 }

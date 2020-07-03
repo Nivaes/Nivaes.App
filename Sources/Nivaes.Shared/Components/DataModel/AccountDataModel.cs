@@ -17,7 +17,7 @@
 
         #region TaxVat
 
-        private string mTaxVat;
+        private string mTaxVat = string.Empty;
 
         [Display(Name = "TaxVat")]
         [MaxLength(20)]
@@ -34,7 +34,7 @@
 
         #region HonorificNamePrefix
 
-        private string mHonorificNamePrefix;
+        private string mHonorificNamePrefix = string.Empty;
 
         [MaxLength(10)]
         [ProtoMember(3, Name = "HonorificNamePrefix")]
@@ -48,7 +48,7 @@
 
         #region HonorificNameSuffix
 
-        private string mHonorificNameSuffix;
+        private string mHonorificNameSuffix = string.Empty;
 
         [MaxLength(10)]
         [ProtoMember(4, Name = "HonorificNameSuffix")]
@@ -63,7 +63,7 @@
         #region PersonalName
 
         [IgnoreDataMember]
-        private string mPersonalName;
+        private string mPersonalName = string.Empty;
 
         [MaxLength(500)]
         [Required]
@@ -79,7 +79,7 @@
         #region FamilyName
 
         [IgnoreDataMember]
-        private string mFamilyName;
+        private string mFamilyName = string.Empty;
 
         [MaxLength(500)]
         [Required]
@@ -100,7 +100,7 @@
 
         #region Email
 
-        private string mEmail;
+        private string mEmail = string.Empty;
 
         [ProtoMember(7, Name = "Email")]
         public string Email
@@ -113,7 +113,7 @@
 
         #region PhoneNumber
 
-        private string mPhoneNumber;
+        private string mPhoneNumber = string.Empty;
 
         [Required(ErrorMessage = "Ha de especificar un teléfono.")]
         [ProtoMember(8, Name = "PhoneNumber")]
@@ -127,7 +127,7 @@
 
         #region ProfileAvatar
 
-        private string mProfileAvatar;
+        private string mProfileAvatar = string.Empty;
 
         [ProtoIgnore]
         public string ProfileAvatar

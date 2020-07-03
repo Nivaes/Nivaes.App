@@ -18,7 +18,7 @@
 
         #region StringValueReadOnly
         /// <summary>Stirng test value.</summary>
-        private string mStringValueReadOnly;
+        private string mStringValueReadOnly = string.Empty;
 
         /// <summary>String test value.</summary>
         [ProtoMember(2, Name = "StringValueReadOnly")]
@@ -32,7 +32,7 @@
 
         #region StringValue
         /// <summary>Stirng test value.</summary>
-        private string mStringValue;
+        private string mStringValue = string.Empty;
 
         [ProtoMember(3, Name = "StringValue")]
         [DataMember(Name = "StringValue")]
@@ -73,7 +73,7 @@
 
         #region Telephone
         /// <summary>Telephone.</summary>
-        private string mTelephone;
+        private string mTelephone = string.Empty;
 
         /// <summary>Telephone.</summary>
         [ProtoMember(6, Name = "Telephone")]

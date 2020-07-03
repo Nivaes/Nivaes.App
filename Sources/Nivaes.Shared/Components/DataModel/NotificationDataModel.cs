@@ -20,7 +20,7 @@
 
         #region Text
 
-        private string mText;
+        private string mText = string.Empty;
 
         [ProtoMember(3, Name = "Text")]
         public string Text

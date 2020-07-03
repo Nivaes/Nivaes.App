@@ -6,6 +6,7 @@
     using System.IO;
     using System.Linq;
     using System.Reflection;
+    using System.Runtime.CompilerServices;
     using ProtoBuf;
     using ProtoBuf.Meta;
 
@@ -71,8 +72,8 @@
         private class ProccessModel
         {
             private int mSequenceFieldNumber = 1;
-            private RuntimeTypeModel mModel;
-            private Dictionary<Type, MetaType> mTypes;
+            private RuntimeTypeModel? mModel;
+            private Dictionary<Type, MetaType>? mTypes;
 
             [SuppressMessage("Design", "CA1031:Do not catch general exception types")]
             public RuntimeTypeModel LoadRuntimeTypeModelDefaultDataModel()
@@ -113,30 +114,32 @@
                 return mModel;
             }
 
-            private MetaType RegisterType(Type type)
+            private MetaType? RegisterType(Type type)
             {
+                if (type == null) throw new NullReferenceException(nameof(type));
                 Console.WriteLine(type.FullName);
 
-                if (!mTypes.ContainsKey(type))
+                if (mTypes != null && type.BaseType != null && !mTypes.ContainsKey(type))
                 {
-                    MetaType metaType;
+                    MetaType? metaType;
                     if (type.BaseType == typeof(object))
                     {
-                        metaType = mModel.Add(type, true);
+                        metaType = mModel?.Add(type, true);
                     }
                     else
                     {
-                        if (!mTypes.TryGetValue(type.BaseType, out MetaType baseMetaType))
+                        if (!mTypes!.TryGetValue(type.BaseType, out MetaType? baseMetaType))
                         {
                             baseMetaType = RegisterType(type.BaseType);
                         }
 
                         baseMetaType?.AddSubType(mSequenceFieldNumber++, type);
 
-                        metaType = mModel.Add(type, true);
+                        metaType = mModel?.Add(type, true);
                     }
 
-                    mTypes.Add(type, metaType);
+                    if(metaType != null)
+                        mTypes.Add(type, metaType);
 
                     //mSequenceFieldNumber++;
                     //mSequenceFieldNumber += type.GetMembers().Length;

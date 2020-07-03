@@ -68,13 +68,13 @@
 
             getAccountResult2.Should().NotBeNull();
             getAccountResult2.Account.Should().NotBeNull();
-            getAccountResult2.Account.IdAccount.Should().Be(getAccountResult1.Account.IdAccount);
-            getAccountResult2.Account.PersonalName.Should().Be(getAccountResult1.Account.PersonalName);
-            getAccountResult2.Account.FamilyName.Should().Be(getAccountResult1.Account.FamilyName);
-            getAccountResult2.Account.TaxVat.Should().Be(getAccountResult1.Account.TaxVat);
-            getAccountResult2.Account.PhoneNumber.Should().Be(getAccountResult1.Account.PhoneNumber);
-            getAccountResult2.Account.Email.Should().Be(getAccountResult1.Account.Email);
-            getAccountResult2.Account.TimeStamp.Should().Be(getAccountResult1.Account.TimeStamp);
+            getAccountResult2.Account?.IdAccount.Should().Be(getAccountResult1.Account.IdAccount);
+            getAccountResult2.Account?.PersonalName.Should().Be(getAccountResult1.Account.PersonalName);
+            getAccountResult2.Account?.FamilyName.Should().Be(getAccountResult1.Account.FamilyName);
+            getAccountResult2.Account?.TaxVat.Should().Be(getAccountResult1.Account.TaxVat);
+            getAccountResult2.Account?.PhoneNumber.Should().Be(getAccountResult1.Account.PhoneNumber);
+            getAccountResult2.Account?.Email.Should().Be(getAccountResult1.Account.Email);
+            getAccountResult2.Account?.TimeStamp.Should().Be(getAccountResult1.Account.TimeStamp);
         }
 
         [Fact]
@@ -108,13 +108,13 @@
 
             getAccountResult2.Should().NotBeNull();
             getAccountResult2.Account.Should().NotBeNull();
-            getAccountResult2.Account.IdAccount.Should().Be(getAccountResult1.Account.IdAccount);
-            getAccountResult2.Account.PersonalName.Should().Be(getAccountResult1.Account.PersonalName);
-            getAccountResult2.Account.FamilyName.Should().Be(getAccountResult1.Account.FamilyName);
-            getAccountResult2.Account.TaxVat.Should().Be(getAccountResult1.Account.TaxVat);
-            getAccountResult2.Account.PhoneNumber.Should().Be(getAccountResult1.Account.PhoneNumber);
-            getAccountResult2.Account.Email.Should().Be(getAccountResult1.Account.Email);
-            getAccountResult2.Account.TimeStamp.Should().Be(getAccountResult1.Account.TimeStamp);
+            getAccountResult2.Account?.IdAccount.Should().Be(getAccountResult1.Account.IdAccount);
+            getAccountResult2.Account?.PersonalName.Should().Be(getAccountResult1.Account.PersonalName);
+            getAccountResult2.Account?.FamilyName.Should().Be(getAccountResult1.Account.FamilyName);
+            getAccountResult2.Account?.TaxVat.Should().Be(getAccountResult1.Account.TaxVat);
+            getAccountResult2.Account?.PhoneNumber.Should().Be(getAccountResult1.Account.PhoneNumber);
+            getAccountResult2.Account?.Email.Should().Be(getAccountResult1.Account.Email);
+            getAccountResult2.Account?.TimeStamp.Should().Be(getAccountResult1.Account.TimeStamp);
         }
 
         [Fact]
@@ -167,13 +167,13 @@
 
             getAccountResult2.Should().NotBeNull();
             getAccountResult2.Account.Should().NotBeNull();
-            getAccountResult2.Account.IdAccount.Should().Be(getAccountResult1.Account.IdAccount);
-            getAccountResult2.Account.PersonalName.Should().Be(getAccountResult1.Account.PersonalName);
-            getAccountResult2.Account.FamilyName.Should().Be(getAccountResult1.Account.FamilyName);
-            getAccountResult2.Account.TaxVat.Should().Be(getAccountResult1.Account.TaxVat);
-            getAccountResult2.Account.PhoneNumber.Should().Be(getAccountResult1.Account.PhoneNumber);
-            getAccountResult2.Account.Email.Should().Be(getAccountResult1.Account.Email);
-            getAccountResult2.Account.TimeStamp.Should().Be(getAccountResult1.Account.TimeStamp);
+            getAccountResult2.Account?.IdAccount.Should().Be(getAccountResult1.Account.IdAccount);
+            getAccountResult2.Account?.PersonalName.Should().Be(getAccountResult1.Account.PersonalName);
+            getAccountResult2.Account?.FamilyName.Should().Be(getAccountResult1.Account.FamilyName);
+            getAccountResult2.Account?.TaxVat.Should().Be(getAccountResult1.Account.TaxVat);
+            getAccountResult2.Account?.PhoneNumber.Should().Be(getAccountResult1.Account.PhoneNumber);
+            getAccountResult2.Account?.Email.Should().Be(getAccountResult1.Account.Email);
+            getAccountResult2.Account?.TimeStamp.Should().Be(getAccountResult1.Account.TimeStamp);
         }
     }
 }

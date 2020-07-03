@@ -10,10 +10,10 @@
     {
         #region Account
 
-        private AccountDataModel mAccount;
+        private AccountDataModel? mAccount;
 
         [ProtoMember(1, Name = "Account")]
-        public AccountDataModel Account
+        public AccountDataModel? Account
         {
             get => mAccount;
             set => base.SetProperty(ref mAccount, value);
@@ -23,7 +23,7 @@
 
         #region Password
 
-        private string mPassword;
+        private string mPassword = string.Empty;
 
         [ProtoMember(2, Name = "Password")]
         public string Password

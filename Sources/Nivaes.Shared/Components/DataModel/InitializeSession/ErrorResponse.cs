@@ -6,9 +6,9 @@
     public class ErrorResponse
     {
         [ProtoMember(1, Name = "Code")]
-        public string Code { get; set; }
+        public string Code { get; set; } = string.Empty;
 
         [ProtoMember(2, Name = "Description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
     }
 }

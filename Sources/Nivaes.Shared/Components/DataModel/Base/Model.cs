@@ -20,10 +20,10 @@
         #region INotifyPropertyChanged
 
         /// <summary>Occurs when a property value changes.</summary>
-        private PropertyChangedEventHandler mPropertyChanged;
+        private PropertyChangedEventHandler? mPropertyChanged;
 
         /// <summary>Occurs when a property value changes.</summary>
-        public event PropertyChangedEventHandler PropertyChanged
+        public event PropertyChangedEventHandler? PropertyChanged
         {
             add { mPropertyChanged += value; }
             remove { mPropertyChanged -= value; }
@@ -52,6 +52,8 @@
         protected void RegisterNewValueProperty<T>(T property)
             where T : IModel
         {
+            if (property == null) throw new NullReferenceException(nameof(property));
+
             property.PropertyChanged += RaisePropertyChanged;
         }
 
@@ -60,6 +62,8 @@
         protected void UnregisterNewValueProperty<T>(T property)
             where T : IModel
         {
+            if (property == null) throw new NullReferenceException(nameof(property));
+
             property.PropertyChanged -= RaisePropertyChanged;
         }
 
@@ -68,13 +72,13 @@
         [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", MessageId = "0#")]
         protected bool SetProperty<T>(ref T property, T newValue, [CallerMemberName] string propertyName = "")
         {
-            if (object.Equals((object)property, (object)newValue))
+            if (object.Equals((object?)property, (object?)newValue))
             {
                 return false;
             }
             else
             {
-                IModel propertyModel = property as IModel;
+                IModel? propertyModel = property as IModel;
 
                 if (propertyModel != null)
                     propertyModel.PropertyChanged -= RaisePropertyChanged;
@@ -102,7 +106,7 @@
             }
             else
             {
-                IModel propertyModel = property as IModel;
+                IModel? propertyModel = property as IModel;
 
                 if (propertyModel != null)
                     propertyModel.PropertyChanged -= RaisePropertyChanged;
@@ -123,7 +127,7 @@
 
         /// <summary>Response to <see cref="INotifyPropertyChanged.PropertyChanged"/> of fiscal office.</summary>
         [DebuggerStepThrough]
-        private void RaisePropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void RaisePropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
             mPropertyChanged?.Invoke(sender, e);
         }

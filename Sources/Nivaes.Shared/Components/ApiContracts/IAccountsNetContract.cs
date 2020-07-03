@@ -53,7 +53,7 @@
         public bool AccountCreated { get; set; }
 
         [ProtoMember(3, Name = "Errors")]
-        public IEnumerable<ErrorResponse> Errors { get; set; }
+        public IEnumerable<ErrorResponse> Errors { get; set; } = Array.Empty<ErrorResponse>();
     }
 
     [ProtoContract(Name = "GetAccountResult", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
@@ -64,7 +64,7 @@
         { }
 
         [ProtoMember(1, Name = "Account")]
-        public AccountDataModel Account { get; set; }
+        public AccountDataModel? Account { get; set; }
     }
 
     [ProtoContract(Name = "GetAccountRequest", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
@@ -92,7 +92,7 @@
         public bool AccountUpdate { get; set; }
 
         [ProtoMember(3, Name = "Errors")]
-        public IEnumerable<ErrorResponse> Errors { get; set; }
+        public IEnumerable<ErrorResponse> Errors { get; set; } = Array.Empty<ErrorResponse>();
     }
 
     [ProtoContract(Name = "ValidatePassword", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
@@ -103,7 +103,7 @@
         public bool IsValid { get; set; }
 
         [ProtoMember(2, Name = "Errors")]
-        public IEnumerable<ErrorResponse> Errors { get; set; }
+        public IEnumerable<ErrorResponse> Errors { get; set; } = Array.Empty<ErrorResponse>();
     }
 
     [ProtoContract(Name = "PasswordRequest", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
@@ -111,6 +111,6 @@
         : Request, IDataModelProtobuf
     {
         [ProtoMember(1, Name = "Password")]
-        public string Password { get; set; }
+        public string Password { get; set; } = string.Empty;
     }
 }

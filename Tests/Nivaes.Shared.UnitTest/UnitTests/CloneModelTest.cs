@@ -4,6 +4,7 @@
     using System.Runtime.Serialization;
     using Xunit;
     using Nivaes.Test;
+    using FluentAssertions;
 
     [Trait("TestType", "Unit")]
     public class CloneModelUnitTest
@@ -21,11 +22,12 @@
 
             var testDataModel2 = testDataModel.Clone();
 
-            Assert.Equal(testDataModel.TestDataModel01Id, testDataModel2.TestDataModel01Id);
-            Assert.Equal(testDataModel.StringValue, testDataModel2.StringValue);
-            Assert.Equal(testDataModel.StringValueReadOnly, testDataModel2.StringValueReadOnly);
-            Assert.Equal(testDataModel.DoubleValue, testDataModel2.DoubleValue);
-            Assert.Equal(testDataModel.IntValue, testDataModel2.IntValue);
+            testDataModel2.Should().NotBeNull();
+            testDataModel.TestDataModel01Id.Should().Be(testDataModel2?.TestDataModel01Id ?? Guid.Empty);
+            testDataModel.StringValue.Should().Be(testDataModel2?.StringValue);
+            testDataModel.StringValueReadOnly.Should().Be(testDataModel2?.StringValueReadOnly);
+            testDataModel.DoubleValue.Should().Be(testDataModel2?.DoubleValue);
+            testDataModel.IntValue.Should().Be(testDataModel2?.IntValue);
         }
 
         [Fact]
@@ -41,11 +43,12 @@
 
             var testDataModel2 = testDataModel.CloneDataContract();
 
-            Assert.Equal(testDataModel.TestDataModel01Id, testDataModel2.TestDataModel01Id);
-            Assert.Equal(testDataModel.StringValue, testDataModel2.StringValue);
-            Assert.Equal(testDataModel.StringValueReadOnly, testDataModel2.StringValueReadOnly);
-            Assert.Equal(testDataModel.DoubleValue, testDataModel2.DoubleValue);
-            Assert.Equal(testDataModel.IntValue, testDataModel2.IntValue);
+            testDataModel2.Should().NotBeNull();
+            testDataModel.TestDataModel01Id.Should().Be(testDataModel2?.TestDataModel01Id ?? Guid.Empty);
+            testDataModel.StringValue.Should().Be(testDataModel2?.StringValue);
+            testDataModel.StringValueReadOnly.Should().Be(testDataModel2?.StringValueReadOnly);
+            testDataModel.DoubleValue.Should().Be(testDataModel2?.DoubleValue);
+            testDataModel.IntValue.Should().Be(testDataModel2?.IntValue);
         }
 
         [Fact]
@@ -61,11 +64,12 @@
 
             var testDataModel2 = testDataModel.CloneProtoBuf();
 
-            Assert.Equal(testDataModel.TestDataModel01Id, testDataModel2.TestDataModel01Id);
-            Assert.Equal(testDataModel.StringValue, testDataModel2.StringValue);
-            Assert.Equal(testDataModel.StringValueReadOnly, testDataModel2.StringValueReadOnly);
-            Assert.Equal(testDataModel.DoubleValue, testDataModel2.DoubleValue);
-            Assert.Equal(testDataModel.IntValue, testDataModel2.IntValue);
+            testDataModel2.Should().NotBeNull();
+            testDataModel.TestDataModel01Id.Should().Be(testDataModel2?.TestDataModel01Id ?? Guid.Empty);
+            testDataModel.StringValue.Should().Be(testDataModel2?.StringValue);
+            testDataModel.StringValueReadOnly.Should().Be(testDataModel2?.StringValueReadOnly);
+            testDataModel.DoubleValue.Should().Be(testDataModel2?.DoubleValue);
+            testDataModel.IntValue.Should().Be(testDataModel2?.IntValue);
         }
     }
 }

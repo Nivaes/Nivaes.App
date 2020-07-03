@@ -10,7 +10,7 @@
     public static class ModelHelper
     {
         [DebuggerStepThrough]
-        public static TModel Clone<TModel>(this TModel model)
+        public static TModel? Clone<TModel>(this TModel model)
             where TModel : class, IModel
         {
             return CloneProtoBuf(model);
@@ -21,7 +21,7 @@
         /// <param name="model">Original model object.</param>
         /// <returns>New model object, clone of original.</returns>
         [DebuggerStepThrough]
-        public static TModel CloneDataContract<TModel>(this TModel model)
+        public static TModel? CloneDataContract<TModel>(this TModel model)
             where TModel : class, IModel
         {
             if (model == null)
@@ -46,7 +46,7 @@
         /// <param name="model">Original model object.</param>
         /// <returns>New model object, clone of original.</returns>
         [DebuggerStepThrough]
-        public static TModel CloneProtoBuf<TModel>(this TModel model)
+        public static TModel? CloneProtoBuf<TModel>(this TModel model)
             where TModel : class, IModel
         {
             if (model == null)
@@ -62,7 +62,7 @@
         /// <param name="data">Serialization object. In byte array format.</param>
         /// <returns>Reference to <see cref="DataModel"/> object.</returns>
         [DebuggerStepThrough]
-        public static TModel DeserializaDataContract<TModel>(byte[] data)
+        public static TModel? DeserializaDataContract<TModel>(byte[] data)
             where TModel : class, IModel
         {
             if (data == null)
@@ -82,7 +82,7 @@
         /// <summary>Serialize a <see cref="DataModel"/>.</summary>
         /// <returns>Byte array that represent a object.</returns>
         [DebuggerStepThrough]
-        public static byte[] SerializeDataContract<TModel>(this TModel model)
+        public static byte[]? SerializeDataContract<TModel>(this TModel model)
             where TModel : class, IModel
         {
             if (model == null)
@@ -108,7 +108,7 @@
         /// <param name="json">Serialization object. In byte array format.</param>
         /// <returns>Reference to <see cref="DataModel"/> object.</returns>
         [DebuggerStepThrough]
-        public static TModel DeserializeDataContractJson<TModel>(string json)
+        public static TModel? DeserializeDataContractJson<TModel>(string json)
             where TModel : class, IModel
         {
             if (string.IsNullOrEmpty(json))
