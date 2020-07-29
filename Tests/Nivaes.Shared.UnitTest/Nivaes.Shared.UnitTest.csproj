@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
+    <TargetFrameworks>net5.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <AssemblyName>Nivaes.Shared.UnitTest</AssemblyName>
     <RootNamespace>Nivaes.UnitTest</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.0-preview-20200519-01" />
     <PackageReference Include="Moq" Version="4.14.5" />
     <PackageReference Include="Nivaes.DataTestGenerator.XUnit" Version="2.5.7" />
