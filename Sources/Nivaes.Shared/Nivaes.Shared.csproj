@@ -47,8 +47,4 @@
     </EmbeddedResource>
   </ItemGroup>
 
-  <!--<ItemGroup>
-    <ProjectReference Include="..\..\Sources\Nivaes.Compilers.Toolset\Nivaes.Compilers.Toolset.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="true" />
-  </ItemGroup>-->
-
 </Project>

@@ -1,10 +1,10 @@
 ﻿namespace Nivaes
 {
     using System.ComponentModel.DataAnnotations;
-    using FluentValidation.Attributes;
+    //using FluentValidation.Attributes;
     using ProtoBuf;
 
-    [Validator(typeof(NewAccountValidator))]
+    //[Validator(typeof(NewAccountValidator))]
     [ProtoContract(Name = "NewAccount", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None)]
     public class NewAccountModel : Model
     {
