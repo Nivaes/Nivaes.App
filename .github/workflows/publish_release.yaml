@@ -2,7 +2,9 @@ name: Publish Release
 
 on:
   release:
-    types: [published]
+    types:
+      - released
+      - prereleased
     #types: [released]
     #types: [prereleased]
     #types: [deleted]
@@ -12,18 +14,25 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
+    - name: Read version
+      uses: nivaes/get-version@master
+      id: get_version
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
 
-    - name: Checkout
-      uses: actions/checkout@v2
+    - name: Download Release Asset
+      uses: nivaes/download-release-assets@master
 
-    #- name: Publish nuget
-    #  if: github.event.action = "released"
-    #  run: echo $"{{ event.release.assets[].browser_download_url }}"
-
-    #- name: Publish prereleased nuget
-    #  if: github.event.action = "prereleased"
-    #  run: echo $"{{ event.release.assets[].browser_download_url }}"
+    - name: Download packages
+      run: |
+        file=${{ github.event.release.assets[0].browser_download_url }}
+        echo $file
+        curl $file --output github.event.release.assets[0].name
+        
+    - name: Download packages2
+      run: |
+        file=${{ github.event.release.assets[1].browser_download_url }}
+        echo $file
+        curl $file --output github.event.release.assets[1].name
