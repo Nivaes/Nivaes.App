@@ -34,7 +34,7 @@
     <LangVersion>latest</LangVersion>
     <!--<NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000</NoWarn>-->
 
-    <IsTestProject>$(MSBuildProjectName.Contains('Test'))</IsTestProject>
+    <IsTestProject>$(MSBuildProjectName.Contains('UnitTest'))</IsTestProject>
     
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
     <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' and '$(IsTestProject)' != 'true'">true</GeneratePackageOnBuild>
