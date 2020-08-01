@@ -13,7 +13,7 @@
     [Generator]
     public class ProtoBufGenerator : ISourceGenerator
     {
-        DebuggerLog mDebuggerLog = new DebuggerLog();
+        private readonly DebuggerLog mDebuggerLog = new DebuggerLog();
 
         public ProtoBufGenerator()
         {

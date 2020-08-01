@@ -14,25 +14,23 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-    - name: Read version
-      uses: nivaes/get-version@master
-      id: get_version
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
 
+    - name: release
+      if: github.event_name.types == 'released'
+      run: echo Release
+
+    - name: release
+      if: github.event_name.types == 'prereleased'
+      run: echo Prereleased
+
     - name: Download Release Asset
+      env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       uses: nivaes/download-release-assets@master
 
-    - name: Download packages
-      run: |
-        file=${{ github.event.release.assets[0].browser_download_url }}
-        echo $file
-        curl $file --output github.event.release.assets[0].name
-        
-    - name: Download packages2
-      run: |
-        file=${{ github.event.release.assets[1].browser_download_url }}
-        echo $file
-        curl $file --output github.event.release.assets[1].name
+    - name: Publish packages
+      run: dotnet nuget push ./**/**.nupkg --source https://nuget.pkg.github.com/Nivaes/index.json  --api-key ${{secrets.GITHUB_TOKEN}}
