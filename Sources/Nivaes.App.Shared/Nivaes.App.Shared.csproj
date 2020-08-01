@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Nivaes.Shared</PackageId>
+    <PackageId>Nivaes.App.Shared</PackageId>
     <Title>Nivaes Shared</Title>
 
     <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
