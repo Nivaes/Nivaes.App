@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;net5.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     
-    <AssemblyName>Nivaes.Shared.Test</AssemblyName>
-    <RootNamespace>Nivaes.Test</RootNamespace>
+    <AssemblyName>Nivaes.App.Shared.Test</AssemblyName>
+    <RootNamespace>Nivaes.App.Shared.Test</RootNamespace>
 
     <LangVersion>preview</LangVersion>
   </PropertyGroup>

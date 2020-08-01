@@ -2,19 +2,21 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <LangVersion>8.0</LangVersion>
+    <AssemblyName>Nivaes.App.Compilers.Toolset</AssemblyName>
+    <RootNamespace>Nivaes.App.Compilers.Toolset</RootNamespace>
 
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Nivaes.Compilers.Toolset</PackageId>
+    <PackageId>Nivaes.App.Compilers.Toolset</PackageId>
     <Title>Nivaes compilers toolset</Title>
 
     <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
     <Product>Guid Compiler Toolset</Product>
     <Description>Nivaes compiler toolset.</Description>
     <PackageTags>Nivaes;roslyn</PackageTags>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,11 +29,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.7.0-3.final" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.0.0" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.0-beta3.20381.3" PrivateAssets="all" />
+  </ItemGroup>
+
+ <ItemGroup>
+    <None Update="tools\*.ps1" CopyToOutputDirectory="Always" Pack="true" PackagePath="" />
+    <!--<None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />-->  
   </ItemGroup>
 
 </Project>
