@@ -28,9 +28,11 @@ jobs:
       run: echo Prereleased
 
     - name: Download Release Asset
+      uses: nivaes/download-release-assets@master
       env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      uses: nivaes/download-release-assets@master
+      with:
+         token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish packages
       run: dotnet nuget push ./**/**.nupkg --source https://nuget.pkg.github.com/Nivaes/index.json  --api-key ${{secrets.GITHUB_TOKEN}}
