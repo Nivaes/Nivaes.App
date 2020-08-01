@@ -32,7 +32,7 @@ jobs:
       env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-         token: ${{ secrets.GITHUB_TOKEN }}
+         token: ${{ secrets.DOWNLOAD_TOKEN }}
 
     - name: Publish packages
       run: dotnet nuget push ./**/**.nupkg --source https://nuget.pkg.github.com/Nivaes/index.json  --api-key ${{secrets.GITHUB_TOKEN}}
