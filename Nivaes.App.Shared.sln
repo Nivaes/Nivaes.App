@@ -17,13 +17,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{2762
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{C140FE19-6EFA-4221-A282-A74107325715}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nivaes.Shared", "Sources\Nivaes.Shared\Nivaes.Shared.csproj", "{E833482B-E9CF-4FCE-A462-81B8902235B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nivaes.App.Shared", "Sources\Nivaes.App.Shared\Nivaes.App.Shared.csproj", "{E833482B-E9CF-4FCE-A462-81B8902235B0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nivaes.Compilers.Toolset", "Sources\Nivaes.Compilers.Toolset\Nivaes.Compilers.Toolset.csproj", "{3A9F04F1-0372-48E3-A231-F3479E4E98CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nivaes.App.Compilers.Toolset", "Sources\Nivaes.App.Compilers.Toolset\Nivaes.App.Compilers.Toolset.csproj", "{3A9F04F1-0372-48E3-A231-F3479E4E98CA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nivaes.Shared.UnitTest", "Tests\Nivaes.Shared.UnitTest\Nivaes.Shared.UnitTest.csproj", "{5F9CC8FA-A710-472C-8CA9-5DF0EA6AE5E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nivaes.App.Shared.UnitTest", "Tests\Nivaes.App.Shared.UnitTest\Nivaes.App.Shared.UnitTest.csproj", "{5F9CC8FA-A710-472C-8CA9-5DF0EA6AE5E3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nivaes.Shared.Test", "Tests\Nivaes..Shared.Test\Nivaes.Shared.Test.csproj", "{89D9A256-89EE-49B6-9C23-4F13B60D2A2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nivaes.App.Shared.Test", "Tests\Nivaes.App.Shared.Test\Nivaes.App.Shared.Test.csproj", "{89D9A256-89EE-49B6-9C23-4F13B60D2A2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

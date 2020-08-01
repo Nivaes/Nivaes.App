@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <!--<ProjectReference Include="..\..\Sources\Nivaes.Compilers.Toolset\Nivaes.Compilers.Toolset.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />-->
-    <ProjectReference Include="..\..\Sources\Nivaes.Shared\Nivaes.Shared.csproj" />
+    <ProjectReference Include="..\..\Sources\Nivaes.App.Shared\Nivaes.App.Shared.csproj" />
 
     <!--<PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>
