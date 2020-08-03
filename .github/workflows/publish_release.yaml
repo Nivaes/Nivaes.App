@@ -29,8 +29,8 @@ jobs:
 
     - name: Download Release Asset
       uses: nivaes/download-release-assets@master
-      env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #env:
+      #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
          token: ${{ secrets.DOWNLOAD_TOKEN }}
           
