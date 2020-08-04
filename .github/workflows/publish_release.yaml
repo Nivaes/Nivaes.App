@@ -64,8 +64,8 @@ jobs:
     #- name: Configure nuget
     #  run: dotnet nuget add source https://nuget.pkg.github.com/Nivaes/index.json --name "github" --username Nivaes --password ${{secrets.GITHUB_TOKEN}} --store-password-in-clear-text
 
-    - name: Publish nuget
-      run: dotnet nuget push ./**/*.nupkg --skip-duplicate --source "github"
+    #- name: Publish nuget
+    #  run: dotnet nuget push ./**/*.nupkg --skip-duplicate --source "github"
 
     #- name: Publish nuget direct
     #  run: dotnet nuget push ./**/*.nupkg --skip-duplicate --source https://nuget.pkg.github.com/Nivaes/index.json --username Nivaes --password ${{secrets.GITHUB_TOKEN}} --store-password-in-clear-text
@@ -73,8 +73,8 @@ jobs:
     #- name: Publish packages
     #  run: dotnet nuget push ./**/**.nupkg --skip-duplicate --source https://nuget.pkg.github.com/Nivaes/index.json  --api-key ${{secrets.GITHUB_TOKEN}}
 
-    #- name: Publish packages
-    #  run: dotnet nuget push ./**/**.nupkg --skip-duplicate --source https://nuget.pkg.github.com/Nivaes/index.json
+    - name: Publish packages
+      run: dotnet nuget push ./**/**.nupkg --skip-duplicate --source https://nuget.pkg.github.com/Nivaes/index.json
 
 
     #- name: Publish
