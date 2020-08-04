@@ -12,8 +12,8 @@ on:
 jobs:
   publish_release:
 
-    #runs-on: ubuntu-18.04
-    runs-on: windows-Latest
+    runs-on: ubuntu-18.04
+    #runs-on: windows-Latest
 
     steps:
 
