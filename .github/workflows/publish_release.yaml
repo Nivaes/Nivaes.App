@@ -74,7 +74,7 @@ jobs:
     #  run: dotnet nuget push ./**/**.nupkg --skip-duplicate --source https://nuget.pkg.github.com/Nivaes/index.json  --api-key ${{secrets.GITHUB_TOKEN}}
 
     - name: Publish packages
-      run: dotnet nuget push ./**/*.nupkg --skip-duplicate --source https://nuget.pkg.github.com/Nivaes/index.json
+      run: dotnet nuget push ./Artifacts/*.nupkg --skip-duplicate --source https://nuget.pkg.github.com/Nivaes/index.json
 
 
     #- name: Publish
