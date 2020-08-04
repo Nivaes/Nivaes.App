@@ -67,6 +67,6 @@ jobs:
       uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
       with:
         nupkg-path:  './**/*.nupkg'
-        repo-owner:  'nivaes'
-        gh-user:  'andrechi1'
+        repo-owner:  'Nivaes'
+        gh-user:  'Nivaes'
         token:  ${{ secrets.GITHUB_TOKEN }}
