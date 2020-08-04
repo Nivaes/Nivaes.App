@@ -58,7 +58,7 @@ jobs:
     #    token: ${{ secrets.DOWNLOAD_TOKEN }}
 
     - name: Configure nuget
-      run: dotnet nuget add source https://nuget.pkg.github.com/Nivaes/index.json -n github -u Nivaes --api-key ${{secrets.GITHUB_TOKEN}}
+      run: dotnet nuget add source https://nuget.pkg.github.com/Nivaes/index.json -n github -u Nivaes -p ${{secrets.GITHUB_TOKEN}}
 
     - name: Publish nuget
       run: dotnet nuget push ./**/*.nupkg --skip-duplicate --source "github"
