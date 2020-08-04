@@ -12,8 +12,8 @@ on:
 jobs:
   publish_release:
 
-    #runs-on: ubuntu-18.04
-    runs-on: windows-latest
+    runs-on: ubuntu-18.04
+    #runs-on: windows-latest
 
     steps:
 
@@ -61,8 +61,8 @@ jobs:
     #  with:
     #    token: ${{ secrets.DOWNLOAD_TOKEN }}
 
-    - name: Configure nuget
-      run: dotnet nuget add source https://nuget.pkg.github.com/Nivaes/index.json --name "github" --username Nivaes --password ${{secrets.GITHUB_TOKEN}} --store-password-in-clear-text
+    #- name: Configure nuget
+    #  run: dotnet nuget add source https://nuget.pkg.github.com/Nivaes/index.json --name "github" --username Nivaes --password ${{secrets.GITHUB_TOKEN}} --store-password-in-clear-text
 
     - name: Publish nuget
       run: dotnet nuget push ./**/*.nupkg --skip-duplicate --source "github"
