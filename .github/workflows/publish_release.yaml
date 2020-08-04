@@ -53,12 +53,20 @@ jobs:
     #- name: Download Release Asset
     #  uses: nivaes/download-release-assets@master
     #  env:
-    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
     #  with:
     #    token: ${{ secrets.DOWNLOAD_TOKEN }}
 
-    - name: Configure nuget
-      run: dotnet nuget add source https://nuget.pkg.github.com/Nivaes/index.json -n github -u Nivaes -p ${{secrets.GITHUB_TOKEN}}
+    #- name: Configure nuget
+    #  run: dotnet nuget add source https://nuget.pkg.github.com/Nivaes/index.json -n github -u Nivaes -p ${{secrets.GITHUB_TOKEN}}
 
-    - name: Publish nuget
-      run: dotnet nuget push ./**/*.nupkg --skip-duplicate --source "github"
+    #- name: Publish nuget
+    #  run: dotnet nuget push ./**/*.nupkg --skip-duplicate --source "github"
+
+    - name: Publish
+      uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
+      with:
+        nupkg-path:  './**/*.nupkg'
+        repo-owner:  'nivaes'
+        gh-user:  'andrechi1'
+        token:  ${{ secrets.GITHUB_TOKEN }}
