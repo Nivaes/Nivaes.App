@@ -10,7 +10,7 @@
     <Owners>Nivaes</Owners>
     <PackageReleaseNotes>https://www.nivaes.com</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <RepositoryUrl>https://github.com/Nivaes/Nivaes.Shared</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Nivaes/Nivaes.App.Shared</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
   </PropertyGroup>
