@@ -12,7 +12,8 @@ on:
 jobs:
   publish_release:
 
-    runs-on: ubuntu-18.04
+    #runs-on: ubuntu-18.04
+    runs-on: windows-Latest
 
     steps:
 
@@ -76,13 +77,13 @@ jobs:
     #  run: dotnet nuget push ./**/**.nupkg --skip-duplicate --source https://nuget.pkg.github.com/Nivaes/index.json
 
 
-    - name: Publish
-      uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
-      with:
-        nupkg-path:  './**/*.nupkg'
-        repo-owner:  'Nivaes'
-        gh-user:  'Nivaes'
-        token:  ${{ secrets.GITHUB_TOKEN }}
+    #- name: Publish
+    #  uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
+    #  with:
+    #    nupkg-path:  './**/*.nupkg'
+    #    repo-owner:  'Nivaes'
+    #    gh-user:  'Nivaes'
+    #    token:  ${{ secrets.GITHUB_TOKEN }}
 
     #- name: Setup .NET Core @ Latest
     #  uses: actions/setup-dotnet@v1
@@ -92,8 +93,8 @@ jobs:
     #  env:
     #    NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-    #- name: Push generated package to GitHub registry
-    #  run: dotnet nuget push ./**/*.nupkg --skip-duplicate --no-symbols true
+    - name: Push generated package to GitHub registry
+      run: dotnet nuget push ./**/*.nupkg --skip-duplicate --no-symbols true
 
     #- name: Publish nuget
     #  run: |
