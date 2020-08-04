@@ -50,6 +50,18 @@ jobs:
     - name: Pack
       run: dotnet pack --configuration Release --no-build --verbosity normal --output ./Artifacts/ -p:Version=${{ steps.get_version.outputs.version }}
 
+
+    - name: Setup .NET Core @ Latest
+      uses: actions/setup-dotnet@v1
+      with:
+        source-url: https://nuget.pkg.github.com/Nivaes/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+    - name: Push generated package to GitHub registry
+      run: dotnet nuget push ./<project>/out/*.nupkg --skip-duplicate --no-symbols true
+
+
     #- name: Download Release Asset
     #  uses: nivaes/download-release-assets@master
     #  env:
@@ -63,8 +75,8 @@ jobs:
     #- name: Publish nuget
     #  run: dotnet nuget push ./**/*.nupkg --skip-duplicate --source "github"
 
-    - name: Publish nuget direct
-      run: dotnet nuget push ./**/*.nupkg --skip-duplicate --source https://nuget.pkg.github.com/Nivaes/index.json --username Nivaes --password ${{secrets.GITHUB_TOKEN}} --store-password-in-clear-text
+    #- name: Publish nuget direct
+    #  run: dotnet nuget push ./**/*.nupkg --skip-duplicate --source https://nuget.pkg.github.com/Nivaes/index.json --username Nivaes --password ${{secrets.GITHUB_TOKEN}} --store-password-in-clear-text
 
     #- name: Publish packages
     #  run: dotnet nuget push ./**/**.nupkg --skip-duplicate --source https://nuget.pkg.github.com/Nivaes/index.json  --api-key ${{secrets.GITHUB_TOKEN}}
