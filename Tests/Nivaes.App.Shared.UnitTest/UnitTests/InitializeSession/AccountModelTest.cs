@@ -1,14 +1,12 @@
 ﻿namespace Nivaes.App.UnitTest
 {
     using System;
-    using System.Runtime.Serialization;
-    using Xunit;
-    using Nivaes.Test;
     using FluentAssertions;
-    using Nivaes.DataTestGenerator;
-    using Xunit.Abstractions;
     using FluentValidation.TestHelper;
+    using Nivaes.DataTestGenerator;
     using Nivaes.DataTestGenerator.Xunit;
+    using Xunit;
+    using Xunit.Abstractions;
 
     [Trait("TestType", "Unit")]
     public class AccountModelTest

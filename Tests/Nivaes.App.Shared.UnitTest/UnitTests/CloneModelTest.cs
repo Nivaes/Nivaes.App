@@ -1,10 +1,9 @@
 ﻿namespace Nivaes.App.UnitTest
 {
     using System;
-    using System.Runtime.Serialization;
-    using Xunit;
-    using Nivaes.Test;
     using FluentAssertions;
+    using Nivaes.App.Test;
+    using Xunit;
 
     [Trait("TestType", "Unit")]
     public class CloneModelUnitTest

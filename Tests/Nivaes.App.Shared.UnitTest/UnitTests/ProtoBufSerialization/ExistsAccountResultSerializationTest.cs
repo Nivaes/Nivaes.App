@@ -1,7 +1,7 @@
 ﻿namespace Nivaes.App.UnitTest
 {
     using FluentAssertions;
-    using Nivaes.Contracts;
+    using Nivaes.App.Contracts;
     using Xunit;
     using Xunit.Abstractions;
 

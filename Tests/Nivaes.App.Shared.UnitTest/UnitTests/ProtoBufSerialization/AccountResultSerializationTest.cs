@@ -3,7 +3,7 @@
     using System;
     using System.IO;
     using FluentAssertions;
-    using Nivaes.Contracts;
+    using Nivaes.App.Contracts;
     using Nivaes.DataTestGenerator;
     using ProtoBuf.Meta;
     using Xunit;
