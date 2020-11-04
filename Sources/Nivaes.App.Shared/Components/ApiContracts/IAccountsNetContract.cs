@@ -1,4 +1,4 @@
-﻿namespace Nivaes.Contracts
+﻿namespace Nivaes.App.Contracts
 {
     using System;
     using System.Collections.Generic;

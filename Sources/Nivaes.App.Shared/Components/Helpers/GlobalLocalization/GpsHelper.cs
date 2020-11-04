@@ -1,4 +1,4 @@
-﻿namespace Nivaes
+﻿namespace Nivaes.App
 {
     using System;
 

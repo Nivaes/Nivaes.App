@@ -3,19 +3,19 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
 
     <AssemblyName>Nivaes.App.Shared</AssemblyName>
-    <RootNamespace>Nivaes</RootNamespace>
+    <RootNamespace>Nivaes.App</RootNamespace>
     
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageId>Nivaes.App.Shared</PackageId>
-    <Title>Nivaes Shared</Title>
+    <Title>Nivaes App Shared</Title>
 
     <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
-    <Product>Nivaes shared</Product>
-    <Description>Guid shared.</Description>
-    <PackageTags>Nivaes</PackageTags>
+    <Product>Nivaes App shared</Product>
+    <Description>Nivaes App shared.</Description>
+    <PackageTags>Nivaes;App</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,7 +23,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="9.0.1" />
+    <PackageReference Include="FluentValidation" Version="9.2.2" />
     <PackageReference Include="Nivaes.Async" Version="1.3.14" />
     <PackageReference Include="protobuf-net.Grpc" Version="1.0.123" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
@@ -46,5 +46,5 @@
       <CustomToolNamespace>Nivaes</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
-
+  
 </Project>

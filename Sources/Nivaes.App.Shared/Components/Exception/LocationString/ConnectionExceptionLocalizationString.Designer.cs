@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nivaes {
+namespace Nivaes.App {
     using System;
     
     
@@ -39,7 +39,8 @@ namespace Nivaes {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Nivaes.Components.Exception.LocationString.ConnectionExceptionLocalizationString", typeof(ConnectionExceptionLocalizationString).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Nivaes.App.Components.Exception.LocationString.ConnectionExceptionLocalizationStr" +
+                            "ing", typeof(ConnectionExceptionLocalizationString).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -1,4 +1,4 @@
-﻿namespace Nivaes.UnitTest
+﻿namespace Nivaes.App.UnitTest
 {
     using System;
     using System.IO;
