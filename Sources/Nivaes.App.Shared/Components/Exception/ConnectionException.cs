@@ -3,7 +3,7 @@
     using System;
 
     public class ConnectionException
-        : Exception
+        : AppException
     {
         public ConnectionException()
            : base()

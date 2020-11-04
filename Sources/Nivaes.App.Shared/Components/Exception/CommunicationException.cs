@@ -3,7 +3,7 @@
     using System;
 
     public class CommunicationException
-        : Exception
+        : AppException
     {
         public CommunicationException()
            : base()
