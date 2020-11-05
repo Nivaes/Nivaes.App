@@ -9,7 +9,7 @@
     public class CommunicationException
         : AppException
     {
-        public string CallerMemberName { get; private set; }
+        public string? CallerMemberName { get; }
 
         public HttpStatusCode? HttpStatusCode { get; private set; }
 
@@ -17,6 +17,11 @@
             : base(message)
         {
             CallerMemberName = callerMemberName;
+        }
+
+        public CommunicationException(string message, Exception innerException)
+           : base(message, innerException)
+        {
         }
 
         public CommunicationException(string message, string callerMemberName, HttpStatusCode httpStatusCode)
