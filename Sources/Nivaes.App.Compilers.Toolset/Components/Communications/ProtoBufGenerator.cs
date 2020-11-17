@@ -10,23 +10,33 @@
     using Microsoft.CodeAnalysis.Text;
 
     [Generator]
-    public class ProtoBufGenerator : ISourceGenerator
+    public class ProtoBufGenerator
+        : ISourceGenerator
     {
         private readonly DebuggerLog mDebuggerLog = new DebuggerLog();
 
         public ProtoBufGenerator()
         {
-            System.Diagnostics.Debug.WriteLine("Create - ProtoBufGenerator");
-            mDebuggerLog.DebugAppendLog($"Create - ProtoBufGenerator");
+            mDebuggerLog.DebugAppendLog("Create - ProtoBufGenerator");
         }
 
-        public void Initialize(InitializationContext context)
+        public void Initialize(GeneratorInitializationContext context)
         {
+            mDebuggerLog.DebugAppendLog("Initialize");
+
+#if DEBUG
+            System.Diagnostics.Debugger.Launch();
+#endif
             context.RegisterForSyntaxNotifications(() => new SyntaxReceiver(mDebuggerLog));
         }
 
-        public void Execute(SourceGeneratorContext context)
+        public void Execute(GeneratorExecutionContext context)
         {
+            mDebuggerLog.DebugAppendLog("Execute");
+#if DEBUG
+            System.Diagnostics.Debugger.Launch();
+#endif
+
             mDebuggerLog.DebugAppendLog($"INI - Generating");
             try
             {
@@ -44,23 +54,19 @@
             mDebuggerLog.DebugAppendLog($"FIN - Generating");
         }
 
-        private void Execute(SourceGeneratorContext context, ClassDeclarationSyntax classSyntax)
+        private void Execute(GeneratorExecutionContext context, ClassDeclarationSyntax classSyntax)
         {
-            //            //DebugAppendLog($"generating {service.Identifier}");
-
-            //            //System.Diagnostics.Debugger.Launch();
-            //            // begin creating the source we'll inject into the users compilation
             StringBuilder sourceBuilder = new StringBuilder(@"
-using System;
-namespace Nivaes.Compilers.ProtoBuf
-{
-    public static class ProtoBufHelper
-    {
-        public static void AddProtoBuf() 
-        {
-            Console.WriteLine(""Hello from generated code!"");
-            Console.WriteLine(""The following syntax trees existed in the compilation that created this program:"");
-");
+            using System;
+            namespace Nivaes.Compilers.ProtoBuf
+            {
+                public static class ProtoBufHelper
+                {
+                    public static void AddProtoBuf() 
+                    {
+                        Console.WriteLine(""Hello from generated code!"");
+                        Console.WriteLine(""The following syntax trees existed in the compilation that created this program:"");
+            ");
 
             //// using the context, get a list of syntax trees in the users compilation
             //IEnumerable<SyntaxTree> syntaxTrees = context.Compilation.SyntaxTrees;
@@ -74,12 +80,12 @@ namespace Nivaes.Compilers.ProtoBuf
 
             // finish creating the source to inject
             sourceBuilder.Append(@"
-        }
-    }
-}");
+                    }
+                }
+            }");
             //System.Diagnostics.Debugger.Launch();
 
-          
+
             context.AddSource("ProtoBufHelper.Generated.cs", SourceText.From(sourceBuilder.ToString(), Encoding.UTF8));
 
             mDebuggerLog.DebugSaveFile("ProtoBufHelper.Generated.cs", sourceBuilder.ToString());
@@ -107,7 +113,7 @@ namespace Nivaes.Compilers.ProtoBuf
             public void OnVisitSyntaxNode(SyntaxNode syntaxNode)
             {
                 if (syntaxNode is CompilationUnitSyntax compilationUnitSyntax)
-                    //&& compilationUnitSyntax.AttributeLists.Any())
+                //&& compilationUnitSyntax.AttributeLists.Any())
                 {
                     mDebuggerLog.DebugAppendLog($"OnVisitSyntaxNode.CompilationUnitSyntax:");
                     mDebuggerLog.DebugAppendLog(syntaxNode.GetText().ToString());
@@ -121,7 +127,7 @@ namespace Nivaes.Compilers.ProtoBuf
                     mDebuggerLog.DebugAppendLog("---------------------------------------------------------------");
                 }
                 else if (syntaxNode is InterfaceDeclarationSyntax interfaceDeclarationSyntax)
-                    //&& interfaceDeclarationSyntax.AttributeLists.Any())
+                //&& interfaceDeclarationSyntax.AttributeLists.Any())
                 {
                     //Interfaces.Add(interfaceDeclarationSyntax);
                     mDebuggerLog.DebugAppendLog($"OnVisitSyntaxNode.InterfaceDeclarationSyntax:");
@@ -129,7 +135,7 @@ namespace Nivaes.Compilers.ProtoBuf
                     mDebuggerLog.DebugAppendLog("---------------------------------------------------------------");
                 }
                 else if (syntaxNode is FieldDeclarationSyntax fieldDeclarationSyntax)
-                    //&& fieldDeclarationSyntax.AttributeLists.Any())
+                //&& fieldDeclarationSyntax.AttributeLists.Any())
                 {
                     //CandidateFields.Add(fieldDeclarationSyntax);
                     mDebuggerLog.DebugAppendLog($"OnVisitSyntaxNode.FieldDeclarationSyntax:");
@@ -152,6 +158,36 @@ namespace Nivaes.Compilers.ProtoBuf
                 }
             }
         }
+
+        ///// <summary>
+        ///// Created on demand before each generation pass
+        ///// </summary>
+        //class SyntaxReceiver : ISyntaxReceiver
+        //{
+        //    private DebuggerLog mDebuggerLog;
+
+        //    public List<FieldDeclarationSyntax> CandidateFields { get; } = new List<FieldDeclarationSyntax>();
+
+        //    public SyntaxReceiver(DebuggerLog debuggerLog)
+        //    {
+        //        mDebuggerLog = debuggerLog;
+        //    }
+
+        //    /// <summary>
+        //    /// Called for every syntax node in the compilation, we can inspect the nodes and save any information useful for generation
+        //    /// </summary>
+        //    public void OnVisitSyntaxNode(SyntaxNode syntaxNode)
+        //    {
+        //        System.Diagnostics.Debugger.Launch();
+
+        //        // any field with at least one attribute is a candidate for property generation
+        //        if (syntaxNode is FieldDeclarationSyntax fieldDeclarationSyntax
+        //            && fieldDeclarationSyntax.AttributeLists.Count > 0)
+        //        {
+        //            CandidateFields.Add(fieldDeclarationSyntax);
+        //        }
+        //    }
+        //}
 
         private class DebuggerLog
         {
@@ -187,5 +223,6 @@ namespace Nivaes.Compilers.ProtoBuf
 #endif
             }
         }
+
     }
 }

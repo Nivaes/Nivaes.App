@@ -199,3 +199,6 @@ csharp_space_between_square_brackets = false:warning
 # Wrapping Options
 csharp_preserve_single_line_blocks = true:warning
 csharp_preserve_single_line_statements = false:warning
+
+# CA1040: Avoid empty interfaces
+dotnet_diagnostic.CA1040.severity = none
