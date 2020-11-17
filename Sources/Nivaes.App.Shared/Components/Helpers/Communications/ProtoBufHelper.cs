@@ -6,7 +6,6 @@
     using System.IO;
     using System.Linq;
     using System.Reflection;
-    using System.Runtime.CompilerServices;
     using ProtoBuf;
     using ProtoBuf.Meta;
 
@@ -14,7 +13,7 @@
 
     public static class ProtoBufHelper
     {
-        public static RuntimeTypeModel Default { get; private set; }
+        public static RuntimeTypeModel Default { get; }
 
         static ProtoBufHelper()
         {

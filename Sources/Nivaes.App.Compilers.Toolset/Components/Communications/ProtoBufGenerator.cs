@@ -51,7 +51,7 @@
                 mDebuggerLog.DebugAppendLog(ex.ToString());
             }
 
-            mDebuggerLog.DebugAppendLog($"FIN - Generating");
+            mDebuggerLog.DebugAppendLog("FIN - Generating");
         }
 
         private void Execute(GeneratorExecutionContext context, ClassDeclarationSyntax classSyntax)
@@ -88,7 +88,7 @@
 
             context.AddSource("ProtoBufHelper.Generated.cs", SourceText.From(sourceBuilder.ToString(), Encoding.UTF8));
 
-            mDebuggerLog.DebugSaveFile("ProtoBufHelper.Generated.cs", sourceBuilder.ToString());
+            mDebuggerLog.DebugSaveFile($"ProtoBufHelper.Generated-{DateTime.Now.Ticks}.cs", sourceBuilder.ToString());
         }
 
         /// <summary>
