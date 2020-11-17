@@ -25,7 +25,7 @@
             mDebuggerLog.DebugAppendLog("Initialize");
 
 #if DEBUG
-            System.Diagnostics.Debugger.Launch();
+            //System.Diagnostics.Debugger.Launch();
 #endif
             context.RegisterForSyntaxNotifications(() => new SyntaxReceiver(mDebuggerLog));
         }
@@ -34,7 +34,7 @@
         {
             mDebuggerLog.DebugAppendLog("Execute");
 #if DEBUG
-            System.Diagnostics.Debugger.Launch();
+            //System.Diagnostics.Debugger.Launch();
 #endif
 
             mDebuggerLog.DebugAppendLog($"INI - Generating");
