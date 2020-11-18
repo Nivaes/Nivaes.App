@@ -13,7 +13,6 @@
   <PropertyGroup>
     <PackageId>Nivaes.App.Compilers.Toolset</PackageId>
     <Title>Nivaes compilers toolset</Title>
-
     <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
     <Product>Guid Compiler Toolset</Product>
     <Description>Nivaes compiler toolset.</Description>
