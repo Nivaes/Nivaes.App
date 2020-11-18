@@ -203,7 +203,7 @@
                 }
                 catch
                 {
-                    System.Diagnostics.Debugger.Launch();
+                    //System.Diagnostics.Debugger.Launch();
                 }
 #endif
             }
@@ -218,7 +218,7 @@
                 }
                 catch
                 {
-                    System.Diagnostics.Debugger.Launch();
+                    //System.Diagnostics.Debugger.Launch();
                 }
 #endif
             }
