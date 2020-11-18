@@ -19,6 +19,7 @@
     <Description>Nivaes compiler toolset.</Description>
     <PackageTags>Nivaes;roslyn</PackageTags>
     <NoPackageAnalysis>true</NoPackageAnalysis>
+    <DevelopmentDependency>true</DevelopmentDependency>
   </PropertyGroup>
 
   <ItemGroup>
