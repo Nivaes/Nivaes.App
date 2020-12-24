@@ -11,6 +11,7 @@
 
     [ProtoContract(Name = "Model", ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
     [DataContract(Name = "Model", Namespace = "http://nivaes")]
+    [Serializable]
     public abstract class Model
         : IModel, INotifyPropertyChanged
     {

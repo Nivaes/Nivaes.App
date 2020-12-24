@@ -4,10 +4,12 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
+    using System.Linq;
     using System.Text;
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.CSharp.Syntax;
     using Microsoft.CodeAnalysis.Text;
+    using ProtoBuf;
 
     [Generator]
     public class ProtoBufGenerator
@@ -23,6 +25,8 @@
         public void Initialize(GeneratorInitializationContext context)
         {
             mDebuggerLog.DebugAppendLog("Initialize");
+
+            System.Diagnostics.Debugger.Launch();
 
 #if DEBUG
             //System.Diagnostics.Debugger.Launch();
@@ -43,7 +47,8 @@
                 var classes = (context.SyntaxReceiver as SyntaxReceiver)?.Classes;
                 if (classes is object)
                 {
-                    foreach (var classSyntax in classes) Execute(context, classSyntax);
+                    foreach (var classSyntax in classes)
+                        Execute(context, classSyntax);
                 }
             }
             catch (Exception ex)
@@ -56,35 +61,54 @@
 
         private void Execute(GeneratorExecutionContext context, ClassDeclarationSyntax classSyntax)
         {
-            StringBuilder sourceBuilder = new StringBuilder(@"
+            StringBuilder sourceBuilder = new StringBuilder(@$"
             using System;
-            namespace Nivaes.Compilers.ProtoBuf
-            {
+            namespace Nivaes.App.{context.Compilation.AssemblyName}.Compilers.ProtoBuf
+            {{
                 public static class ProtoBufHelper
-                {
+                {{
                     public static void AddProtoBuf() 
-                    {
-                        Console.WriteLine(""Hello from generated code!"");
-                        Console.WriteLine(""The following syntax trees existed in the compilation that created this program:"");
+                    {{
+                        Console.WriteLine(""Register type !"");
+
+                        //RegisterType(typeof(Nivaes.App.Test.ModelTest1));
+                        //RegisterType(typeof(Nivaes.App.Test.ModelTest2));
+                        //RegisterType(typeof(Nivaes.App.Test.ModelTest3));
+                        //RegisterType(typeof(Nivaes.App.Test.TestDataModel01));
             ");
 
-            //// using the context, get a list of syntax trees in the users compilation
-            //IEnumerable<SyntaxTree> syntaxTrees = context.Compilation.SyntaxTrees;
+            Compilation compilation = context.Compilation;
 
-            //// add the filepath of each tree to the class we're building
+            //IEnumerable<(string, string, string)> options = GetMustacheOptions(compilation);
+            //IEnumerable<(string, string)> namesSources = SourceFilesFromMustachePaths(options);
+
+            //INamedTypeSymbol attributeSymbol = compilation.GetTypeByMetadataName("AutoNotify.AutoNotifyAttribute");
+            //INamedTypeSymbol notifySymbol = compilation.GetTypeByMetadataName("System.ComponentModel.INotifyPropertyChanged");
+
+            //INamedTypeSymbol protoContractSymbol = compilation.GetTypeByMetadataName("ProtoContract");
+            //INamedTypeSymbol dataModelContractSymbol = compilation.GetTypeByMetadataName("DataModel");
+
+            // using the context, get a list of syntax trees in the users compilation
+            IEnumerable<SyntaxTree> syntaxTrees = context.Compilation.SyntaxTrees;
+
+            // add the filepath of each tree to the class we're building
             //foreach (SyntaxTree tree in syntaxTrees)
             //{
             //    mDebuggerLog.DebugAppendLog($"syntaxTrees: {tree.FilePath}");
-            //    sourceBuilder.AppendLine($@"Console.WriteLine(@"" - {tree.FilePath}"");");
+            //    //sourceBuilder.AppendLine($@"Console.WriteLine(@"" - {tree.FilePath}"");");
+
+                
+                
+            //    //System.Diagnostics.Debugger.Launch();
             //}
+            sourceBuilder.AppendLine($"RegisterType(typeof({classSyntax.Identifier.Value}));");
 
             // finish creating the source to inject
             sourceBuilder.Append(@"
+                    Console.WriteLine(""End register type:"");
                     }
                 }
             }");
-            //System.Diagnostics.Debugger.Launch();
-
 
             context.AddSource("ProtoBufHelper.Generated.cs", SourceText.From(sourceBuilder.ToString(), Encoding.UTF8));
 
@@ -94,7 +118,8 @@
         /// <summary>
         /// Created on demand before each generation pass
         /// </summary>
-        private class SyntaxReceiver : ISyntaxReceiver
+        private class SyntaxReceiver
+            : ISyntaxReceiver
         {
             private DebuggerLog mDebuggerLog;
 
@@ -145,7 +170,11 @@
                 else if (syntaxNode is ClassDeclarationSyntax classDeclarationSyntax)
                 //&& fieldDeclarationSyntax.AttributeLists.Any())
                 {
-                    Classes.Add(classDeclarationSyntax);
+                    if(classDeclarationSyntax.AttributeLists.Any(x => x.Attributes.Any(a => a.Name.ToString().Equals("ProtoContract"))))
+                    {
+                        Classes.Add(classDeclarationSyntax);
+                    }
+                    
                     mDebuggerLog.DebugAppendLog($"OnVisitSyntaxNode.ClassDeclarationSyntax:");
                     mDebuggerLog.DebugAppendLog(syntaxNode.GetText().ToString());
                     mDebuggerLog.DebugAppendLog("---------------------------------------------------------------");
@@ -191,7 +220,8 @@
 
         private class DebuggerLog
         {
-            private string trazeFileName = $@"E:\Traze\ProtoBufGenerator-{DateTime.Now.Ticks}.log";
+            private string trazeFileName = $@"E:\Traze\ProtoBufGenerator-{DateTime.Now.Ticks}";
+            private object lookObject = new object();
 
             [Conditional("DEBUG")]
             public void DebugSaveFile(string fileName, string contentFile)
@@ -203,7 +233,7 @@
                 }
                 catch
                 {
-                    //System.Diagnostics.Debugger.Launch();
+                    System.Diagnostics.Debugger.Launch();
                 }
 #endif
             }
@@ -214,11 +244,24 @@
 #if DEBUG
                 try
                 {
-                    File.AppendAllText(trazeFileName, $"{DateTime.Now:T} {message}  \n");
+                    lock (lookObject)
+                    {
+                        File.AppendAllText(trazeFileName + ".log", $"{DateTime.Now:T} {message}  \n");
+                    }
                 }
                 catch
                 {
-                    //System.Diagnostics.Debugger.Launch();
+                    try
+                    {
+                        lock (lookObject)
+                        {
+                            File.AppendAllText(trazeFileName + "-2.log", $"{DateTime.Now:T} {message}  \n");
+                        }
+                    }
+                    catch
+                    {
+                        System.Diagnostics.Debugger.Launch();
+                    }
                 }
 #endif
             }

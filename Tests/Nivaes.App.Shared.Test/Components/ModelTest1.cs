@@ -9,10 +9,10 @@ namespace Nivaes.App.Test
     public sealed class ModelTest1
         : DataModel
     {
-        #region TestDataModel01Id
-        [ProtoMember(1, Name = "Dato01")]
-        [DataMember(Name = "Dato01")]
-        public Guid Dato01 { get; set; }
+        #region Dato01
+        [ProtoMember(1, Name = "GuidData")]
+        [DataMember(Name = "GuidData")]
+        public Guid GuidData { get; set; }
         #endregion 
     }
 }

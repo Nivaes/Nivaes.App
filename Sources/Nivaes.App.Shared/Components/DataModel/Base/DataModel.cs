@@ -7,6 +7,7 @@
 
     [ProtoContract(Name = "DataModel", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
     [DataContract(IsReference = false, Name = "DataModel", Namespace = "http://nivaes")]
+    [Serializable]
     public abstract class DataModel
         : Model, IDataModel, INotifyPropertyChanged
     {
