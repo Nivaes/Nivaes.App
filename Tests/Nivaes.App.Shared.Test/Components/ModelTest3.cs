@@ -1,9 +1,7 @@
-﻿
-namespace Nivaes.App.Test
+﻿namespace Nivaes.App.Shared.Test
 {
-    using System;
-    using ProtoBuf;
     using System.Runtime.Serialization;
+    using ProtoBuf;
 
     [ProtoContract(Name = "ModelTest3", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None)]
     public sealed class ModelTest3

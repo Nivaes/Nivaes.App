@@ -2,7 +2,7 @@
 {
     using System;
     using FluentAssertions;
-    using Nivaes.App.Test;
+    using Nivaes.App.Shared.Test;
     using Xunit;
 
     [Trait("TestType", "Unit")]

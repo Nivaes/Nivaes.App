@@ -5,7 +5,7 @@
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
-    using System.Reflection;
+    //using System.Reflection;
     using ProtoBuf;
     using ProtoBuf.Meta;
 
@@ -50,12 +50,7 @@
             {
                 using (var ms = new MemoryStream(payload))
                 {
-                    var aa = ProtoBufHelper.Default.Deserialize(ms, null, typeof(T));
-
-                    //var aa = System.Runtime.Serialization.FormatterServices.GetUninitializedObject(typeof(T));
-                    //var cc = ProtoBufHelper.Default.Deserialize(ms, aa, typeof(T));
-
-                    return (T)aa;
+                    return (T)ProtoBufHelper.Default.Deserialize(ms, null, typeof(T));
                 }
             }
             catch (ArgumentException ex)
@@ -86,29 +81,29 @@
                 RegisterType(typeof(Result));
                 RegisterType(typeof(Request));
 
-                var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+                //var assemblies = AppDomain.CurrentDomain.GetAssemblies();
 
-                foreach (var assembly in assemblies)
-                {
-                    try
-                    {
-                        var availableTypes = from t in assembly.DefinedTypes
-                                             where t.IsClass && typeof(IDataModelProtobuf).IsAssignableFrom(t)
-                                             select t;
+                //foreach (var assembly in assemblies)
+                //{
+                //    try
+                //    {
+                //        var availableTypes = from t in assembly.DefinedTypes
+                //                             where t.IsClass && typeof(IDataModelProtobuf).IsAssignableFrom(t)
+                //                             select t;
 
-                        foreach (var type in availableTypes)
-                        {
-                            var protoContractAttribute = type.GetCustomAttribute<ProtoContractAttribute>();
-                            if (protoContractAttribute != null)
-                            {
-                                RegisterType(type);
-                            }
-                        }
-                    }
-                    catch (ReflectionTypeLoadException) { }
-                    //catch (TypeInitializationException) { }
-                    catch (TypeLoadException) { }
-                }
+                //        foreach (var type in availableTypes)
+                //        {
+                //            var protoContractAttribute = type.GetCustomAttribute<ProtoContractAttribute>();
+                //            if (protoContractAttribute != null)
+                //            {
+                //                RegisterType(type);
+                //            }
+                //        }
+                //    }
+                //    catch (ReflectionTypeLoadException) { }
+                //    //catch (TypeInitializationException) { }
+                //    catch (TypeLoadException) { }
+                //}
 
                 return mModel;
             }

@@ -1,5 +1,4 @@
-﻿
-namespace Nivaes.App.Test
+﻿namespace Nivaes.App.Shared.Test
 {
     using System;
     using ProtoBuf;

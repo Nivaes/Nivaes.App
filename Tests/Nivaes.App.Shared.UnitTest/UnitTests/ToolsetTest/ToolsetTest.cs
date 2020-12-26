@@ -2,7 +2,7 @@
 {
     using System;
     using FluentAssertions;
-    using Nivaes.App.Test;
+    using Nivaes.App.Shared.Test;
     using Xunit;
     using Xunit.Abstractions;
 
@@ -21,15 +21,16 @@
         {
             var modelTest1 = new ModelTest1
             {
-                GuidData = Guid.NewGuid()
+                GuidData = Guid.NewGuid(),
+                TimeStamp = DateTime.UtcNow
             };
 
-            var buffer = ProtoBufHelper2.Serialize(modelTest1);
+            var buffer = ProtoBufHelper.Serialize(modelTest1);
             buffer.Should().NotBeNull();
 
             mTestOutputHelper.WriteLine($"Serialization size: {buffer.Length}");
 
-            var modelTest2 = ProtoBufHelper2.Deserialize<ModelTest1>(buffer);
+            var modelTest2 = ProtoBufHelper.Deserialize<ModelTest1>(buffer);
 
             modelTest2.Should().NotBeNull();
             modelTest2.GuidData.Should().Be(modelTest1.GuidData);
@@ -41,15 +42,16 @@
         {
             var modelTest1 = new ModelTest2
             {
-                StringData = "kdkdislse"
+                StringData = "kdkdislse",
+                TimeStamp = DateTime.UtcNow
             };
 
-            var buffer = ProtoBufHelper2.Serialize(modelTest1);
+            var buffer = ProtoBufHelper.Serialize(modelTest1);
             buffer.Should().NotBeNull();
 
             mTestOutputHelper.WriteLine($"Serialization size: {buffer.Length}");
 
-            var modelTest2 = ProtoBufHelper2.Deserialize<ModelTest2>(buffer);
+            var modelTest2 = ProtoBufHelper.Deserialize<ModelTest2>(buffer);
 
             modelTest2.Should().NotBeNull();
             modelTest2.StringData.Should().Be(modelTest1.StringData);
@@ -61,15 +63,16 @@
         {
             var modelTest1 = new ModelTest3
             {
-                StringData = "kdkdislse"
+                StringData = "kdkdislse",
+                TimeStamp = DateTime.UtcNow
             };
 
-            var buffer = ProtoBufHelper2.Serialize(modelTest1);
+            var buffer = ProtoBufHelper.Serialize(modelTest1);
             buffer.Should().NotBeNull();
 
             mTestOutputHelper.WriteLine($"Serialization size: {buffer.Length}");
 
-            var modelTest2 = ProtoBufHelper2.Deserialize<ModelTest3>(buffer);
+            var modelTest2 = ProtoBufHelper.Deserialize<ModelTest3>(buffer);
 
             modelTest2.Should().NotBeNull();
             modelTest2.StringData.Should().Be(modelTest1.StringData);
