@@ -11,10 +11,6 @@
     public class ProtoBufGenerator
         : ISourceGenerator
     {
-        public ProtoBufGenerator()
-        {
-        }
-
         public void Initialize(GeneratorInitializationContext context)
         {
             context.RegisterForSyntaxNotifications(() => new SyntaxReceiver());
@@ -68,6 +64,7 @@
                 if (syntaxNode is ClassDeclarationSyntax classDeclarationSyntax)
                 {
                     if (classDeclarationSyntax.AttributeLists.Any(x => x.Attributes.Any(a => a.Name.ToString().Equals("ProtoContract"))))
+                        //&& (classDeclarationSyntax.BaseList?.Types.Any(t => t.ToString() == "IDataModelProtobuf") == true))
                     {
                         Classes.Add(classDeclarationSyntax);
                     }

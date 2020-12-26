@@ -46,7 +46,7 @@
         {
             var modelTest1 = new ModelTest2
             {
-                StringData = "kdkdislse",
+                StringData = "lñkasdfoekandsñfa akdf añei fd",
                 TimeStamp = DateTime.UtcNow
             };
 
@@ -59,6 +59,7 @@
 
             modelTest2.Should().NotBeNull();
             modelTest2.StringData.Should().Be(modelTest1.StringData);
+            modelTest2.TimeStampTicks.Should().Be(modelTest1.TimeStampTicks);
             modelTest2.TimeStamp.Should().Be(modelTest1.TimeStamp);
         }
 
@@ -67,7 +68,7 @@
         {
             var modelTest1 = new ModelTest3
             {
-                StringData = "kdkdislse",
+                StringData = "kajñdflkj eañfk j823rifjdr823r     kfj 02ur",
                 TimeStamp = DateTime.UtcNow
             };
 
@@ -80,6 +81,7 @@
 
             modelTest2.Should().NotBeNull();
             modelTest2.StringData.Should().Be(modelTest1.StringData);
+            modelTest2.TimeStampTicks.Should().Be(modelTest1.TimeStampTicks);
             modelTest2.TimeStamp.Should().Be(modelTest1.TimeStamp);
         }
     }

@@ -4,6 +4,7 @@
 
     [DataContract(IsReference = false, Name = "LoginUser", Namespace = "http://nivaes")]
     public class LoginUserModel
+        : IDataModelProtobuf
     {
         [DataMember(Name = "User")]
         public string User { get; set; } = string.Empty;

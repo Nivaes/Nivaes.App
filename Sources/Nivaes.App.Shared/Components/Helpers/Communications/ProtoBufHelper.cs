@@ -85,6 +85,9 @@
             {
                 if (type == null) throw new NullReferenceException(nameof(type));
 
+                if (!typeof(IDataModelProtobuf).IsAssignableFrom(type))
+                    return null;
+
                 lock (type)
                 {
                     if (type.BaseType != null && !mTypes.ContainsKey(type))
@@ -101,31 +104,15 @@
                                 baseMetaType = RegisterType(type.BaseType);
                             }
 
-                            //lock (mTypes)
-                            //{
-                            //try
-                            //{
-                                //if (!mTypes.ContainsKey(type))
-                                //{
-                                    baseMetaType?.AddSubType(mSequenceFieldNumber++, type);
-                                //}
-                            //}
-                            //catch(InvalidOperationException ex)
-                            //{
-
-                            //}
-                            //}
+                            if (!mRuntimeTypeModel.CanSerialize(type))
+                            {
+                                baseMetaType?.AddSubType(mSequenceFieldNumber++, type);
+                            }
 
                             metaType = mRuntimeTypeModel.Add(type, true);
                         }
 
-                        //lock (mTypes)
-                        //{
-                        //    if (metaType != null && !mTypes.ContainsKey(type))
-                        //    {
                         mTypes.Add(type, metaType);
-                        //    }
-                        //}
 
                         return metaType;
                     }

@@ -7,16 +7,19 @@
 
     [Trait("TestType", "Unit")]
     public class CloneModelUnitTest
+        : IClassFixture<ProtoBufRegisterFixture>
     {
         [Fact]
         public void CloneModelTest()
         {
             TestDataModel01 testDataModel = new TestDataModel01()
             {
+                TestDataModel01Id = Guid.NewGuid(),
                 StringValue = "StringValue",
                 StringValueReadOnly = "StringValueReadOnly",
                 DoubleValue = 10.3,
-                IntValue = 3
+                IntValue = 3,
+                TimeStamp = DateTime.Now
             };
 
             var testDataModel2 = testDataModel.Clone();
@@ -27,6 +30,8 @@
             testDataModel.StringValueReadOnly.Should().Be(testDataModel2?.StringValueReadOnly);
             testDataModel.DoubleValue.Should().Be(testDataModel2?.DoubleValue);
             testDataModel.IntValue.Should().Be(testDataModel2?.IntValue);
+            testDataModel.TimeStampTicks.Should().Be(testDataModel2?.TimeStampTicks);
+            testDataModel.TimeStamp.Should().Be(testDataModel2?.TimeStamp ?? default);
         }
 
         [Fact]
@@ -34,10 +39,12 @@
         {
             TestDataModel01 testDataModel = new TestDataModel01()
             {
+                TestDataModel01Id = Guid.NewGuid(),
                 StringValue = "StringValue",
                 StringValueReadOnly = "StringValueReadOnly",
                 DoubleValue = 10.3,
-                IntValue = 3
+                IntValue = 3,
+                TimeStamp = DateTime.Now
             };
 
             var testDataModel2 = testDataModel.CloneDataContract();
@@ -48,6 +55,8 @@
             testDataModel.StringValueReadOnly.Should().Be(testDataModel2?.StringValueReadOnly);
             testDataModel.DoubleValue.Should().Be(testDataModel2?.DoubleValue);
             testDataModel.IntValue.Should().Be(testDataModel2?.IntValue);
+            testDataModel.TimeStampTicks.Should().Be(testDataModel2?.TimeStampTicks);
+            testDataModel.TimeStamp.Should().Be(testDataModel2?.TimeStamp ?? default);
         }
 
         [Fact]
@@ -55,10 +64,12 @@
         {
             TestDataModel01 testDataModel = new TestDataModel01()
             {
+                TestDataModel01Id = Guid.NewGuid(),
                 StringValue = "StringValue",
                 StringValueReadOnly = "StringValueReadOnly",
                 DoubleValue = 10.3,
-                IntValue = 3
+                IntValue = 3,
+                TimeStamp = DateTime.UtcNow
             };
 
             var testDataModel2 = testDataModel.CloneProtoBuf();
@@ -69,6 +80,8 @@
             testDataModel.StringValueReadOnly.Should().Be(testDataModel2?.StringValueReadOnly);
             testDataModel.DoubleValue.Should().Be(testDataModel2?.DoubleValue);
             testDataModel.IntValue.Should().Be(testDataModel2?.IntValue);
+            testDataModel.TimeStampTicks.Should().Be(testDataModel2?.TimeStampTicks);
+            testDataModel.TimeStamp.Should().Be(testDataModel2?.TimeStamp ?? default);
         }
     }
 }

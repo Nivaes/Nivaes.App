@@ -7,6 +7,7 @@
     [Obsolete("User gRPC", true)]
     [DataContract(IsReference = false, Name = "NewAccountResponse", Namespace = "http://nivaes")]
     public class NewAccountResponse
+        : IDataModelProtobuf
     {
         [DataMember(Name = "IdAccount")]
         public Guid IdAccount { get; set; }

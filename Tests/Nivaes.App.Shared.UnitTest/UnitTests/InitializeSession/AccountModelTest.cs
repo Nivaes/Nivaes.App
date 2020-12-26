@@ -51,6 +51,7 @@
             accountDataModel2.PhoneNumber.Should().Be(accountDataModel1?.PhoneNumber);
             accountDataModel2.Email.Should().Be(accountDataModel1?.Email);
             accountDataModel2.TimeStamp.Should().Be(accountDataModel1?.TimeStamp ?? default);
+            accountDataModel2.TimeStampTicks.Should().Be(accountDataModel1?.TimeStampTicks);
         }
 
         [Theory]

@@ -6,6 +6,7 @@
 
     [ProtoContract(Name = "IdentityErrorResponse", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None)]
     public class BadRequestResponse
+        : IDataModelProtobuf
     {
         [ProtoMember(1, Name = "Errors")]
         public IEnumerable<(string, string[])> Errors { get; set; } = Array.Empty<(string, string[])>();

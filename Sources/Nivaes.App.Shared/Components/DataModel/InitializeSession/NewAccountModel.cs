@@ -6,7 +6,8 @@
 
     //[Validator(typeof(NewAccountValidator))]
     [ProtoContract(Name = "NewAccount", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None)]
-    public class NewAccountModel : Model
+    public class NewAccountModel
+        : Model
     {
         #region Account
 
