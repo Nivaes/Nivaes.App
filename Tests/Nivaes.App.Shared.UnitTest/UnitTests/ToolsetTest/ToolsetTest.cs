@@ -15,8 +15,6 @@
         public ToolsetTest(ITestOutputHelper testOutputHelper)
         {
             mTestOutputHelper = testOutputHelper;
-
-            //Nivaes.App.Shared.Test.Runtime.CompilerServices.ProtoBufRegisterHelper.RegisterProtoBufTypes();
         }
 
         [Fact]
