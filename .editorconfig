@@ -202,3 +202,6 @@ csharp_preserve_single_line_statements = false:warning
 
 # CA1040: Avoid empty interfaces
 dotnet_diagnostic.CA1040.severity = none
+
+# PBN0013: DataContractAnalyzer.IncludeNotDeclared
+dotnet_diagnostic.PBN0013.severity = none

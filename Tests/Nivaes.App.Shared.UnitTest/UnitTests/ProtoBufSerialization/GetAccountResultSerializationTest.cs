@@ -1,4 +1,4 @@
-﻿namespace Nivaes.App.UnitTest
+﻿namespace Nivaes.App.Shared.UnitTest
 {
     using System;
     using System.IO;
@@ -11,6 +11,7 @@
 
     [Trait("TestType", "Unit")]
     public sealed class GetAccountResultSerializationTest
+        : IClassFixture<ProtoBufRegisterFixture>
     {
         private readonly ITestOutputHelper mTestOutputHelper;
 
@@ -75,6 +76,7 @@
             getAccountResult2.Account?.PhoneNumber.Should().Be(getAccountResult1.Account.PhoneNumber);
             getAccountResult2.Account?.Email.Should().Be(getAccountResult1.Account.Email);
             getAccountResult2.Account?.TimeStamp.Should().Be(getAccountResult1.Account.TimeStamp);
+            getAccountResult2.Account?.TimeStampTicks.Should().Be(getAccountResult1.Account.TimeStampTicks);
         }
 
         [Fact]
@@ -115,6 +117,7 @@
             getAccountResult2.Account?.PhoneNumber.Should().Be(getAccountResult1.Account.PhoneNumber);
             getAccountResult2.Account?.Email.Should().Be(getAccountResult1.Account.Email);
             getAccountResult2.Account?.TimeStamp.Should().Be(getAccountResult1.Account.TimeStamp);
+            getAccountResult2.Account?.TimeStampTicks.Should().Be(getAccountResult1.Account.TimeStampTicks);
         }
 
         [Fact]
@@ -150,8 +153,7 @@
                     TaxVat = TaxIdGenerator.GenerateNifNie(),
                     PhoneNumber = contact.TelephoneNumber,
                     Email = contact.Email,
-                    TimeStamp = DateTime.UtcNow,
-                    //TimeStamp2 = DateTimeOffset.UtcNow
+                    TimeStamp = DateTime.UtcNow
                 }
             };
 

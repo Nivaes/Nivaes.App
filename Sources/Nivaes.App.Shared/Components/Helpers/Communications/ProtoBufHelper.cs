@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using ProtoBuf.Meta;
 
@@ -9,7 +10,7 @@
 
     public static class ProtoBufHelper
     {
-        private static ProccessModel proccessModel = new ProccessModel();
+        private static readonly ProccessModel MProccessModel = new ProccessModel();
 
         static ProtoBufHelper()
         {
@@ -21,12 +22,12 @@
 
         public static void RegisterType(Type type)
         {
-            proccessModel.RegisterType(type);
+            MProccessModel.RegisterType(type);
         }
 
         public static bool CanSerialize(Type type)
         {
-            return proccessModel.CanSerialize(type);
+            return MProccessModel.CanSerialize(type);
         }
 
         public static byte[] Serialize<T>(T value)
@@ -36,7 +37,7 @@
 
             using (var ms = new MemoryStream())
             {
-                proccessModel.Serialize(ms, value);
+                MProccessModel.Serialize(ms, value);
 
                 return ms.ToArray();
             }
@@ -48,7 +49,7 @@
             {
                 using (var ms = new MemoryStream(payload))
                 {
-                    return (T)proccessModel.Deserialize(ms, null, typeof(T));
+                    return (T)MProccessModel.Deserialize(ms, null, typeof(T));
                 }
             }
             catch (ArgumentException ex)
@@ -65,7 +66,7 @@
         {
             private int mSequenceFieldNumber = 1;
             private readonly RuntimeTypeModel mRuntimeTypeModel;
-            private readonly Dictionary<Type, MetaType>? mTypes;
+            private readonly Dictionary<Type, MetaType> mTypes;
 
             public ProccessModel()
             {
@@ -79,40 +80,61 @@
                 _ = RegisterType(typeof(Request));
             }
 
+            [SuppressMessage("Reliability", "CA2002:Do not lock on objects with weak identity", Justification = "There's no record of the type more than once.")]
             public MetaType? RegisterType(Type type)
             {
                 if (type == null) throw new NullReferenceException(nameof(type));
-                Console.WriteLine(type.FullName);
 
-                if (mTypes != null && type.BaseType != null && !mTypes.ContainsKey(type))
+                lock (type)
                 {
-                    MetaType? metaType;
-                    if (type.BaseType == typeof(object))
+                    if (type.BaseType != null && !mTypes.ContainsKey(type))
                     {
-                        metaType = mRuntimeTypeModel?.Add(type, true);
-                    }
-                    else
-                    {
-                        if (!mTypes!.TryGetValue(type.BaseType, out MetaType? baseMetaType))
+                        MetaType? metaType;
+                        if (type.BaseType == typeof(object))
                         {
-                            baseMetaType = RegisterType(type.BaseType);
+                            metaType = mRuntimeTypeModel.Add(type, true);
+                        }
+                        else
+                        {
+                            if (!mTypes.TryGetValue(type.BaseType, out MetaType? baseMetaType))
+                            {
+                                baseMetaType = RegisterType(type.BaseType);
+                            }
+
+                            //lock (mTypes)
+                            //{
+                            //try
+                            //{
+                                //if (!mTypes.ContainsKey(type))
+                                //{
+                                    baseMetaType?.AddSubType(mSequenceFieldNumber++, type);
+                                //}
+                            //}
+                            //catch(InvalidOperationException ex)
+                            //{
+
+                            //}
+                            //}
+
+                            metaType = mRuntimeTypeModel.Add(type, true);
                         }
 
-                        baseMetaType?.AddSubType(mSequenceFieldNumber++, type);
-
-                        metaType = mRuntimeTypeModel?.Add(type, true);
-                    }
-
-                    if(metaType != null)
+                        //lock (mTypes)
+                        //{
+                        //    if (metaType != null && !mTypes.ContainsKey(type))
+                        //    {
                         mTypes.Add(type, metaType);
+                        //    }
+                        //}
 
-                    return metaType;
+                        return metaType;
+                    }
                 }
 
                 return null;
             }
 
-            public object Deserialize(Stream source, object value, Type type)
+            public object Deserialize(Stream source, object? value, Type type)
             {
                 return mRuntimeTypeModel.Deserialize(source, value, type);
             }

@@ -1,4 +1,4 @@
-﻿namespace Nivaes.App.UnitTest
+﻿namespace Nivaes.App.Shared.UnitTest
 {
     using FluentAssertions;
     using Nivaes.App.Contracts;

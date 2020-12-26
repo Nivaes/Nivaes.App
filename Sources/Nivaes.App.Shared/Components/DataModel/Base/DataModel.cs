@@ -16,13 +16,6 @@
 
         private DateTime mTimeStamp;
 
-        [ProtoMember(99999998, Name = "Test")]
-        public string Test
-        {
-            get;
-            set;
-        }
-
         [ProtoIgnore]
         [DataMember(Name = "TimeStamp")]
         public DateTime TimeStamp

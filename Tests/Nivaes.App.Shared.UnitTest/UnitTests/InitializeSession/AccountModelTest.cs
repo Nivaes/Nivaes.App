@@ -1,4 +1,4 @@
-﻿namespace Nivaes.App.UnitTest
+﻿namespace Nivaes.App.Shared.UnitTest
 {
     using System;
     using FluentAssertions;
@@ -10,6 +10,7 @@
 
     [Trait("TestType", "Unit")]
     public class AccountModelTest
+        : IClassFixture<ProtoBufRegisterFixture>
     {
         private readonly ITestOutputHelper mTestOutputHelper;
         private readonly AccountValidator validator;

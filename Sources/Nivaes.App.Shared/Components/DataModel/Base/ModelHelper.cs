@@ -37,7 +37,7 @@
 
                 ser.WriteObject(stream, model);
                 stream.Seek(0, SeekOrigin.Begin);
-                return (TModel)ser.ReadObject(stream);
+                return (TModel?)ser.ReadObject(stream);
             }
         }
 
