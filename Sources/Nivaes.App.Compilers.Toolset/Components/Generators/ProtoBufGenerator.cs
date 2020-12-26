@@ -37,8 +37,7 @@
             mDebuggerLog.DebugAppendLog("Execute");
 #if DEBUG
             //System.Diagnostics.Debugger.Launch();
-#endif
-            
+#endif     
 
             mDebuggerLog.DebugAppendLog($"INI - Generating");
             try
@@ -56,7 +55,7 @@
                             {{
                                 public static void RegisterProtoBufTypes() 
                                 {{
-                                    Console.WriteLine(""Register type !"");
+                                    //Console.WriteLine(""Register type !"");
 
                                     //RegisterType(typeof(Nivaes.App.Test.ModelTest1));
                                     //RegisterType(typeof(Nivaes.App.Test.ModelTest2));
@@ -67,12 +66,12 @@
                     foreach (var classSyntax in classes)
                     {
                         //Execute(context, classSyntax);
-                        //sourceBuilder.AppendLine($"RegisterType(typeof({classSyntax.GetFullName()}));");
+                        sourceBuilder.AppendLine($"ProtoBufHelper.RegisterType(typeof({classSyntax.GetFullName()}));");
                         sourceBuilder.AppendLine($"Console.WriteLine(typeof({classSyntax.GetFullName()}).ToString());");
                     }
 
                     sourceBuilder.Append(@"
-                            Console.WriteLine(""End register type:"");
+                            //Console.WriteLine(""End register type:"");
                             }
                         }
                     }");
@@ -437,21 +436,24 @@
                     try
                     {
 
-                        File.AppendAllText(trazeFileName + ".log", $"{DateTime.Now:T} {message}  \n");
+                        File.AppendAllText($"{trazeFileName}.log", $"{DateTime.Now:T} {message}\n");
                     }
                     catch
                     {
-                        try
-                        {
-
-                            File.AppendAllText(trazeFileName + "-2.log", $"{DateTime.Now:T} {message}  \n");
-
-                        }
-                        catch
-                        {
-                            System.Diagnostics.Debugger.Launch();
-                        }
+                        DebugAppendLog(1, message);
                     }
+                }
+            }
+
+            private void DebugAppendLog(int n, string message)
+            {
+                try
+                {
+                    File.AppendAllText($"{trazeFileName}-{n}.log", $"{DateTime.Now:T} {message}\n");
+                }
+                catch
+                {
+                    DebugAppendLog(n + 1, message);
                 }
             }
         }

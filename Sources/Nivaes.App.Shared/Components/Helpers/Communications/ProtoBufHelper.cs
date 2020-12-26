@@ -2,22 +2,17 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.IO;
-    using System.Linq;
-    //using System.Reflection;
-    using ProtoBuf;
     using ProtoBuf.Meta;
 
     //https://stackoverflow.com/questions/12308196/protobuf-net-serialization-without-annotation
 
     public static class ProtoBufHelper
     {
-        public static RuntimeTypeModel Default { get; }
+        private static ProccessModel proccessModel = new ProccessModel();
 
         static ProtoBufHelper()
         {
-            Default = new ProccessModel().LoadRuntimeTypeModelDefaultDataModel();
         }
 
         /// <summary>Initialize load runtime.</summary>
@@ -26,19 +21,22 @@
 
         public static void RegisterType(Type type)
         {
-            Default.Add(type, true);
+            proccessModel.RegisterType(type);
         }
 
         public static bool CanSerialize(Type type)
         {
-            return Default.CanSerialize(type);
+            return proccessModel.CanSerialize(type);
         }
 
         public static byte[] Serialize<T>(T value)
         {
+            if (value == null)
+                return Array.Empty<byte>();
+
             using (var ms = new MemoryStream())
             {
-                Default.Serialize(ms, value);
+                proccessModel.Serialize(ms, value);
 
                 return ms.ToArray();
             }
@@ -50,7 +48,7 @@
             {
                 using (var ms = new MemoryStream(payload))
                 {
-                    return (T)ProtoBufHelper.Default.Deserialize(ms, null, typeof(T));
+                    return (T)proccessModel.Deserialize(ms, null, typeof(T));
                 }
             }
             catch (ArgumentException ex)
@@ -66,49 +64,22 @@
         private class ProccessModel
         {
             private int mSequenceFieldNumber = 1;
-            private RuntimeTypeModel? mModel;
-            private Dictionary<Type, MetaType>? mTypes;
+            private readonly RuntimeTypeModel mRuntimeTypeModel;
+            private readonly Dictionary<Type, MetaType>? mTypes;
 
-            [SuppressMessage("Design", "CA1031:Do not catch general exception types")]
-            public RuntimeTypeModel LoadRuntimeTypeModelDefaultDataModel()
+            public ProccessModel()
             {
-                mModel = RuntimeTypeModel.Create();
+                mRuntimeTypeModel = RuntimeTypeModel.Create();
 
                 mTypes = new Dictionary<Type, MetaType>();
 
-                RegisterType(typeof(Model));
-                RegisterType(typeof(DataModel));
-                RegisterType(typeof(Result));
-                RegisterType(typeof(Request));
-
-                //var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-
-                //foreach (var assembly in assemblies)
-                //{
-                //    try
-                //    {
-                //        var availableTypes = from t in assembly.DefinedTypes
-                //                             where t.IsClass && typeof(IDataModelProtobuf).IsAssignableFrom(t)
-                //                             select t;
-
-                //        foreach (var type in availableTypes)
-                //        {
-                //            var protoContractAttribute = type.GetCustomAttribute<ProtoContractAttribute>();
-                //            if (protoContractAttribute != null)
-                //            {
-                //                RegisterType(type);
-                //            }
-                //        }
-                //    }
-                //    catch (ReflectionTypeLoadException) { }
-                //    //catch (TypeInitializationException) { }
-                //    catch (TypeLoadException) { }
-                //}
-
-                return mModel;
+                _ = RegisterType(typeof(Model));
+                _ = RegisterType(typeof(DataModel));
+                _ = RegisterType(typeof(Result));
+                _ = RegisterType(typeof(Request));
             }
 
-            private MetaType? RegisterType(Type type)
+            public MetaType? RegisterType(Type type)
             {
                 if (type == null) throw new NullReferenceException(nameof(type));
                 Console.WriteLine(type.FullName);
@@ -118,7 +89,7 @@
                     MetaType? metaType;
                     if (type.BaseType == typeof(object))
                     {
-                        metaType = mModel?.Add(type, true);
+                        metaType = mRuntimeTypeModel?.Add(type, true);
                     }
                     else
                     {
@@ -129,19 +100,31 @@
 
                         baseMetaType?.AddSubType(mSequenceFieldNumber++, type);
 
-                        metaType = mModel?.Add(type, true);
+                        metaType = mRuntimeTypeModel?.Add(type, true);
                     }
 
                     if(metaType != null)
                         mTypes.Add(type, metaType);
 
-                    //mSequenceFieldNumber++;
-                    //mSequenceFieldNumber += type.GetMembers().Length;
-
                     return metaType;
                 }
 
                 return null;
+            }
+
+            public object Deserialize(Stream source, object value, Type type)
+            {
+                return mRuntimeTypeModel.Deserialize(source, value, type);
+            }
+
+            public void Serialize(Stream dest, object value)
+            {
+                mRuntimeTypeModel.Serialize(dest, value);
+            }
+
+            public bool CanSerialize(Type type)
+            {
+                return mRuntimeTypeModel.CanSerialize(type);
             }
         }
     }

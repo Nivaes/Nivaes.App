@@ -14,6 +14,8 @@
         public ToolsetTest(ITestOutputHelper testOutputHelper)
         {
             mTestOutputHelper = testOutputHelper;
+
+            Nivaes.App.Shared.Test.Runtime.CompilerServices.ProtoBufRegisterHelper.RegisterProtoBufTypes();
         }
 
         [Fact]
@@ -22,7 +24,8 @@
             var modelTest1 = new ModelTest1
             {
                 GuidData = Guid.NewGuid(),
-                TimeStamp = DateTime.UtcNow
+                TimeStamp = DateTime.UtcNow,
+                Test = "aaaa"
             };
 
             var buffer = ProtoBufHelper.Serialize(modelTest1);
@@ -34,6 +37,8 @@
 
             modelTest2.Should().NotBeNull();
             modelTest2.GuidData.Should().Be(modelTest1.GuidData);
+            modelTest2.Test.Should().Be(modelTest1.Test);
+            modelTest2.TimeStampTicks.Should().Be(modelTest1.TimeStampTicks);
             modelTest2.TimeStamp.Should().Be(modelTest1.TimeStamp);
         }
 
