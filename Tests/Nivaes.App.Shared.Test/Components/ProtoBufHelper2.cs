@@ -110,10 +110,10 @@
                 //    catch (TypeLoadException) { }
                 //}
 
-                RegisterType(typeof(Nivaes.App.Test.ModelTest1));
-                RegisterType(typeof(Nivaes.App.Test.ModelTest2));
-                RegisterType(typeof(Nivaes.App.Test.ModelTest3));
-                RegisterType(typeof(Nivaes.App.Test.TestDataModel01));
+                //RegisterType(typeof(Nivaes.App.Test.ModelTest1));
+                //RegisterType(typeof(Nivaes.App.Test.ModelTest2));
+                //RegisterType(typeof(Nivaes.App.Test.ModelTest3));
+                //RegisterType(typeof(Nivaes.App.Test.TestDataModel01));
 
                 return mModel;
             }
