@@ -33,8 +33,6 @@
             if (value == null)
                 return Array.Empty<byte>();
 
-            var registerCount = MProccessModel.RegisterCount;
-
             using (var ms = new MemoryStream())
             {
                 MProccessModel.Serialize(ms, value);
@@ -47,8 +45,6 @@
         {
             try
             {
-                var registerCount = MProccessModel.RegisterCount;
-
                 using (var ms = new MemoryStream(payload))
                 {
                     return (T)MProccessModel.Deserialize(ms, null, typeof(T));
@@ -66,11 +62,9 @@
 
         private class ProccessModel
         {
-            private int mSequenceFieldNumber = 1000001;
+            private int mSequenceFieldNumber = 1;
             private readonly RuntimeTypeModel mRuntimeTypeModel;
             private readonly Dictionary<Type, MetaType> mTypes;
-
-            public int RegisterCount => mTypes.Count;
 
             public ProccessModel()
             {
