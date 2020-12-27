@@ -7,6 +7,7 @@
 
     [Trait("TestType", "Unit")]
     public sealed class ExistsAccountResultSerializationTest
+        : IClassFixture<ProtoBufRegisterFixture>
     {
         private readonly ITestOutputHelper mTestOutputHelper;
 

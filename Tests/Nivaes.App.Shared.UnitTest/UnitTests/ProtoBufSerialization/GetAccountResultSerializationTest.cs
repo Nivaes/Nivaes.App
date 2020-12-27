@@ -131,7 +131,7 @@
               .AddSubType(201, typeof(DataModel));
 
             model.Add(typeof(DataModel), true)
-                   .AddSubType(100, typeof(AccountDataModel));
+                .AddSubType(100, typeof(AccountDataModel));
 
             model.Add(typeof(Result), true)
                 .AddSubType(200, typeof(GetAccountResult));
@@ -175,6 +175,7 @@
             getAccountResult2.Account?.TaxVat.Should().Be(getAccountResult1.Account.TaxVat);
             getAccountResult2.Account?.PhoneNumber.Should().Be(getAccountResult1.Account.PhoneNumber);
             getAccountResult2.Account?.Email.Should().Be(getAccountResult1.Account.Email);
+            getAccountResult2.Account?.TimeStampTicks.Should().Be(getAccountResult1.Account.TimeStampTicks);
             getAccountResult2.Account?.TimeStamp.Should().Be(getAccountResult1.Account.TimeStamp);
         }
     }
