@@ -1,6 +1,21 @@
 ﻿<Project>
-  
-  <PropertyGroup>
-  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FluentValidation" Version="9.3.0" />
+    <PackageReference Update="FluentAssertions" Version="5.10.3" />
+
+    <PackageReference Update="Nivaes.Async" Version="1.4.17" />
+
+    <PackageReference Update="protobuf-net.Grpc" Version="1.0.140" />
+    <PackageReference Update="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Update="System.Threading.Tasks.Extensions" Version="4.5.4" />
+
+    <PackageReference Update="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.1" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.1" />
+    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="16.8.3" />
+    <PackageReference Update="Moq" Version="4.15.2" />
+    <PackageReference Update="Nivaes.DataTestGenerator.XUnit" Version="2.6.3" />
+    <PackageReference Update="xunit" Version="2.4.1" />
+  </ItemGroup>
   
 </Project>
