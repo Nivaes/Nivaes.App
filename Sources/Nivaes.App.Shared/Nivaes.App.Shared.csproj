@@ -31,7 +31,6 @@
     </PackageReference>
     <PackageReference Include="protobuf-net.Grpc" Version="1.0.140" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageReference Include="System.ServiceModel.Primitives" Version="4.8.0" />
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
 
     <ProjectReference Include="..\..\Sources\Nivaes.App.Compilers.Toolset\Nivaes.App.Compilers.Toolset.csproj"
