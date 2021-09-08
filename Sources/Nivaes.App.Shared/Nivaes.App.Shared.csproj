@@ -25,7 +25,7 @@
   <ItemGroup>
     <PackageReference Include="FluentValidation" />
     <PackageReference Include="Nivaes.Async" />
-    <PackageReference Include="protobuf-net.BuildTools" Version="3.0.101">
+    <PackageReference Include="protobuf-net.BuildTools">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
