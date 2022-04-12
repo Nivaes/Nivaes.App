@@ -12,7 +12,7 @@
     <PackageReference Update="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Update="System.Threading.Tasks.Extensions" Version="4.5.4" />
 
-    <PackageReference Update="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.3" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.4" />
     <PackageReference Update="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.3" />
     <PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.1.0" />
     <PackageReference Update="Moq" Version="4.17.2" />
