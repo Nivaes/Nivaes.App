@@ -33,6 +33,8 @@ jobs:
           5.0.x
           6.0.x
         source-url: https://nuget.pkg.github.com/Nivaes/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
     - name: Checkout
       uses: actions/checkout@v3
