@@ -410,12 +410,13 @@
             }
         }
 
-        private class DebuggerLog
+        private sealed class DebuggerLog
         {
-            private string trazeFileName = $@"C:\Traze\ProtoBufGenerator-{DateTime.Now.Ticks}";
-            private object lookObject = new object();
+            private readonly string trazeFileName = $@"C:\Traze\ProtoBufGenerator-{DateTime.Now.Ticks}";
+            private readonly object lookObject = new();
 
             [Conditional("DEBUG")]
+            [System.Diagnostics.CodeAnalysis.SuppressMessage("MicrosoftCodeAnalysisCorrectness", "RS1035:Do not use APIs banned for analyzers", Justification = "<Pending>")]
             public void DebugSaveFile(string fileName, string contentFile)
             {
                 try
@@ -429,6 +430,7 @@
             }
 
             [Conditional("DEBUG")]
+            [System.Diagnostics.CodeAnalysis.SuppressMessage("MicrosoftCodeAnalysisCorrectness", "RS1035:Do not use APIs banned for analyzers", Justification = "<Pending>")]
             public void DebugAppendLog(string message)
             {
                 lock (lookObject)
@@ -445,6 +447,7 @@
                 }
             }
 
+            [System.Diagnostics.CodeAnalysis.SuppressMessage("MicrosoftCodeAnalysisCorrectness", "RS1035:Do not use APIs banned for analyzers", Justification = "<Pending>")]
             private void DebugAppendLog(int n, string message)
             {
                 try
