@@ -25,9 +25,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers"  PrivateAssets="all" />
-    <!--<PackageReference Update="NETStandard.Library" PrivateAssets="all" />-->
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" >
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="protobuf-net.Grpc" />
   </ItemGroup>
 
@@ -43,16 +48,16 @@
     </PackageReference>
   </ItemGroup>-->
 
-  <PropertyGroup>
+  <!--<PropertyGroup>
     <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
-  </PropertyGroup>
+  </PropertyGroup>-->
 
-  <Target Name="GetDependencyTargetPaths">
+  <!--<Target Name="GetDependencyTargetPaths">
     <ItemGroup>
       <TargetPathWithTargetPlatformMoniker Include="$(PKGCsvTextFieldParser)\lib\netstandard2.0\CsvTextFieldParser.dll" IncludeRuntimeDependency="false" />
       <TargetPathWithTargetPlatformMoniker Include="$(PKGHandlebars_Net)\lib\netstandard2.0\Handlebars.dll" IncludeRuntimeDependency="false" />
       <TargetPathWithTargetPlatformMoniker Include="$(PKGNewtonsoft_Json)\lib\netstandard2.0\Newtonsoft.Json.dll" IncludeRuntimeDependency="false" />
     </ItemGroup>
-  </Target>
+  </Target>-->
 
 </Project>

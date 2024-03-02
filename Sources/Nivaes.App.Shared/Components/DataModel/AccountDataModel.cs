@@ -4,10 +4,8 @@
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Runtime.Serialization;
-    //using FluentValidation.Attributes;
     using ProtoBuf;
 
-    //[Validator(typeof(AccountDataModel))]
     [ProtoContract(Name = "Account", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = false)]
     public sealed class AccountDataModel
         : DataModel

@@ -30,10 +30,10 @@
             {
                 IdAccount = Guid.NewGuid(),
                 TaxVat = TaxIdGenerator.GenerateNifNie(),
-                PersonalName = contact.PersonalName,
-                FamilyName = contact.FamilyName,
-                PhoneNumber = contact.TelephoneNumber,
-                Email = contact.Email,
+                PersonalName = contact.PersonalName ?? string.Empty,
+                FamilyName = contact.FamilyName ?? string.Empty,
+                PhoneNumber = contact.TelephoneNumber ?? string.Empty,
+                Email = contact.Email ?? string.Empty,
                 TimeStamp = DateTime.Now
             };
 
@@ -45,13 +45,13 @@
             var accountDataModel2 = ProtoBufHelper.Deserialize<AccountDataModel>(buffer);
 
             accountDataModel2.Should().NotBeNull();
-            accountDataModel2.IdAccount.Should().Be(accountDataModel1?.IdAccount ?? Guid.Empty);
-            accountDataModel2.TaxVat.Should().Be(accountDataModel1?.TaxVat);
-            accountDataModel2.PersonalName.Should().Be(accountDataModel1?.PersonalName);
-            accountDataModel2.PhoneNumber.Should().Be(accountDataModel1?.PhoneNumber);
-            accountDataModel2.Email.Should().Be(accountDataModel1?.Email);
-            accountDataModel2.TimeStamp.Should().Be(accountDataModel1?.TimeStamp ?? default);
-            accountDataModel2.TimeStampTicks.Should().Be(accountDataModel1?.TimeStampTicks);
+            _ = accountDataModel2.IdAccount.Should().Be(accountDataModel1!.IdAccount);
+            _ = accountDataModel2.TaxVat.Should().Be(accountDataModel1!.TaxVat);
+            _ = accountDataModel2.PersonalName.Should().Be(accountDataModel1!.PersonalName);
+            _ = accountDataModel2.PhoneNumber.Should().Be(accountDataModel1!.PhoneNumber);
+            _ = accountDataModel2.Email.Should().Be(accountDataModel1!.Email);
+            _ = accountDataModel2.TimeStamp.Should().Be(accountDataModel1!.TimeStamp);
+            _ = accountDataModel2.TimeStampTicks.Should().Be(accountDataModel1!.TimeStampTicks);
         }
 
         [Theory]
@@ -62,19 +62,64 @@
             {
                 IdAccount = Guid.NewGuid(),
                 TaxVat = TaxIdGenerator.GenerateNifNie(),
-                PersonalName = contact.PersonalName,
-                FamilyName = contact.FamilyName,
-                PhoneNumber = contact.TelephoneNumber,
-                Email = contact.Email,
+                PersonalName = contact!.PersonalName ?? string.Empty,
+                FamilyName = contact.FamilyName ?? string.Empty,
+                PhoneNumber = contact.TelephoneNumber ?? string.Empty,
+                Email = contact.Email ?? string.Empty,
                 TimeStamp = DateTime.Now
             };
 
-            validator.ShouldHaveValidationErrorFor(account => account!.PersonalName, null as string);
-            validator.ShouldHaveValidationErrorFor(account => account!.PersonalName, string.Empty);
-            validator.ShouldHaveValidationErrorFor(account => account!.FamilyName, null as string);
-            validator.ShouldHaveValidationErrorFor(account => account!.FamilyName, string.Empty);
-            validator.ShouldNotHaveValidationErrorFor(account => account!.PersonalName, contact.PersonalName);
-            validator.ShouldHaveValidationErrorFor(account => account!.PersonalName, "");
+            var testValidateResult = validator.TestValidate(accountDataModel1);
+
+            testValidateResult.ShouldNotHaveValidationErrorFor(account => account!.PersonalName);
+            testValidateResult.ShouldNotHaveValidationErrorFor(account => account!.FamilyName);
+            testValidateResult.ShouldNotHaveValidationErrorFor(account => account!.PhoneNumber);
+            testValidateResult.ShouldNotHaveValidationErrorFor(account => account!.Email);
+        }
+
+        [Theory]
+        [GenerateContactInlineData(DataNumber = 3)]
+        public void NewAccountValidator2(ContactTest contact)
+        {
+            AccountDataModel accountDataModel1 = new AccountDataModel()
+            {
+                IdAccount = Guid.NewGuid(),
+                TaxVat = TaxIdGenerator.GenerateNifNie(),
+                PersonalName =  string.Empty,
+                FamilyName = contact.FamilyName ?? string.Empty,
+                PhoneNumber = string.Empty,
+                Email = contact.Email ?? string.Empty,
+                TimeStamp = DateTime.Now
+            };
+
+            var testValidateResult = validator.TestValidate(accountDataModel1);
+
+            testValidateResult.ShouldHaveValidationErrorFor(account => account!.PersonalName);
+            testValidateResult.ShouldNotHaveValidationErrorFor(account => account!.FamilyName);
+            testValidateResult.ShouldHaveValidationErrorFor(account => account!.PhoneNumber);
+            testValidateResult.ShouldNotHaveValidationErrorFor(account => account!.Email);
+        }
+
+        [Fact]
+        public void NewAccountNotValidator1()
+        {
+            AccountDataModel accountDataModel1 = new AccountDataModel()
+            {
+                IdAccount = Guid.NewGuid(),
+                TaxVat = TaxIdGenerator.GenerateNifNie(),
+                PersonalName = string.Empty,
+                FamilyName = string.Empty,
+                PhoneNumber = string.Empty,
+                Email = string.Empty,
+                TimeStamp = DateTime.Now
+            };
+
+            var testValidateResult = validator.TestValidate(accountDataModel1);
+
+            testValidateResult.ShouldHaveValidationErrorFor(account => account!.PersonalName);
+            testValidateResult.ShouldHaveValidationErrorFor(account => account!.FamilyName);
+            testValidateResult.ShouldHaveValidationErrorFor(account => account!.PhoneNumber);
+            testValidateResult.ShouldHaveValidationErrorFor(account => account!.Email);
         }
     }
 }
