@@ -33,10 +33,7 @@
     <PackageReference Include="System.ComponentModel.Annotations" />
     <PackageReference Include="System.Threading.Tasks.Extensions" />
 
-    <ProjectReference Include="..\..\Sources\Nivaes.App.Compilers.Toolset\Nivaes.App.Compilers.Toolset.csproj"
-        PrivateAssets="all"
-        OutputItemType="Analyzer"
-        ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\..\Sources\Nivaes.App.Compilers.Toolset\Nivaes.App.Compilers.Toolset.csproj" PrivateAssets="all" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
   
   <ItemGroup>
@@ -53,6 +50,13 @@
       <LastGenOutput>ConnectionExceptionLocalizationString.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Nivaes</CustomToolNamespace>
     </EmbeddedResource>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
   
 </Project>
