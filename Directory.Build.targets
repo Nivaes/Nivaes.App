@@ -1,27 +1,29 @@
 ﻿<Project>
 
   <ItemGroup>
-    <PackageReference Include="Roslynator.Analyzers">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="AsyncFixer">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="SonarAnalyzer.CSharp">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
+    <PackageReference Update="FluentValidation" Version="10.3.4" />
+    <PackageReference Update="FluentAssertions" Version="6.2.0" />
 
-  <ItemGroup Condition="'$(IsTestProject)' != 'true' and '$(SourceLinkEnabled)' != 'false' and '$(IsLibraryProject)' == 'true'">
-    <PackageReference Include="SourceLink.Create.CommandLine" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
+    <PackageReference Update="Nivaes.Async" Version="1.4.21" />
+
+    <PackageReference Update="protobuf-net.Grpc" Version="1.0.152" />
+    <PackageReference Update="protobuf-net.BuildTools" Version="3.0.115"/>
+
+    <PackageReference Update="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Update="System.Threading.Tasks.Extensions" Version="4.5.4" />
+
+    <PackageReference Update="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.0" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
+    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+    <PackageReference Update="Moq" Version="4.16.1" />
+    <PackageReference Update="Nivaes.DataTestGenerator.XUnit" Version="2.7.10" />
+    <PackageReference Update="xunit" Version="2.4.1" />
+    <PackageReference Update="xunit.runner.visualstudio" Version="2.4.3" />
+    <PackageReference Update="coverlet.collector" Version="3.1.0" />
+
+    <PackageReference Update="Microsoft.CodeAnalysis.CSharp" Version="4.0.1" />
+
+    <DotNetCliToolReference Update="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
   
 </Project>
