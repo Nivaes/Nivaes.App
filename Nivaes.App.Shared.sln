@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
+		Directory.Packages.props = Directory.Packages.props
 		global.json = global.json
 		NuGet.config = NuGet.config
 	EndProjectSection
@@ -37,6 +38,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{0239CF65-C970-4311-8217-BF65FA76D366}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{B03ECC8C-E2B9-4918-AA9B-562EE2390F3E}"
+	ProjectSection(SolutionItems) = preProject
+		.github\dependabot.yml = .github\dependabot.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,8 +75,9 @@ Global
 		{3A9F04F1-0372-48E3-A231-F3479E4E98CA} = {2762D7A2-F0CC-4ABE-92E2-B830E381B010}
 		{5F9CC8FA-A710-472C-8CA9-5DF0EA6AE5E3} = {C140FE19-6EFA-4221-A282-A74107325715}
 		{89D9A256-89EE-49B6-9C23-4F13B60D2A2A} = {C140FE19-6EFA-4221-A282-A74107325715}
-		{7F27C9E2-0581-4302-AB99-CC9600467BCD} = {471DB30B-9B29-4995-8998-F4B932884709}
+		{7F27C9E2-0581-4302-AB99-CC9600467BCD} = {B03ECC8C-E2B9-4918-AA9B-562EE2390F3E}
 		{0239CF65-C970-4311-8217-BF65FA76D366} = {8DB3ED96-AAE5-4727-87DA-315F7A4E9957}
+		{B03ECC8C-E2B9-4918-AA9B-562EE2390F3E} = {471DB30B-9B29-4995-8998-F4B932884709}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F1293C21-FC06-453B-9A57-9160C13E28A4}
