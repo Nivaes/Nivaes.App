@@ -7,7 +7,7 @@
     <PackageVersion Include="protobuf-net.BuildTools" Version="3.2.33" />
     <PackageVersion Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageVersion Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.2" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.3" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
     <PackageVersion Include="Moq" Version="4.20.70" />
@@ -17,10 +17,10 @@
     <PackageVersion Include="coverlet.collector" Version="6.0.2" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.2" />
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
-    <PackageVersion Include="Roslynator.Analyzers" Version="4.11.0" />
+    <PackageVersion Include="Roslynator.Analyzers" Version="4.12.0" />
     <PackageVersion Include="AsyncFixer" Version="1.6.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0" />
-    <PackageVersion Include="SonarAnalyzer.CSharp" Version="9.20.0.85982" />
+    <PackageVersion Include="SonarAnalyzer.CSharp" Version="9.23.0.88079" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" />
   </ItemGroup>
 </Project>
