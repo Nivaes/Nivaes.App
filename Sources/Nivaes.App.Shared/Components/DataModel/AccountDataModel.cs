@@ -58,21 +58,21 @@
 
         #endregion HonorificNameSuffix
 
-        #region PersonalName
+        #region GivenName
 
         [IgnoreDataMember]
-        private string mPersonalName = string.Empty;
+        private string mGivenName = string.Empty;
 
         [MaxLength(500)]
         [Required]
-        [ProtoMember(5, Name = "PersonalName")]
-        public string PersonalName
+        [ProtoMember(5, Name = "GivenName")]
+        public string GivenName
         {
-            get => mPersonalName;
-            set => base.SetProperty(ref mPersonalName, value);
+            get => mGivenName;
+            set => base.SetProperty(ref mGivenName, value);
         }
 
-        #endregion PersonalName
+        #endregion GivenName
 
         #region FamilyName
 
@@ -91,10 +91,10 @@
         #endregion FamilyName
 
         [ProtoIgnore]
-        public string FullName => string.Join(" ", new string[] { mHonorificNamePrefix, mPersonalName, mFamilyName, mHonorificNameSuffix }.Where(s => !string.IsNullOrEmpty(s)));
+        public string FullName => string.Join(" ", new string[] { mHonorificNamePrefix, mGivenName, mFamilyName, mHonorificNameSuffix }.Where(s => !string.IsNullOrEmpty(s)));
 
         [ProtoIgnore]
-        public string Initials => mPersonalName?.Substring(0, 1) + mFamilyName?.Substring(0, 1);
+        public string Initials => mGivenName?.Substring(0, 1) + mFamilyName?.Substring(0, 1);
 
         #region Email
 

@@ -51,7 +51,7 @@
                 Account = new AccountDataModel
                 {
                     IdAccount = Guid.NewGuid(),
-                    PersonalName = contact.PersonalName,
+                    GivenName = contact.PersonalName,
                     FamilyName = contact.FamilyName,
                     TaxVat = TaxIdGenerator.GenerateNifNie(),
                     PhoneNumber = contact.TelephoneNumber,
@@ -70,7 +70,7 @@
             getAccountResult2.Should().NotBeNull();
             getAccountResult2.Account.Should().NotBeNull();
             getAccountResult2.Account?.IdAccount.Should().Be(getAccountResult1.Account.IdAccount);
-            getAccountResult2.Account?.PersonalName.Should().Be(getAccountResult1.Account.PersonalName);
+            getAccountResult2.Account?.GivenName.Should().Be(getAccountResult1.Account.GivenName);
             getAccountResult2.Account?.FamilyName.Should().Be(getAccountResult1.Account.FamilyName);
             getAccountResult2.Account?.TaxVat.Should().Be(getAccountResult1.Account.TaxVat);
             getAccountResult2.Account?.PhoneNumber.Should().Be(getAccountResult1.Account.PhoneNumber);
@@ -92,7 +92,7 @@
                 Account = new AccountDataModel
                 {
                     IdAccount = Guid.NewGuid(),
-                    PersonalName = contact.PersonalName,
+                    GivenName = contact.PersonalName,
                     FamilyName = contact.FamilyName,
                     TaxVat = TaxIdGenerator.GenerateNifNie(),
                     PhoneNumber = contact.TelephoneNumber,
@@ -111,7 +111,7 @@
             getAccountResult2.Should().NotBeNull();
             getAccountResult2.Account.Should().NotBeNull();
             getAccountResult2.Account?.IdAccount.Should().Be(getAccountResult1.Account.IdAccount);
-            getAccountResult2.Account?.PersonalName.Should().Be(getAccountResult1.Account.PersonalName);
+            getAccountResult2.Account?.GivenName.Should().Be(getAccountResult1.Account.GivenName);
             getAccountResult2.Account?.FamilyName.Should().Be(getAccountResult1.Account.FamilyName);
             getAccountResult2.Account?.TaxVat.Should().Be(getAccountResult1.Account.TaxVat);
             getAccountResult2.Account?.PhoneNumber.Should().Be(getAccountResult1.Account.PhoneNumber);
@@ -148,7 +148,7 @@
                 Account = new AccountDataModel
                 {
                     IdAccount = Guid.NewGuid(),
-                    PersonalName = contact.PersonalName,
+                    GivenName = contact.PersonalName,
                     FamilyName = contact.FamilyName,
                     TaxVat = TaxIdGenerator.GenerateNifNie(),
                     PhoneNumber = contact.TelephoneNumber,
@@ -170,7 +170,7 @@
             getAccountResult2.Should().NotBeNull();
             getAccountResult2.Account.Should().NotBeNull();
             getAccountResult2.Account?.IdAccount.Should().Be(getAccountResult1.Account.IdAccount);
-            getAccountResult2.Account?.PersonalName.Should().Be(getAccountResult1.Account.PersonalName);
+            getAccountResult2.Account?.GivenName.Should().Be(getAccountResult1.Account.GivenName);
             getAccountResult2.Account?.FamilyName.Should().Be(getAccountResult1.Account.FamilyName);
             getAccountResult2.Account?.TaxVat.Should().Be(getAccountResult1.Account.TaxVat);
             getAccountResult2.Account?.PhoneNumber.Should().Be(getAccountResult1.Account.PhoneNumber);

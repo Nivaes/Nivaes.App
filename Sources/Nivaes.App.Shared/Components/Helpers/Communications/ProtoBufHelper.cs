@@ -30,8 +30,8 @@
 
         public static byte[] Serialize<T>(T value)
         {
-            if (value == null)
-                return Array.Empty<byte>();
+            if (object.Equals(value, default(T)))
+                return [];
 
             using (var ms = new MemoryStream())
             {
@@ -60,7 +60,7 @@
             }
         }
 
-        private class ProccessModel
+        private sealed class ProccessModel
         {
             private int mSequenceFieldNumber = 1;
             private readonly RuntimeTypeModel mRuntimeTypeModel;
@@ -81,7 +81,7 @@
             [SuppressMessage("Reliability", "CA2002:Do not lock on objects with weak identity", Justification = "There's no record of the type more than once.")]
             public MetaType? RegisterType(Type type)
             {
-                if (type == null) throw new NullReferenceException(nameof(type));
+                if (type == null) throw new ArgumentNullException(nameof(type));
 
                 if (!typeof(IDataModelProtobuf).IsAssignableFrom(type))
                     return null;
