@@ -6,8 +6,7 @@
     
     <AssemblyName>Nivaes.App.Shared.Test</AssemblyName>
     <RootNamespace>Nivaes.App.Shared.Test</RootNamespace>
-
-    <LangVersion>preview</LangVersion>
+    
   </PropertyGroup>
 
   <ItemGroup>

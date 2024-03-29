@@ -31,7 +31,7 @@
         public static byte[] Serialize<T>(T value)
         {
             if (object.Equals(value, default(T)))
-                return [];
+                return Array.Empty<byte>();
 
             using (var ms = new MemoryStream())
             {

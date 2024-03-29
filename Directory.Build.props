@@ -1,9 +1,10 @@
 ﻿<Project>
 
   <PropertyGroup Condition="$(MSBuildProjectName.Contains('Test')) == 'False'">
-    <Copyright>Copyright (c) Nivaes Systems</Copyright>
+    <Copyright>Copyright (c) Nivaes Systems S.L.</Copyright>
     <PackageProject>https://github.com/Nivaes</PackageProject>
-    <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
+    <!--<RepositoryType>git</RepositoryType>-->
+    <!--<PackageLicenseExpression>MS-PL</PackageLicenseExpression>-->
     <PackageIcon>icon.png</PackageIcon>
     <Authors>Nivaes Systems</Authors>
     <Company>Nivaes Systems</Company>
@@ -17,14 +18,16 @@
   
   <PropertyGroup>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>0.0.0-dev</Version>
+    <VersionPrefix>0.0.1</VersionPrefix>
+    <VersionSuffix>-dev</VersionSuffix>
   </PropertyGroup>
 
   <PropertyGroup>
-    <LangVersion>10.0</LangVersion>
     <Nullable>enable</Nullable>
     <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
     <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
+
+    <EnablePackageValidation>true</EnablePackageValidation>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
@@ -34,6 +37,21 @@
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
     <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' and '$(IsTestProject)' != 'true'">true</GeneratePackageOnBuild>
    
+  </PropertyGroup>
+
+  <PropertyGroup>
+
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <IncludeSymbols>true</IncludeSymbols>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+    <DesignTimeBuild>false</DesignTimeBuild>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+
+    <!--<GenerateDocumentationFile>true</GenerateDocumentationFile>-->
+
   </PropertyGroup>
 
 </Project>
