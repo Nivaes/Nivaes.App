@@ -51,7 +51,7 @@
         /// <summary>
         /// Created on demand before each generation pass
         /// </summary>
-        private class SyntaxReceiver
+        private sealed class SyntaxReceiver
             : ISyntaxReceiver
         {
             public List<ClassDeclarationSyntax> Classes { get; } = new List<ClassDeclarationSyntax>();
