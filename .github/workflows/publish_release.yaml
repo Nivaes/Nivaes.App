@@ -17,8 +17,8 @@ jobs:
     steps:
 
     - name: Get Version
-      uses: nivaes/get-version@master
-      id: get_version
+      uses: nivaes/version-run-number@develop
+      id: version_run_number
 
     - name: Dump GitHub context
       env:
@@ -55,13 +55,13 @@ jobs:
           dotnet restore
 
     - name: Build
-      run: dotnet build --configuration Release -p:Version=${{ steps.get_version.outputs.version }} --no-restore
+      run: dotnet build --configuration Release -p:Version=${{ steps.version_run_number.outputs.version }} --no-restore
 
     - name: Test
       run: dotnet test --configuration Release --no-build --verbosity normal --no-restore
 
     - name: Pack
-      run: dotnet pack --configuration Release --no-build --verbosity normal --output ./Artifacts/ -p:Version=${{ steps.get_version.outputs.version }} --no-restore
+      run: dotnet pack --configuration Release --no-build --verbosity normal --output ./Artifacts/ -p:Version=${{ steps.version_run_number.outputs.version }} --no-restore
 
     #- name: Download Release Asset
     #  uses: nivaes/download-release-assets@master

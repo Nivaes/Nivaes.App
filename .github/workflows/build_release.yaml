@@ -24,8 +24,8 @@ jobs:
     steps:
 
     - name: Get Version
-      uses: nivaes/get-version@master
-      id: get_version
+      uses: nivaes/version-run-number@develop
+      id: version_run_number
 
     - name: Dump GitHub context
       env:
@@ -54,14 +54,14 @@ jobs:
           dotnet restore
 
     - name: Build
-      run: dotnet build --configuration Release -p:Version=${{ steps.get_version.outputs.version }} --no-restore
+      run: dotnet build --configuration Release -p:Version=${{ steps.version_run_number.outputs.version }} --no-restore
 
     - name: Test
       run: dotnet test --configuration Release --no-build --verbosity normal --no-restore
 
     - name: Pack
       if: github.event_name == 'push' || (github.event_name != 'pull_request')
-      run: dotnet pack --configuration Release --no-build --verbosity normal --output ./Artifacts/ -p:Version=${{ steps.get_version.outputs.version }} --no-restore
+      run: dotnet pack --configuration Release --no-build --verbosity normal --output ./Artifacts/ -p:Version=${{ steps.version_run_number.outputs.version }} --no-restore
 
     - name: Create Release
       if: github.event_name == 'push' || (github.event_name != 'pull_request')
@@ -70,10 +70,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: release/v${{ steps.get_version.outputs.version }}
-        release_name: Release Version ${{ steps.get_version.outputs.version }}
+        tag_name: release/v${{ steps.version_run_number.outputs.version }}
+        release_name: Release Version ${{ steps.version_run_number.outputs.version }}
         body: |
-          Automatic Release ${{ steps.get_version.outputs.version }}   
+          Automatic Release ${{ steps.version_run_number.outputs.version }}   
           - Release automatically generated.
         draft: true
         prerelease: false
