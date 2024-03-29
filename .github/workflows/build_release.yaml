@@ -2,8 +2,8 @@ name: Build Release
 
 on:
   create:
-   branches:              # Not filter wiht branches name of create.
-   - 'release/**'
+    branches:              # Not filter wiht branches name of create.
+    - 'release/**'
   push:
     branches:
     - 'release/**'
