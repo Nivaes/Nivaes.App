@@ -1,14 +1,6 @@
 name: Build Release
 
 on:
-  create:
-    branches:              # Not filter wiht branches name of create.
-    - 'release/**'
-  # workflow_run:
-  #   workflows: ["ci"]
-  #   types: [requested]
-  #   branches:
-  #     - 'releases/**'
   push:
     branches:
     - 'release/**'
