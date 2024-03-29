@@ -48,16 +48,20 @@ jobs:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
+
+    - name: Restore Dependencies
+      run: |
+          dotnet restore
 
     - name: Build
-      run: dotnet build --configuration Release -p:Version=${{ steps.get_version.outputs.version }}
+      run: dotnet build --configuration Release -p:Version=${{ steps.get_version.outputs.version }} --no-restore
 
     - name: Test
-      run: dotnet test --configuration Release --no-build --verbosity normal
+      run: dotnet test --configuration Release --no-build --verbosity normal --no-restore
 
     - name: Pack
-      run: dotnet pack --configuration Release --no-build --verbosity normal --output ./Artifacts/ -p:Version=${{ steps.get_version.outputs.version }}
+      run: dotnet pack --configuration Release --no-build --verbosity normal --output ./Artifacts/ -p:Version=${{ steps.get_version.outputs.version }} --no-restore
 
     #- name: Download Release Asset
     #  uses: nivaes/download-release-assets@master
@@ -79,7 +83,7 @@ jobs:
     #  run: dotnet nuget push ./**/*.nupkg --skip-duplicate --source https://nuget.pkg.github.com/Nivaes/index.json  --api-key ${{secrets.GITHUB_TOKEN}}
 
     - name: Publish packages
-      run: dotnet nuget push ./Artifacts/**/*.nupkg --source https://nuget.pkg.github.com/Nivaes/index.json --skip-duplicate
+      run: dotnet nuget push ./**/*.nupkg --source https://nuget.pkg.github.com/Nivaes/index.json --skip-duplicate --api-key ${{secrets.GITHUB_TOKEN}}
 
     #- name: Publish
     #  uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1

@@ -29,22 +29,9 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <SolutionDirPath Condition=" '$(SolutionDir)' != '' ">$(SolutionDir)ArtifactsVS\</SolutionDirPath>
-    <SolutionDirPath Condition=" '$(SolutionDir)' == '' ">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))Artifacts\</SolutionDirPath>
-
-    <!--Output paths-->
-    <BaseIntermediateOutputPath>$(SolutionDirPath)obj\$(Configuration)\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
-    <IntermediateOutputPath>$(SolutionDirPath)obj\$(Configuration)\$(MSBuildProjectName)\</IntermediateOutputPath>
-    <MSBuildProjectExtensionsPath>$(IntermediateOutputPath)\</MSBuildProjectExtensionsPath>
-    <OutputPath>$(SolutionDirPath)bin\$(MSBuildProjectName)\</OutputPath>
-    <DocumentationFile>$(SolutionDirPath)doc\$(Configuration)\$(MSBuildProjectName).xml</DocumentationFile>
-  </PropertyGroup>
-
-
-  <PropertyGroup>
     <IsTestProject>$(MSBuildProjectName.Contains('UnitTest'))</IsTestProject>
     
-    <!--<GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>-->
+    <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
     <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' and '$(IsTestProject)' != 'true'">true</GeneratePackageOnBuild>
    
   </PropertyGroup>
