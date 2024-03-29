@@ -6,7 +6,7 @@
     <RootNamespace>Nivaes.App.Compilers.Toolset</RootNamespace>
 
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
-    <!--<IncludeBuildOutput>false</IncludeBuildOutput>-->
+    <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
 
   <PropertyGroup>

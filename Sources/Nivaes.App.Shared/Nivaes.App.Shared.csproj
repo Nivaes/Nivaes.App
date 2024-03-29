@@ -4,8 +4,6 @@
 
     <AssemblyName>Nivaes.App.Shared</AssemblyName>
     <RootNamespace>Nivaes.App</RootNamespace>
-    
-    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
