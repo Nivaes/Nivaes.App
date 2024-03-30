@@ -14,16 +14,24 @@
         public void Initialize(GeneratorInitializationContext context)
         {
             context.RegisterForSyntaxNotifications(() => new SyntaxReceiver());
+
+#if DEBUG
+            //System.Diagnostics.Debugger.Launch();
+#endif
         }
 
         public void Execute(GeneratorExecutionContext context)
         {
+#if DEBUG
+            //System.Diagnostics.Debugger.Launch();
+#endif
+
             var classes = (context.SyntaxReceiver as SyntaxReceiver)?.Classes;
 
             if (classes is object)
             {
                 StringBuilder sourceBuilder = new StringBuilder(@$"
-                    namespace {context.Compilation.AssemblyName}.Runtime.CompilerServices
+                    namespace {context.Compilation.AssemblyName}.Helpers
                     {{
                         using System;
                         using Nivaes.App;

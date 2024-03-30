@@ -7,8 +7,8 @@
     {
         public ProtoBufRegisterFixture()
         {
-            Nivaes.App.Shared.Runtime.CompilerServices.ProtoBufRegisterHelper.RegisterProtoBufTypes();
-            Nivaes.App.Shared.Test.Runtime.CompilerServices.ProtoBufRegisterHelper.RegisterProtoBufTypes();
+            Nivaes.App.Shared.Helpers.ProtoBufRegisterHelper.RegisterProtoBufTypes();
+            Nivaes.App.Shared.Test.Helpers.ProtoBufRegisterHelper.RegisterProtoBufTypes();
         }
 
         public void Dispose()
