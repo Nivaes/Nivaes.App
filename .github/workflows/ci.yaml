@@ -25,19 +25,16 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
 
+    - name: Checkout
+      uses: actions/checkout@v4
+
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: |
-          2.0.x
-          7.0.x
-          8.0.x
+        lobal-json-file: ./global.json
         source-url: https://nuget.pkg.github.com/Nivaes/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-    - name: Checkout
-      uses: actions/checkout@v4
 
     - name: Restore Dependencies
       run: |
