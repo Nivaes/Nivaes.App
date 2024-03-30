@@ -38,11 +38,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="protobuf-net.Grpc" />
-  </ItemGroup>
-
   
   <!--<PropertyGroup>
     <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>

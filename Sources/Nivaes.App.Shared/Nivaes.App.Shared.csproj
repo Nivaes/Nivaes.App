@@ -22,14 +22,11 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="FluentValidation" />
-    <PackageReference Include="Nivaes.Async" />
     <PackageReference Include="protobuf-net.BuildTools">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="protobuf-net.Grpc" />
-    <PackageReference Include="System.ComponentModel.Annotations" />
     <PackageReference Include="System.Threading.Tasks.Extensions" />
 
     <ProjectReference Include="..\..\Sources\Nivaes.App.Compilers.Toolset\Nivaes.App.Compilers.Toolset.csproj" PrivateAssets="all" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
