@@ -18,11 +18,12 @@
   
   <PropertyGroup>
     <NeutralLanguage>en</NeutralLanguage>
-    <VersionPrefix>0.0.1</VersionPrefix>
-    <VersionSuffix>-dev</VersionSuffix>
+    <VersionPrefix>0.5.1</VersionPrefix>
+    <VersionSuffix>dev-005</VersionSuffix>
   </PropertyGroup>
 
   <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
     <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>

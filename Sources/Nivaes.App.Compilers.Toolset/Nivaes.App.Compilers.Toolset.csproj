@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Library</OutputType>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Nivaes.App.Compilers.Toolset</AssemblyName>
     <RootNamespace>Nivaes.App.Compilers.Toolset</RootNamespace>

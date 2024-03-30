@@ -15,14 +15,14 @@
 
         #region TaxVat
 
-        private string mTaxVat = string.Empty;
+        private string? mTaxVat = string.Empty;
 
         [Display(Name = "TaxVat")]
         [MaxLength(20)]
         [ConcurrencyCheck]
         [Required]
         [ProtoMember(2, Name = "TaxVat")]
-        public string TaxVat
+        public string? TaxVat
         {
             get => mTaxVat;
             set => base.SetProperty(ref mTaxVat, value);
@@ -32,11 +32,11 @@
 
         #region HonorificNamePrefix
 
-        private string mHonorificNamePrefix = string.Empty;
+        private string? mHonorificNamePrefix = string.Empty;
 
         [MaxLength(10)]
         [ProtoMember(3, Name = "HonorificNamePrefix")]
-        public string HonorificNamePrefix
+        public string? HonorificNamePrefix
         {
             get => mHonorificNamePrefix;
             set => base.SetProperty(ref mHonorificNamePrefix, value);
@@ -46,11 +46,11 @@
 
         #region HonorificNameSuffix
 
-        private string mHonorificNameSuffix = string.Empty;
+        private string? mHonorificNameSuffix = string.Empty;
 
         [MaxLength(10)]
         [ProtoMember(4, Name = "HonorificNameSuffix")]
-        public string HonorificNameSuffix
+        public string? HonorificNameSuffix
         {
             get => mHonorificNameSuffix;
             set => base.SetProperty(ref mHonorificNameSuffix, value);
@@ -61,12 +61,12 @@
         #region GivenName
 
         [IgnoreDataMember]
-        private string mGivenName = string.Empty;
+        private string? mGivenName = string.Empty;
 
         [MaxLength(500)]
         [Required]
         [ProtoMember(5, Name = "GivenName")]
-        public string GivenName
+        public string? GivenName
         {
             get => mGivenName;
             set => base.SetProperty(ref mGivenName, value);
@@ -77,12 +77,12 @@
         #region FamilyName
 
         [IgnoreDataMember]
-        private string mFamilyName = string.Empty;
+        private string? mFamilyName = string.Empty;
 
         [MaxLength(500)]
         [Required]
         [ProtoMember(6, Name = "FamilyName")]
-        public string FamilyName
+        public string? FamilyName
         {
             get => mFamilyName;
             set => base.SetProperty(ref mFamilyName, value);
@@ -91,17 +91,17 @@
         #endregion FamilyName
 
         [ProtoIgnore]
-        public string FullName => string.Join(" ", new string[] { mHonorificNamePrefix, mGivenName, mFamilyName, mHonorificNameSuffix }.Where(s => !string.IsNullOrEmpty(s)));
+        public string? FullName => string.Join(" ", new string[] { mHonorificNamePrefix, mGivenName, mFamilyName, mHonorificNameSuffix }.Where(s => !string.IsNullOrEmpty(s)));
 
         [ProtoIgnore]
-        public string Initials => mGivenName?.Substring(0, 1) + mFamilyName?.Substring(0, 1);
+        public string? Initials => mGivenName?.Substring(0, 1) + mFamilyName?.Substring(0, 1);
 
         #region Email
 
-        private string mEmail = string.Empty;
+        private string? mEmail = string.Empty;
 
         [ProtoMember(7, Name = "Email")]
-        public string Email
+        public string? Email
         {
             get => mEmail;
             set => base.SetProperty(ref mEmail, value);
@@ -111,11 +111,11 @@
 
         #region PhoneNumber
 
-        private string mPhoneNumber = string.Empty;
+        private string? mPhoneNumber = string.Empty;
 
         [Required(ErrorMessage = "Ha de especificar un teléfono.")]
         [ProtoMember(8, Name = "PhoneNumber")]
-        public string PhoneNumber
+        public string? PhoneNumber
         {
             get => mPhoneNumber;
             set => base.SetProperty(ref mPhoneNumber, value);
@@ -125,10 +125,10 @@
 
         #region ProfileAvatar
 
-        private string mProfileAvatar = string.Empty;
+        private string? mProfileAvatar = string.Empty;
 
         [ProtoIgnore]
-        public string ProfileAvatar
+        public string? ProfileAvatar
         {
             get => mProfileAvatar;
             set => base.SetProperty(ref mProfileAvatar, value);
