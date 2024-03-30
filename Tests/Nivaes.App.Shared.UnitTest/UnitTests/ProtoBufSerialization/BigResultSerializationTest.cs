@@ -44,7 +44,7 @@
             var contact = ContactGenerator.Instance.GenerateContact();
 
             ProtoBufHelper.CanSerialize(typeof(BigResult)).Should().BeTrue();
-            ProtoBufHelper.CanSerialize(typeof(AccountDataModel)).Should().BeTrue();
+            ProtoBufHelper.CanSerialize(typeof(BigDatamodel)).Should().BeTrue();
 
             var getAccountResult1 = new BigResult
             {
@@ -83,7 +83,7 @@
             var contact = ContactGenerator.Instance.GenerateContact();
 
             ProtoBufHelper.CanSerialize(typeof(BigResult)).Should().BeTrue();
-            ProtoBufHelper.CanSerialize(typeof(AccountDataModel)).Should().BeTrue();
+            ProtoBufHelper.CanSerialize(typeof(BigDatamodel)).Should().BeTrue();
 
             var getAccountResult1 = new BigResult
             {

@@ -19,7 +19,7 @@
   <PropertyGroup>
     <NeutralLanguage>en</NeutralLanguage>
     <VersionPrefix>0.5.1</VersionPrefix>
-    <VersionSuffix>dev-006</VersionSuffix>
+    <VersionSuffix>dev-010</VersionSuffix>
   </PropertyGroup>
 
   <PropertyGroup>

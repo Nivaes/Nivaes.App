@@ -23,7 +23,7 @@
         public void Execute(GeneratorExecutionContext context)
         {
 #if DEBUG
-            //System.Diagnostics.Debugger.Launch();
+//            System.Diagnostics.Debugger.Launch();
 #endif
 
             var classes = (context.SyntaxReceiver as SyntaxReceiver)?.Classes;
