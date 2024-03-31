@@ -22,7 +22,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Nivaes.Async" />
+    <PackageReference Include="Nivaes.Tools" />
 
     <PackageReference Include="protobuf-net.BuildTools">
       <PrivateAssets>all</PrivateAssets>
