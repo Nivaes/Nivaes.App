@@ -33,6 +33,10 @@
 
     <ProjectReference Include="..\..\Sources\Nivaes.App.Compilers.Toolset\Nivaes.App.Compilers.Toolset.csproj" PrivateAssets="all" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="..\..\Tests\Nivaes.App.Shared.UnitTest\Nivaes.App.Shared.UnitTest.csproj" />
+  </ItemGroup>
   
   <ItemGroup>
     <Compile Update="Components\Exception\LocationString\ConnectionExceptionLocalizationString.Designer.cs">
@@ -49,12 +53,5 @@
       <CustomToolNamespace>Nivaes</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
-  
-  <ItemGroup>
-    <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-  
+
 </Project>
