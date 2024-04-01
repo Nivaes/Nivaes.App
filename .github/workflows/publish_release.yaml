@@ -43,7 +43,7 @@ jobs:
 
     - name: Restore Dependencies
       run: |
-          dotnet restore
+          dotnet restore 
 
     - name: Build
       run: dotnet build --configuration Release -p:Version=${{ steps.version_run_number.outputs.version }} --no-restore
