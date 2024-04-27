@@ -13,7 +13,7 @@
     <PackageVersion Include="Moq" Version="4.20.70" />
     <PackageVersion Include="Nivaes.DataTestGenerator.XUnit" Version="2.9.12" />
     <PackageVersion Include="xunit" Version="2.7.1" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.7" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.8" />
     <PackageVersion Include="coverlet.collector" Version="6.0.2" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.2" />
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
