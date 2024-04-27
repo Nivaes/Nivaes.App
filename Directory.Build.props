@@ -15,6 +15,10 @@
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);NU1507</NoWarn>
+  </PropertyGroup>
   
   <PropertyGroup>
     <NeutralLanguage>en</NeutralLanguage>
