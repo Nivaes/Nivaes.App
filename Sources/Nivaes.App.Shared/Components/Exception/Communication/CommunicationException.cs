@@ -2,7 +2,7 @@
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Net;
+    using Grpc.Core;
 
     [SuppressMessage("Design", "CA1032:Implement standard exception constructors", Justification = "Force message description")]
     [SuppressMessage("Design", "RCS1194:Implement exception constructors.", Justification = "Force message description")]
@@ -11,7 +11,7 @@
     {
         public string? CallerMemberName { get; }
 
-        public HttpStatusCode? HttpStatusCode { get; private set; }
+        public StatusCode? StatusCode { get; private set; }
 
         public CommunicationException(string message, string callerMemberName)
             : base(message)
@@ -24,11 +24,11 @@
         {
         }
 
-        public CommunicationException(string message, string callerMemberName, HttpStatusCode httpStatusCode)
+        public CommunicationException(string message, string callerMemberName, StatusCode statusCode)
             : base(message)
         {
             CallerMemberName = callerMemberName;
-            HttpStatusCode = httpStatusCode;
+            StatusCode = statusCode;
         }
 
         public CommunicationException(string message, string callerMemberName, Exception innerException)
@@ -37,17 +37,17 @@
             CallerMemberName = callerMemberName;
         }
 
-        public CommunicationException(string message, string callerMemberName, HttpStatusCode httpStatusCode, Exception innerException)
+        public CommunicationException(string message, string callerMemberName, StatusCode statusCode, Exception innerException)
             : base(message, innerException)
         {
             CallerMemberName = callerMemberName;
-            HttpStatusCode = httpStatusCode;
+            StatusCode = statusCode;
         }
 
         public override string ToString()
         {
-            if (HttpStatusCode.HasValue)
-                return $"{base.ToString()} \n Methods: {CallerMemberName} \n HttpStatusCode: {HttpStatusCode}";
+            if (StatusCode.HasValue)
+                return $"{base.ToString()} \n Methods: {CallerMemberName} \n HttpStatusCode: {StatusCode}";
             else
                 return $"{base.ToString()} \n Methods: {CallerMemberName}";
         }

@@ -11,12 +11,12 @@
     {
         [DebuggerStepThrough]
         public UnauthorizedCommunicationException(string message, string callerMemberName)
-            : base(message, callerMemberName)
+            : base(message, callerMemberName, Grpc.Core.StatusCode.PermissionDenied)
         { }
 
         [DebuggerStepThrough]
         public UnauthorizedCommunicationException(string message, string callerMemberName, Exception innerException)
-            : base(message, callerMemberName, innerException)
+            : base(message, callerMemberName, Grpc.Core.StatusCode.PermissionDenied, innerException)
         { }
     }
 }
