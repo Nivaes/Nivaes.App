@@ -12,7 +12,7 @@
         [Fact]
         public void DataTimeSerializationTest()
         {
-            DateTime t1 = new DateTime(2019, 1, 6);
+            DateTime t1 = new DateTime(2019, 1, 6, 0, 0, 0, DateTimeKind.Utc);
 
             string s = t1.ToString(CultureInfo.InvariantCulture);
 
@@ -25,7 +25,7 @@
         [Fact]
         public void DataTimeOffsetSerializationTest()
         {
-            DateTimeOffset t1 = new DateTimeOffset(new DateTime(2019, 1, 6));
+            DateTimeOffset t1 = new DateTimeOffset(new DateTime(2019, 1, 6, 0, 0, 0, DateTimeKind.Utc));
 
             string s = t1.ToString(CultureInfo.InvariantCulture);
 
