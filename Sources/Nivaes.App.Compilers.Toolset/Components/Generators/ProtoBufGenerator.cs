@@ -23,9 +23,9 @@
                 predicate: static (_, _) => true,
                 transform: (context, _) =>
                 {
-#if DEBUG
-                    System.Diagnostics.Debugger.Break();
-#endif
+//#if DEBUG
+//                    System.Diagnostics.Debugger.Break();
+//#endif
 
                     if (context.Attributes.Any(x => x.AttributeClass?.Name == "ProtoContractAttribute")
                             && context.TargetNode is ClassDeclarationSyntax classDeclarationSyntax)

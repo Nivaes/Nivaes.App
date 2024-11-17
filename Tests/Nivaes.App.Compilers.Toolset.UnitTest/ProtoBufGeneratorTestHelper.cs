@@ -3,6 +3,7 @@
     using System.Threading.Tasks;
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.CSharp;
+    using ProtoBuf;
 
     internal class ProtoBufGeneratorTestHelper
     {
@@ -14,7 +15,13 @@
             // Create a Roslyn compilation for the syntax tree.
             CSharpCompilation compilation = CSharpCompilation.Create(
                 assemblyName: "Tests",
-                syntaxTrees: new[] { syntaxTree });
+                syntaxTrees: [syntaxTree],
+                references:
+                [
+                    MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
+                    MetadataReference.CreateFromFile(typeof(ProtoBufGeneratorTestHelper).Assembly.Location),
+                    MetadataReference.CreateFromFile(typeof(ProtoContractAttribute).Assembly.Location),
+                ]);
 
 
             // Create an instance of our EnumGenerator incremental source generator
