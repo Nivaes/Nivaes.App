@@ -9,7 +9,7 @@
         : Result, IDataModelProtobuf
     {
         [ProtoMember(1, Name = "ContentValue")]
-        public BigDatamodel ContentValue { get; set; }
+        public BigDatamodel? ContentValue { get; set; }
     }
 
     [ProtoContract(Name = "BigDatamodel", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = false)]
