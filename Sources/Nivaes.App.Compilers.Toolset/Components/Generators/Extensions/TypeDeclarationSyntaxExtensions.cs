@@ -19,7 +19,7 @@
 
             var namespaces = new LinkedList<NamespaceDeclarationSyntax>();
             var types = new LinkedList<TypeDeclarationSyntax>();
-            for (var parent = source.Parent; parent is object; parent = parent.Parent)
+            for (var parent = source.Parent; parent is not null; parent = parent.Parent)
             {
                 if (parent is NamespaceDeclarationSyntax @namespace)
                 {
@@ -32,11 +32,11 @@
             }
 
             var result = new StringBuilder();
-            for (var item = namespaces.First; item is object; item = item.Next)
+            for (var item = namespaces.First; item is not null; item = item.Next)
             {
                 result.Append(item.Value.Name).Append(NAMESPACE_CLASS_DELIMITER);
             }
-            for (var item = types.First; item is object; item = item.Next)
+            for (var item = types.First; item is not null; item = item.Next)
             {
                 var type = item.Value;
                 AppendName(result, type);

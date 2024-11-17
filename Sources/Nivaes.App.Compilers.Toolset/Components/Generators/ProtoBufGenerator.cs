@@ -7,77 +7,70 @@
     using Microsoft.CodeAnalysis.CSharp.Syntax;
     using Microsoft.CodeAnalysis.Text;
 
-    [Generator]
+    [Generator(LanguageNames.CSharp)]
     public class ProtoBufGenerator
-        : ISourceGenerator
+        : IIncrementalGenerator
     {
-        public void Initialize(GeneratorInitializationContext context)
-        {
-            context.RegisterForSyntaxNotifications(() => new SyntaxReceiver());
+        private readonly List<ClassDeclarationSyntax> classes = new();
 
-#if DEBUG
-            //System.Diagnostics.Debugger.Launch();
-#endif
-        }
-
-        public void Execute(GeneratorExecutionContext context)
+        public void Initialize(IncrementalGeneratorInitializationContext context)
         {
-#if DEBUG
+//#if DEBUG
 //            System.Diagnostics.Debugger.Launch();
+//#endif
+            var pipeline = context.SyntaxProvider.ForAttributeWithMetadataName(
+                "ProtoBuf.ProtoContractAttribute",
+                predicate: static (_, _) => true,
+                transform: (context, _) =>
+                {
+#if DEBUG
+                    System.Diagnostics.Debugger.Break();
 #endif
 
-            var classes = (context.SyntaxReceiver as SyntaxReceiver)?.Classes;
+                    if (context.Attributes.Any(x => x.AttributeClass?.Name == "ProtoContractAttribute")
+                            && context.TargetNode is ClassDeclarationSyntax classDeclarationSyntax)
+                    {
+                        classes.Add(classDeclarationSyntax);
 
-            if (classes is object)
+                        if(classes.Count == 1)
+                            return context.SemanticModel.Compilation.AssemblyName;
+                    }
+
+                    return null;
+                }).Where(static m => m is not null);
+
+            context.RegisterSourceOutput(pipeline, (context, model) =>
             {
+                //#if DEBUG
+                //                System.Diagnostics.Debugger.Break();
+                //#endif
+
+                var assemblyName = model;
+
                 StringBuilder sourceBuilder = new StringBuilder(@$"
-                    namespace {context.Compilation.AssemblyName}.Helpers
-                    {{
-                        using System;
-                        using Nivaes.App;
-
-                        public static class ProtoBufRegisterHelper
-                        {{
-                            public static void RegisterProtoBufTypes() 
+                            namespace {assemblyName}.Helpers
                             {{
-                    ");
+                                using System;
+                                using Nivaes.App;
 
-                foreach (var classSyntax in classes)
+                                public static class ProtoBufRegisterHelper
+                                {{
+                                    public static void RegisterProtoBufTypes() 
+                                    {{
+                            ");
+
+                foreach (var classSyntax in classes.Distinct())
                 {
                     sourceBuilder.AppendLine($"ProtoBufHelper.RegisterType(typeof({classSyntax.GetFullName()}));");
                 }
 
                 sourceBuilder.Append(@"
-                            }
-                        }
-                    }");
+                                                    }
+                                                }
+                                            }");
 
-                context.AddSource("ProtoBufHelper.Generated.cs", SourceText.From(sourceBuilder.ToString(), Encoding.UTF8));
-            }
-        }
-
-        /// <summary>
-        /// Created on demand before each generation pass
-        /// </summary>
-        private sealed class SyntaxReceiver
-            : ISyntaxReceiver
-        {
-            public List<ClassDeclarationSyntax> Classes { get; } = new List<ClassDeclarationSyntax>();
-
-            /// <summary>
-            /// Called for every syntax node in the compilation, we can inspect the nodes and save any information useful for generation
-            /// </summary>
-            public void OnVisitSyntaxNode(SyntaxNode syntaxNode)
-            {
-                if (syntaxNode is ClassDeclarationSyntax classDeclarationSyntax)
-                {
-                    if (classDeclarationSyntax.AttributeLists.Any(x => x.Attributes.Any(a => a.Name.ToString().Equals("ProtoContract"))))
-                        //&& (classDeclarationSyntax.BaseList?.Types.Any(t => t.ToString() == "IDataModelProtobuf") == true))
-                    {
-                        Classes.Add(classDeclarationSyntax);
-                    }
-                }
-            }
+                context.AddSource("Nivaes.App.Compilers.Toolset.ProtoBufHelper.Generated.cs", SourceText.From(sourceBuilder.ToString(), Encoding.UTF8));
+            });
         }
     }
 }

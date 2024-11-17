@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>net7.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
 
     <AssemblyName>Nivaes.App.Shared</AssemblyName>
     <RootNamespace>Nivaes.App</RootNamespace>
@@ -36,6 +36,7 @@
 
   <ItemGroup>
     <InternalsVisibleTo Include="..\..\Tests\Nivaes.App.Shared.UnitTest\Nivaes.App.Shared.UnitTest.csproj" />
+    <InternalsVisibleTo Include="..\..\Tests\Nivaes.App.Shared.UnitTest\Nivaes.App.Compilers.Toolset.Test.sporj" />
   </ItemGroup>
   
   <ItemGroup>
@@ -65,6 +66,13 @@
     <PackageReference Update="SonarAnalyzer.CSharp">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 

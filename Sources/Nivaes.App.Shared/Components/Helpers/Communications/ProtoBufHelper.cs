@@ -16,7 +16,9 @@
 
         /// <summary>Initialize load runtime.</summary>
         public static void LoadCache()
-        { }
+        {
+            // Method intentionally left empty.
+        }
 
         public static void RegisterType(Type type)
         {

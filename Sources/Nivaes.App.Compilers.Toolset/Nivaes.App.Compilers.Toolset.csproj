@@ -8,6 +8,9 @@
 
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     <IncludeBuildOutput>false</IncludeBuildOutput>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <LangVersion>Latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -18,8 +21,7 @@
     <Description>Nivaes compiler toolset.</Description>
     <PackageTags>Nivaes;roslyn</PackageTags>
     <NoPackageAnalysis>true</NoPackageAnalysis>
-    <DevelopmentDependency>true</DevelopmentDependency>
-    <LangVersion>11.0</LangVersion>
+    <DevelopmentDependency>true</DevelopmentDependency>  
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="tools\*.ps1" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
     <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
   </ItemGroup>
 
@@ -52,17 +53,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+
+  <!-- This ensures the library will be packaged as a source generator when we use `dotnet pack` -->
+  <ItemGroup>
+    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true"
+        PackagePath="analyzers/dotnet/cs" Visible="false" />
+  </ItemGroup>
   
-  <!--<PropertyGroup>
-    <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
-  </PropertyGroup>-->
-
-  <!--<Target Name="GetDependencyTargetPaths">
-    <ItemGroup>
-      <TargetPathWithTargetPlatformMoniker Include="$(PKGCsvTextFieldParser)\lib\netstandard2.0\CsvTextFieldParser.dll" IncludeRuntimeDependency="false" />
-      <TargetPathWithTargetPlatformMoniker Include="$(PKGHandlebars_Net)\lib\netstandard2.0\Handlebars.dll" IncludeRuntimeDependency="false" />
-      <TargetPathWithTargetPlatformMoniker Include="$(PKGNewtonsoft_Json)\lib\netstandard2.0\Newtonsoft.Json.dll" IncludeRuntimeDependency="false" />
-    </ItemGroup>
-  </Target>-->
-
 </Project>

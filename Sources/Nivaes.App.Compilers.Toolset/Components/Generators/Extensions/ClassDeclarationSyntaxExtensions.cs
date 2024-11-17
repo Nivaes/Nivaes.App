@@ -28,9 +28,9 @@
 
             var nameSpace = (NamespaceDeclarationSyntax?)parent;
             
-            var sb = new StringBuilder().Append(nameSpace.Name).Append(NAMESPACE_CLASS_DELIMITER);
+            var sb = new StringBuilder().Append(nameSpace?.Name).Append(NAMESPACE_CLASS_DELIMITER);
             items.Reverse();
-            items.ForEach(i => { sb.Append(i).Append(NESTED_CLASS_DELIMITER); });
+            items.ForEach(i => sb.Append(i).Append(NESTED_CLASS_DELIMITER) );
             sb.Append(source.Identifier.Text);
 
             var result = sb.ToString();
