@@ -23,7 +23,6 @@
   
   <ItemGroup>
     <PackageReference Include="Nivaes.Extensions" />
-
     <PackageReference Include="protobuf-net.BuildTools">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
