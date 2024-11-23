@@ -3,7 +3,6 @@
     using System.ComponentModel.DataAnnotations;
     using ProtoBuf;
 
-
     [ProtoContract(Name = "BigResult", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
     public class BigResult
         : Result, IDataModelProtobuf
