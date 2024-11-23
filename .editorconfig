@@ -26,6 +26,7 @@ csharp_style_expression_bodied_indexers = true:warning
 csharp_style_expression_bodied_accessors = true:warning
 csharp_style_expression_bodied_lambdas = true:silent
 csharp_style_expression_bodied_local_functions = false:silent
+csharp_prefer_system_threading_lock = true:suggestion
 
 # Solution Files
 [*.sln]
@@ -158,6 +159,13 @@ dotnet_style_operator_placement_when_wrapping = beginning_of_line
 tab_width = 4
 dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
 dotnet_style_prefer_auto_properties = true:silent
+dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
+dotnet_style_prefer_conditional_expression_over_assignment = true:silent
+dotnet_style_prefer_conditional_expression_over_return = true:silent
+dotnet_style_prefer_inferred_tuple_names = true:suggestion
+dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
+dotnet_style_prefer_compound_assignment = true:suggestion
+dotnet_style_prefer_simplified_interpolation = true:suggestion
 
 # C# Code Style Settings
 # See https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference
@@ -234,3 +242,12 @@ dotnet_diagnostic.S125.severity = silent
 
 # S3218: Inner class members should not shadow outer class "static" or type members
 dotnet_diagnostic.S3218.severity = none
+
+# Default severity for analyzer diagnostics with category 'Minor Code Smell'
+dotnet_analyzer_diagnostic.category-Minor Code Smell.severity = none
+
+# S1939: Inheritance list should not be redundant
+dotnet_diagnostic.S1939.severity = none
+
+# S2292: Trivial properties should be auto-implemented
+dotnet_diagnostic.S2292.severity = none
