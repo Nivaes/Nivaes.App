@@ -36,8 +36,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="..\..\Tests\Nivaes.App.Shared.UnitTest\Nivaes.App.Shared.UnitTest.csproj" />
-    <InternalsVisibleTo Include="..\..\Tests\Nivaes.App.Shared.UnitTest\Nivaes.App.Compilers.Toolset.Test.sporj" />
+    <InternalsVisibleTo Include="Nivaes.App.Shared.UnitTest" />
+    <InternalsVisibleTo Include="Nivaes.App.Compilers.Toolset.Test" />
   </ItemGroup>
   
   <ItemGroup>
