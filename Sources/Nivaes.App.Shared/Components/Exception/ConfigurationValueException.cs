@@ -1,6 +1,7 @@
 ﻿namespace Nivaes.App
 {
-    public class ConfigurationValueException : Exception
+    public class ConfigurationValueException
+        : Exception
     {
         public ConfigurationValueException()
            : base()

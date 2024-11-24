@@ -17,7 +17,7 @@
         /// </summary>
         /// <param name="plainText">String to be encrypted</param>
         /// <param name="password">Password</param>
-        public static async Task<string> Encrypt(string plainText, string password)
+        public static async Task<string?> Encrypt(string plainText, string password)
         {
             if (plainText == null)
             {
@@ -47,7 +47,7 @@
         /// <param name="encryptedText">String to be decrypted</param>
         /// <param name="password">Password used during encryption</param>
         /// <exception cref="FormatException"></exception>
-        public static async Task<string> Decrypt(string encryptedText, string password)
+        public static async Task<string?> Decrypt(string encryptedText, string password)
         {
             if (encryptedText == null)
             {

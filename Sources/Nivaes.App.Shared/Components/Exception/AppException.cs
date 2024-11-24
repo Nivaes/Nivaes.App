@@ -1,7 +1,6 @@
 ﻿namespace Nivaes.App
 {
     using System;
-    using System.Runtime.Serialization;
 
     public class AppException
         : Exception
@@ -18,9 +17,5 @@
             : base(message, innerException)
         {
         }
-
-        protected AppException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        { }
     }
 }

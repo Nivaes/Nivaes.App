@@ -26,8 +26,8 @@
         /// <summary>Occurs when a property value changes.</summary>
         public event PropertyChangedEventHandler? PropertyChanged
         {
-            add { mPropertyChanged += value; }
-            remove { mPropertyChanged -= value; }
+            add => mPropertyChanged += value;
+            remove => mPropertyChanged -= value;
         }
 
         /// <summary>Raises the <see cref="PropertyChanged"/> event.</summary>
@@ -49,21 +49,23 @@
         }
 
         /// <summary>Change value of property.</summary>
+        /// <exception cref="ArgumentNullException"></exception>
         [DebuggerStepThrough]
         protected void RegisterNewValueProperty<T>(T property)
             where T : IModel
         {
-            if (property == null) throw new NullReferenceException(nameof(property));
+            if (object.Equals(property, default(T))) throw new ArgumentNullException(nameof(property));
 
             property.PropertyChanged += RaisePropertyChanged;
         }
 
         /// <summary>Unregister change value of property.</summary>
+        /// <exception cref="ArgumentNullException"></exception>
         [DebuggerStepThrough]
         protected void UnregisterNewValueProperty<T>(T property)
             where T : IModel
         {
-            if (property == null) throw new NullReferenceException(nameof(property));
+            if (object.Equals(property, default(T))) throw new ArgumentNullException(nameof(property));
 
             property.PropertyChanged -= RaisePropertyChanged;
         }
