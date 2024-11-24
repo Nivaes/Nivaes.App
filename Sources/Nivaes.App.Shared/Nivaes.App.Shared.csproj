@@ -15,6 +15,8 @@
     <Product>Nivaes App shared</Product>
     <Description>Nivaes App shared.</Description>
     <PackageTags>Nivaes;App</PackageTags>
+
+    <IsAotCompatible>true</IsAotCompatible>
   </PropertyGroup>
 
   <ItemGroup>
