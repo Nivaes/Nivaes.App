@@ -33,7 +33,6 @@
         /// <summary>Raises the <see cref="PropertyChanged"/> event.</summary>
         /// <param name="propertyName">The property name of the property that has changed.</param>
         [DebuggerStepThrough]
-        [SuppressMessage("Design", "CA1030:Use events where appropriate")]
         protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = "")
         {
             RaisePropertyChanged(new PropertyChangedEventArgs(propertyName));
@@ -42,7 +41,6 @@
         /// <summary>Raises the <see cref="PropertyChanged"/> event.</summary>
         /// <param name="e">The <see cref="System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
         [DebuggerStepThrough]
-        [SuppressMessage("Design", "CA1030:Use events where appropriate")]
         protected void RaisePropertyChanged(PropertyChangedEventArgs e)
         {
             mPropertyChanged?.Invoke(this, e);
@@ -98,7 +96,6 @@
         }
 
         [DebuggerStepThrough]
-        [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", MessageId = "0#")]
         protected bool SetProperty<T>(ref T property, T newValue,
             Action<NotifyCollectionChangedEventArgs> notificationCollectionChanged, [CallerMemberName] string propertyName = "")
             where T : INotifyCollectionChanged
@@ -119,7 +116,7 @@
                 if (propertyModel != null)
                     propertyModel.PropertyChanged += RaisePropertyChanged;
 
-                if (property != null)
+                if (!object.Equals(property, default(T)))
                     property.CollectionChanged += (o, e) => notificationCollectionChanged(e);
 
                 RaisePropertyChanged(propertyName);

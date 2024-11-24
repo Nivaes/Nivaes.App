@@ -32,6 +32,8 @@
 
         public static byte[] Serialize<T>(T value)
         {
+            ArgumentNullException.ThrowIfNull(value);
+
             if (object.Equals(value, default(T)))
                 return Array.Empty<byte>();
 
@@ -83,7 +85,7 @@
             [SuppressMessage("Reliability", "CA2002:Do not lock on objects with weak identity", Justification = "There's no record of the type more than once.")]
             public MetaType? RegisterType(Type type)
             {
-                if (type == null) throw new ArgumentNullException(nameof(type));
+                ArgumentNullException.ThrowIfNull(type);
 
                 if (!typeof(IDataModelProtobuf).IsAssignableFrom(type))
                     return null;
