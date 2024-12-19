@@ -1,4 +1,4 @@
-﻿namespace Nivaes.App.Shared.UnitTest
+﻿namespace Nivaes.App.Compilers.Toolset.UnitTest.ProtoBuf
 {
     using System.Threading.Tasks;
     using Microsoft.CodeAnalysis;

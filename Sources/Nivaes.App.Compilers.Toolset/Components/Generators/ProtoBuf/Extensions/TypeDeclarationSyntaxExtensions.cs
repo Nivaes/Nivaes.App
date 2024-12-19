@@ -1,4 +1,4 @@
-﻿namespace Nivaes.App
+﻿namespace Nivaes.App.Compilers.Toolset.Components.Generators.ProtoBuf.Extensions
 {
     using System;
     using System.Collections.Generic;

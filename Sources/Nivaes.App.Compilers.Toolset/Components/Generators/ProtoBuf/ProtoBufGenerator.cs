@@ -1,4 +1,4 @@
-﻿namespace Nivaes.App
+﻿namespace Nivaes.App.Compilers.Toolset.Components.Generators.ProtoBuf
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -6,6 +6,7 @@
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.CSharp.Syntax;
     using Microsoft.CodeAnalysis.Text;
+    using Nivaes.App.Compilers.Toolset.Components.Generators.ProtoBuf.Extensions;
 
     [Generator(LanguageNames.CSharp)]
     public class ProtoBufGenerator
@@ -15,24 +16,24 @@
 
         public void Initialize(IncrementalGeneratorInitializationContext context)
         {
-//#if DEBUG
-//            System.Diagnostics.Debugger.Launch();
-//#endif
+            //#if DEBUG
+            //            System.Diagnostics.Debugger.Launch();
+            //#endif
             var pipeline = context.SyntaxProvider.ForAttributeWithMetadataName(
                 "ProtoBuf.ProtoContractAttribute",
                 predicate: static (_, _) => true,
                 transform: (context, _) =>
                 {
-//#if DEBUG
-//                    System.Diagnostics.Debugger.Break();
-//#endif
+                    //#if DEBUG
+                    //                    System.Diagnostics.Debugger.Break();
+                    //#endif
 
                     if (context.Attributes.Any(x => x.AttributeClass?.Name == "ProtoContractAttribute")
                             && context.TargetNode is ClassDeclarationSyntax classDeclarationSyntax)
                     {
                         classes.Add(classDeclarationSyntax);
 
-                        if(classes.Count == 1)
+                        if (classes.Count == 1)
                             return context.SemanticModel.Compilation.AssemblyName;
                     }
 

@@ -1,6 +1,4 @@
-﻿using Nivaes.App.Shared.UnitTest;
-
-namespace Nivaes.App.Compilers.Toolset.UnitTest
+﻿namespace Nivaes.App.Compilers.Toolset.UnitTest.ProtoBuf
 {
     public class ProtoBufGeneratorUnitTest
     {
