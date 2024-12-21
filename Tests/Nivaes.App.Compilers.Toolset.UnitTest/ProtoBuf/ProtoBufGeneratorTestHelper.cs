@@ -1,12 +1,17 @@
 ﻿namespace Nivaes.App.Compilers.Toolset.UnitTest.ProtoBuf
 {
     using System.Threading.Tasks;
+    using global::ProtoBuf;
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.CSharp;
-    using ProtoBuf;
+    using Nivaes.App.Compilers.Toolset.Components.Generators.ProtoBuf;
 
     internal class ProtoBufGeneratorTestHelper
     {
+        protected ProtoBufGeneratorTestHelper()
+        {
+        }
+
         public static Task Verify(string source)
         {
             // Parse the provided string into a C# syntax tree
