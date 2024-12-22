@@ -32,7 +32,11 @@
     <PackageReference Include="protobuf-net.Grpc" />
     <PackageReference Include="System.Threading.Tasks.Extensions" />
 
-    <ProjectReference Include="..\..\Sources\Nivaes.App.Compilers.Toolset\Nivaes.App.Compilers.Toolset.csproj" PrivateAssets="all" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\..\Sources\Nivaes.App.Compilers.Toolset\Nivaes.App.Compilers.Toolset.csproj">
+      <PrivateAssets>runtime; build; native; contentfiles; buildtransitive</PrivateAssets>
+      <IncludeAssets>analyzers</IncludeAssets>
+      <ExcludeAssets>runtime; build; native; contentfiles; buildtransitive</ExcludeAssets>
+    </ProjectReference> 
   </ItemGroup>
 
   <ItemGroup>
