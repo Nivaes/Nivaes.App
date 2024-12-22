@@ -8,7 +8,7 @@
     using Microsoft.CodeAnalysis.Text;
     using Nivaes.App.SourceGenerator.Components.Generators.ProtoBuf.Extensions;
 
-    [Generator(LanguageNames.CSharp)]
+    [Generator]
     public class ProtoBufGenerator
         : IIncrementalGenerator
     {
@@ -16,9 +16,9 @@
 
         public void Initialize(IncrementalGeneratorInitializationContext context)
         {
-            //#if DEBUG
-            //            System.Diagnostics.Debugger.Launch();
-            //#endif
+//#if DEBUG
+//            System.Diagnostics.Debugger.Launch();
+//#endif
             var pipeline = context.SyntaxProvider.ForAttributeWithMetadataName(
                 "ProtoBuf.ProtoContractAttribute",
                 predicate: static (_, _) => true,
