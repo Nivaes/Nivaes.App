@@ -1,4 +1,4 @@
-﻿namespace Nivaes.App.Compilers.Toolset.Components.Generators.ProtoBuf
+﻿namespace Nivaes.App.SourceGenerator.Components.Generators.ProtoBuf
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -6,7 +6,7 @@
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.CSharp.Syntax;
     using Microsoft.CodeAnalysis.Text;
-    using Nivaes.App.Compilers.Toolset.Components.Generators.ProtoBuf.Extensions;
+    using Nivaes.App.SourceGenerator.Components.Generators.ProtoBuf.Extensions;
 
     [Generator(LanguageNames.CSharp)]
     public class ProtoBufGenerator
@@ -70,7 +70,7 @@
                                                 }
                                             }");
 
-                context.AddSource("Nivaes.App.Compilers.Toolset.ProtoBufHelper.Generated.cs", SourceText.From(sourceBuilder.ToString(), Encoding.UTF8));
+                context.AddSource("Nivaes.App.SourceGenerator.ProtoBufHelper.Generated.cs", SourceText.From(sourceBuilder.ToString(), Encoding.UTF8));
             });
         }
     }

@@ -1,10 +1,10 @@
-﻿namespace Nivaes.App.Compilers.Toolset.UnitTest.ProtoBuf
+﻿namespace Nivaes.App.SourceGenerator.UnitTest.ProtoBuf
 {
     using System.Threading.Tasks;
     using global::ProtoBuf;
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.CSharp;
-    using Nivaes.App.Compilers.Toolset.Components.Generators.ProtoBuf;
+    using Nivaes.App.SourceGenerator.Components.Generators.ProtoBuf;
 
     internal class ProtoBufGeneratorTestHelper
     {

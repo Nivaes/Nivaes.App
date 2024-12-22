@@ -6,6 +6,11 @@
     <RootNamespace>Nivaes.App.Shared.UnitTest</RootNamespace>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="UnitTests\IoC\**" />
+    <EmbeddedResource Remove="UnitTests\IoC\**" />
+    <None Remove="UnitTests\IoC\**" />
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="FluentAssertions" />
@@ -27,6 +32,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Sources\Nivaes.App.Shared\Nivaes.App.Shared.csproj" />
+    <ProjectReference Include="..\..\Sources\Nivaes.App.SourceGenerator\Nivaes.App.SourceGenerator.csproj" />
     <ProjectReference Include="..\Nivaes.App.Shared.Test\Nivaes.App.Shared.Test.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -46,9 +52,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UnitTests\IoC\" />
   </ItemGroup>
 
 </Project>

@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
-    <AssemblyName>Nivaes.App.Compilers.Toolset.UnitTest</AssemblyName>
-    <RootNamespace>Nivaes.App.Compilers.Toolset.UnitTest</RootNamespace>
+    <AssemblyName>Nivaes.App.SourceGenerator.UnitTest</AssemblyName>
+    <RootNamespace>Nivaes.App.SourceGenerator.UnitTest</RootNamespace>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -32,7 +32,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\..\Sources\Nivaes.App.Compilers.Toolset\Nivaes.App.Compilers.Toolset.csproj" />
+    <ProjectReference Include="..\..\Sources\Nivaes.App.SourceGenerator\Nivaes.App.SourceGenerator.csproj" />
     <ProjectReference Include="..\..\Sources\Nivaes.App.Shared\Nivaes.App.Shared.csproj" />
   </ItemGroup>
   

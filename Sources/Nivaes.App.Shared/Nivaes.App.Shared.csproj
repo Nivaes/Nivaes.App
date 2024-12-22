@@ -32,16 +32,16 @@
     <PackageReference Include="protobuf-net.Grpc" />
     <PackageReference Include="System.Threading.Tasks.Extensions" />
 
-    <ProjectReference Include="..\..\Sources\Nivaes.App.Compilers.Toolset\Nivaes.App.Compilers.Toolset.csproj">
-      <PrivateAssets>runtime; build; native; contentfiles; buildtransitive</PrivateAssets>
-      <IncludeAssets>analyzers</IncludeAssets>
-      <ExcludeAssets>runtime; build; native; contentfiles; buildtransitive</ExcludeAssets>
+    <ProjectReference Include="..\Nivaes.App.SourceGenerator\Nivaes.App.SourceGenerator.csproj">
+      <!--<PrivateAssets>runtime; native; contentfiles; buildtransitive</PrivateAssets>
+      <IncludeAssets>runtime; build; analyzers</IncludeAssets>
+      <ExcludeAssets>runtime; build; native; contentfiles; buildtransitive</ExcludeAssets>-->
     </ProjectReference> 
   </ItemGroup>
 
   <ItemGroup>
     <InternalsVisibleTo Include="Nivaes.App.Shared.UnitTest" />
-    <InternalsVisibleTo Include="Nivaes.App.Compilers.Toolset.Test" />
+    <InternalsVisibleTo Include="Nivaes.App.SourceGenerator.Test" />
   </ItemGroup>
   
   <ItemGroup>

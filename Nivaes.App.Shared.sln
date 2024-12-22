@@ -20,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C140FE19
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nivaes.App.Shared", "Sources\Nivaes.App.Shared\Nivaes.App.Shared.csproj", "{E833482B-E9CF-4FCE-A462-81B8902235B0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nivaes.App.Compilers.Toolset", "Sources\Nivaes.App.Compilers.Toolset\Nivaes.App.Compilers.Toolset.csproj", "{3A9F04F1-0372-48E3-A231-F3479E4E98CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nivaes.App.SourceGenerator", "Sources\Nivaes.App.SourceGenerator\Nivaes.App.SourceGenerator.csproj", "{3A9F04F1-0372-48E3-A231-F3479E4E98CA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nivaes.App.Shared.UnitTest", "Tests\Nivaes.App.Shared.UnitTest\Nivaes.App.Shared.UnitTest.csproj", "{5F9CC8FA-A710-472C-8CA9-5DF0EA6AE5E3}"
 EndProject
@@ -48,7 +48,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{B03E
 		.github\dependabot.yml = .github\dependabot.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nivaes.App.Compilers.Toolset.UnitTest", "Tests\Nivaes.App.Compilers.Toolset.UnitTest\Nivaes.App.Compilers.Toolset.UnitTest.csproj", "{F96F95CA-8CDD-4004-87D1-905AF3CBBD51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nivaes.App.SourceGenerator.UnitTest", "Tests\Nivaes.App.SourceGenerator.UnitTest\Nivaes.App.SourceGenerator.UnitTest.csproj", "{F96F95CA-8CDD-4004-87D1-905AF3CBBD51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

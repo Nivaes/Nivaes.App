@@ -1,4 +1,4 @@
-﻿namespace Nivaes.App.Compilers.Toolset.UnitTest.ProtoBuf
+﻿namespace Nivaes.App.SourceGenerator.UnitTest.ProtoBuf
 {
     public class ProtoBufGeneratorUnitTest
     {
