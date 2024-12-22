@@ -1,6 +1,6 @@
 ﻿//HintName: Nivaes.App.SourceGenerator.ProtoBufHelper.Generated.cs
 
-namespace Tests.Helpers
+                            namespace Tests.Helpers
                             {
                                 using System;
                                 using Nivaes.App;
