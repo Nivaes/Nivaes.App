@@ -3,6 +3,7 @@
     using System;
     using System.Globalization;
     using ProtoBuf;
+    using Nivaes;
 
     [ProtoContract(Name = "Notification", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None)]
     public sealed class NotificationDataModel
