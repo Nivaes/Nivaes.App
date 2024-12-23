@@ -251,3 +251,9 @@ dotnet_diagnostic.S1939.severity = none
 
 # S2292: Trivial properties should be auto-implemented
 dotnet_diagnostic.S2292.severity = none
+
+# S1066: Mergeable "if" statements should be combined
+dotnet_diagnostic.S1066.severity = none
+
+# Default severity for analyzer diagnostics with category 'Critical Code Smell'
+dotnet_analyzer_diagnostic.category-Critical Code Smell.severity = none
