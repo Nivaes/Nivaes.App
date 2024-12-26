@@ -8,7 +8,7 @@
     using Microsoft.CodeAnalysis.Text;
     using Nivaes.App.SourceGenerator.Components.Generators.ProtoBuf.Extensions;
 
-    [Generator]
+    [Generator(LanguageNames.CSharp)]
     public class ProtoBufGenerator
         : IIncrementalGenerator
     {
