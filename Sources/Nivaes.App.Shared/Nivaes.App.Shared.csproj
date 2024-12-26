@@ -22,7 +22,7 @@
   <ItemGroup>
     <None Include="Images\icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="Nivaes.Extensions" />
     <PackageReference Include="protobuf-net.BuildTools">
@@ -35,18 +35,18 @@
     <ProjectReference Include="..\Nivaes.App.SourceGenerator\Nivaes.App.SourceGenerator.csproj">
       <OutputItemType>Analyzer</OutputItemType>
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-      
+
       <PrivateAssets>runtime; build; native; contentfiles; buildtransitive</PrivateAssets>
       <IncludeAssets>analyzers</IncludeAssets>
       <ExcludeAssets>runtime; build; native; contentfiles; buildtransitive</ExcludeAssets>
-    </ProjectReference> 
+    </ProjectReference>
   </ItemGroup>
 
   <ItemGroup>
     <InternalsVisibleTo Include="Nivaes.App.Shared.UnitTest" />
     <InternalsVisibleTo Include="Nivaes.App.SourceGenerator.Test" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <Compile Update="Components\Exception\LocationString\ConnectionExceptionLocalizationString.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -54,7 +54,7 @@
       <DependentUpon>ConnectionExceptionLocalizationString.resx</DependentUpon>
     </Compile>
   </ItemGroup>
-  
+
   <ItemGroup>
     <EmbeddedResource Update="Components\Exception\LocationString\ConnectionExceptionLocalizationString.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -62,22 +62,18 @@
       <CustomToolNamespace>Nivaes</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
-  
+
   <ItemGroup>
     <PackageReference Update="Roslynator.Analyzers">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-  
-  <ItemGroup>
+
     <PackageReference Update="SonarAnalyzer.CSharp">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-  
-  <ItemGroup>
+
     <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
