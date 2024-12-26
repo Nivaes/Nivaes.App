@@ -2,7 +2,7 @@
 
   <PropertyGroup Condition="$(MSBuildProjectName.Contains('Test')) == 'False'">
     <Copyright>Copyright (c) Nivaes Systems S.L.</Copyright>
-    <PackageProject>https://github.com/Nivaes</PackageProject>
+    <PackageProject>https://github.com/Nivaes/Nivaes.App.Shared</PackageProject>
     <!--<RepositoryType>git</RepositoryType>-->
     <!--<PackageLicenseExpression>MS-PL</PackageLicenseExpression>-->
     <PackageIcon>icon.png</PackageIcon>
