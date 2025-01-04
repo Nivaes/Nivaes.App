@@ -49,7 +49,7 @@
         }
 
         [ProtoIgnore]
-        public string? TextValue => string.Join(",", [mTextValue1, mTextValue2]);
+        public string? TextValue => string.Join(",", mTextValue1, mTextValue2);
 
 
         private int? mIntValue1;
