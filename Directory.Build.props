@@ -22,8 +22,8 @@
   
   <PropertyGroup>
     <NeutralLanguage>en</NeutralLanguage>
-    <VersionPrefix>0.7.0</VersionPrefix>
-    <VersionSuffix>dev-014</VersionSuffix>
+    <VersionPrefix>0.7.74</VersionPrefix>
+    <VersionSuffix>dev-016</VersionSuffix>
   </PropertyGroup>
 
   <PropertyGroup>

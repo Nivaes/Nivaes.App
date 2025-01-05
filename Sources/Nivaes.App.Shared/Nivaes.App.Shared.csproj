@@ -44,7 +44,7 @@
 
   <ItemGroup>
     <InternalsVisibleTo Include="Nivaes.App.Shared.UnitTest" />
-    <InternalsVisibleTo Include="Nivaes.App.SourceGenerator.Test" />
+    <InternalsVisibleTo Include="Nivaes.App.SourceGenerator.UnitTest" />
   </ItemGroup>
 
   <ItemGroup>
