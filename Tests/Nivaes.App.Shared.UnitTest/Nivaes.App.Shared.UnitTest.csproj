@@ -6,11 +6,6 @@
     <RootNamespace>Nivaes.App.Shared.UnitTest</RootNamespace>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-  <!--<ItemGroup>
-    <Compile Remove="UnitTests\IoC\**" />
-    <EmbeddedResource Remove="UnitTests\IoC\**" />
-    <None Remove="UnitTests\IoC\**" />
-  </ItemGroup>-->
   
   <ItemGroup>
     <PackageReference Include="FluentAssertions" />
