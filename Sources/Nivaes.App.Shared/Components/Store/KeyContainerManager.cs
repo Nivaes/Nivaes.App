@@ -1,4 +1,4 @@
-﻿namespace Nivaes.App
+﻿namespace Nivaes.App 
 {
     using System;
     using System.Collections.Generic;
