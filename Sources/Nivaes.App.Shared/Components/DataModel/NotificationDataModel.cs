@@ -16,7 +16,7 @@
         [AutoNotify]
         private Guid name;
 
-        [AutoNotify]
+        [AutoNotify(PropertyName="hola")]
         private string? text;
 
         //[ProtoMember(1, Name = "IdNotification")]
@@ -38,7 +38,7 @@
         //public string Text
         //{
         //    get => mText;
-        //    set => this.SetProperty(ref mText, value);
+        //    set => base.SetProperty(ref mText, value);
         //}
 
         //#endregion Text

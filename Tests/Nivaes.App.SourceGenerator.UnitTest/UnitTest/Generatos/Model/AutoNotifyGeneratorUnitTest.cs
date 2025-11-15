@@ -10,7 +10,7 @@
 {
     using System;
     using System.Runtime.Serialization;
-    using ProtoBuf;
+    using Nivaes.App;
 
     public sealed class ModelTest1
         : IModel
@@ -23,6 +23,10 @@
 
         [AutoNotify]
         private string familyName;
+
+        [AutoNotify(PropertyName=""Age"")]
+        private int mAge;
+
     }
 }
 ";

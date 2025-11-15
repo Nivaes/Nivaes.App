@@ -7,9 +7,7 @@
     using System.Diagnostics.CodeAnalysis;
     using System.Runtime.CompilerServices;
 
-    //[MessagePackObject]
-    //[MemoryPackable()]
-    public abstract partial class Model
+    public abstract class Model
         : IModel
     {
         protected Model()

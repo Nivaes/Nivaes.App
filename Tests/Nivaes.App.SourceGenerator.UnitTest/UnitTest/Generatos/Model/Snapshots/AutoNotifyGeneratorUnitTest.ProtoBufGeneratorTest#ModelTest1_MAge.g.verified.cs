@@ -1,4 +1,4 @@
-﻿//HintName: ModelTest1_FamilyName.g.cs
+﻿//HintName: ModelTest1_MAge.g.cs
 
 #nullable enable
 using System.ComponentModel;
@@ -8,10 +8,10 @@ namespace Nivaes.App.Shared.Test
 {
     public partial class ModelTest1 : Model, INotifyPropertyChanged
     {
-        public string FamilyName
+        public int MAge
         {
-            get => familyName;
-            set => SetProperty(ref familyName, value);
+            get => mAge;
+            set => SetProperty(ref mAge, value);
         }
     }
 }

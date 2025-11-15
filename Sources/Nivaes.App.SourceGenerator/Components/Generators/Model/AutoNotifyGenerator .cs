@@ -7,54 +7,59 @@ using Microsoft.CodeAnalysis.Text;
 namespace Nivaes.App.SourceGenerator;
 
 [Generator]
-public class AutoNotifyGenerator : IIncrementalGenerator
+public class AutoNotifyGenerator
+    : IIncrementalGenerator
 {
     private const string TargetAttributeMetadataName = "Nivaes.App.AutoNotifyAttribute";
 
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
-        // Filtrar solo nodos que son campos con atributos
-        var fieldsWithAttributes = context.SyntaxProvider
-            .CreateSyntaxProvider(
-                predicate: static (node, _) =>
-                    node is FieldDeclarationSyntax { AttributeLists.Count: > 0 },
-                transform: static (ctx, _) =>
-                {
-                    var field = (FieldDeclarationSyntax)ctx.Node;
-                    var model = ctx.SemanticModel;
+//#if DEBUG
+//        System.Diagnostics.Debugger.Launch();
+//#endif
 
-                    var variables = field.Declaration.Variables;
-
-                    // Se devuelven todos los campos del FieldDeclarationSyntax
-                    return variables.Select(v =>
-                    {
-                        var symbol = model.GetDeclaredSymbol(v) as IFieldSymbol;
-                        return symbol;
-                    }).Where(s => s != null);
-                }
-            )
+        var provider = context.SyntaxProvider.ForAttributeWithMetadataName(
+             TargetAttributeMetadataName,
+             predicate: static (node, _) =>
+             {
+                 return node is VariableDeclaratorSyntax;
+             },
+             transform: static (attrCtx, _) =>
+             {
+                 if (attrCtx.TargetNode is VariableDeclaratorSyntax variableDecl)
+                 {
+                     var model = attrCtx.SemanticModel;
+                     if (model.GetDeclaredSymbol(variableDecl) is IFieldSymbol symbol)
+                     {
+                         return [symbol];
+                     }
+                 }
+                 return Array.Empty<IFieldSymbol>();
+             })
+            .Where(static s => s is not null)
             .SelectMany((symbols, _) => symbols!);
 
-        // Filtrar solo los campos que tengan [AutoNotify]
-        var autoNotifyFields = fieldsWithAttributes
-            .Where(static f =>
-                f!.GetAttributes().Any(a =>
-                    a.AttributeClass?.ToDisplayString() == TargetAttributeMetadataName));
+        //// Filtrar solo los campos que tengan [AutoNotify]
+        //var autoNotifyFields = fieldsWithAttributes
+        //    .Where(static f =>
+        //        f!.GetAttributes().Any(a =>
+        //            a.AttributeClass?.ToDisplayString() == TargetAttributeMetadataName));
 
-        context.RegisterSourceOutput(autoNotifyFields, GenerateProperty);
+        context.RegisterSourceOutput(provider, GenerateProperty);
     }
 
-    private void GenerateProperty(SourceProductionContext context, IFieldSymbol? fieldSymbol)
+    private static void GenerateProperty(SourceProductionContext context, IFieldSymbol? fieldSymbol)
     {
         var classSymbol = fieldSymbol!.ContainingType;
         var namespaceName = classSymbol.ContainingNamespace.ToDisplayString();
 
         // Obtener nombre de la propiedad
         var attr = fieldSymbol.GetAttributes()
-            .First(a => a.AttributeClass?.ToDisplayString() == TargetAttributeMetadataName);
+            .FirstOrDefault(a => a.AttributeClass?.ToDisplayString() == TargetAttributeMetadataName);
 
-        var name = attr.NamedArguments.FirstOrDefault(k => k.Key == "PropertyName").Value.Value as string
-                   ?? ToPascalCase(fieldSymbol.Name);
+        var nameFromAttr = GetAttributeStringValue(attr, "PropertyName");
+
+        var name = nameFromAttr ?? ToPascalCase(fieldSymbol.Name);
 
         var fieldType = fieldSymbol.Type.ToDisplayString();
         var fieldName = fieldSymbol.Name;
@@ -80,6 +85,29 @@ namespace {namespaceName}
 ";
         context.AddSource($"{className}_{name}.g.cs", SourceText.From(source, Encoding.UTF8));
     }
+
+    private static string? GetAttributeStringValue(AttributeData? attr, string namedKey)
+    {
+        if (attr is null) return null;
+
+        // 1) Named argument, e.g. [AutoNotify(PropertyName = "X")]
+        foreach (var kv in attr.NamedArguments)
+        {
+            if (kv.Key == namedKey)
+                return kv.Value.Value as string;
+        }
+
+        // 2) Positional constructor argument fallback (if attribute uses ctor param)
+        if (attr.ConstructorArguments.Length > 0)
+        {
+            // You might need to map the constructor position depending on your attribute signature.
+            var tc = attr.ConstructorArguments[0];
+            return tc.Value as string;
+        }
+
+        return null;
+    }
+
 
     private static string ToPascalCase(string fieldName)
     {

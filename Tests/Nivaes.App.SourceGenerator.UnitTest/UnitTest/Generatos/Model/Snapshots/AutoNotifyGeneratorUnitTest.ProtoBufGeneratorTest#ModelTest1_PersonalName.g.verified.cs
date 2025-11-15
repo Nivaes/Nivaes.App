@@ -2,7 +2,7 @@
 
 #nullable enable
 using System.ComponentModel;
-using System.App;
+using Nivaes.App;
 
 namespace Nivaes.App.Shared.Test
 {
@@ -11,14 +11,7 @@ namespace Nivaes.App.Shared.Test
         public string PersonalName
         {
             get => personalName;
-            set
-            {
-                if (!EqualityComparer<string>.Default.Equals(personalName, value))
-                {
-                    personalName = value;
-                    OnPropertyChanged(nameof(PersonalName));
-                }
-            }
+            set => SetProperty(ref personalName, value);
         }
     }
 }
