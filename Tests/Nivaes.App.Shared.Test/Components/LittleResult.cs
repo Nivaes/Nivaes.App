@@ -1,10 +1,10 @@
 ﻿namespace Nivaes.App.Shared.Test
 {
-    using ProtoBuf;
+    using LightProto;
 
 
     [ProtoContract(Name = "LittleResult", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
-    public class LittleResult
+    public partial class LittleResult
         : Result, IDataModelProtobuf
     {
         [ProtoMember(1, Name = "EndValue")]

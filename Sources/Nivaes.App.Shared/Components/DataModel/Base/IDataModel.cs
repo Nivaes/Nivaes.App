@@ -4,7 +4,7 @@
 
     /// <summary>Interface for <see cref="DataModel"/>.</summary>
     public interface IDataModel
-        : IModel, IDataModelProtobuf, INotifyPropertyChanged
+        : IModel, INotifyPropertyChanged
     {
     }
 }

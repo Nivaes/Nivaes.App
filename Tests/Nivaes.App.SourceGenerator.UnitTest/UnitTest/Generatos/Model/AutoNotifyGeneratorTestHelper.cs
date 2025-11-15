@@ -1,14 +1,12 @@
-﻿namespace Nivaes.App.SourceGenerator.UnitTest.ProtoBuf
+﻿namespace Nivaes.App.SourceGenerator.UnitTest
 {
     using System.Threading.Tasks;
-    using global::ProtoBuf;
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.CSharp;
-    using Nivaes.App.SourceGenerator.Components.Generators.ProtoBuf;
 
-    internal class ProtoBufGeneratorTestHelper
+    internal class AutoNotifyGeneratorTestHelper
     {
-        protected ProtoBufGeneratorTestHelper()
+        protected AutoNotifyGeneratorTestHelper()
         {
         }
 
@@ -24,13 +22,13 @@
                 references:
                 [
                     MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
-                    MetadataReference.CreateFromFile(typeof(ProtoBufGeneratorTestHelper).Assembly.Location),
-                    MetadataReference.CreateFromFile(typeof(ProtoContractAttribute).Assembly.Location),
+                    MetadataReference.CreateFromFile(typeof(AutoNotifyGeneratorTestHelper).Assembly.Location),
+                    MetadataReference.CreateFromFile(typeof(IModel).Assembly.Location),
                 ]);
 
 
             // Create an instance of our EnumGenerator incremental source generator
-            var generator = new ProtoBufGenerator();
+            var generator = new AutoNotifyGenerator();
 
             // The GeneratorDriver is used to run our generator against a compilation
             GeneratorDriver driver = CSharpGeneratorDriver.Create(generator);

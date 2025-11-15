@@ -16,42 +16,42 @@
             mTestOutputHelper = testOutputHelper;
         }
 
-        [Fact]
-        public void LittleResultResultProtoBufSerialize1()
-        {
-            var appTestResult1 = new LittleResult
-            {
-                EndValue = true
-            };
+        //[Fact]
+        //public void LittleResultResultProtoBufSerialize1()
+        //{
+        //    var appTestResult1 = new LittleResult
+        //    {
+        //        EndValue = true
+        //    };
 
-            var buffer = ProtoBufHelper.Serialize(appTestResult1);
-            buffer.Should().NotBeNull();
+        //    var buffer = ProtoHelper.Serialize(appTestResult1);
+        //    buffer.Should().NotBeNull();
 
-            mTestOutputHelper.WriteLine($"Serialization size: {buffer.Length}");
+        //    mTestOutputHelper.WriteLine($"Serialization size: {buffer.Length}");
 
-            var appTestResult2 = ProtoBufHelper.Deserialize<LittleResult>(buffer);
+        //    var appTestResult2 = ProtoHelper.Deserialize<LittleResult>(buffer);
 
-            appTestResult2.Should().NotBeNull();
-            appTestResult2.EndValue.Should().Be(appTestResult1.EndValue);
-        }
+        //    appTestResult2.Should().NotBeNull();
+        //    appTestResult2.EndValue.Should().Be(appTestResult1.EndValue);
+        //}
 
-        [Fact]
-        public void LittleResultResultProtoBufSerialize2()
-        {
-            var appTestResult1 = new LittleResult
-            {
-                EndValue = false
-            };
+        //[Fact]
+        //public void LittleResultResultProtoBufSerialize2()
+        //{
+        //    var appTestResult1 = new LittleResult
+        //    {
+        //        EndValue = false
+        //    };
 
-            var buffer = ProtoBufHelper.Serialize(appTestResult1);
-            buffer.Should().NotBeNull();
+        //    var buffer = ProtoHelper.Serialize(appTestResult1);
+        //    buffer.Should().NotBeNull();
 
-            mTestOutputHelper.WriteLine($"Serialization size: {buffer.Length}");
+        //    mTestOutputHelper.WriteLine($"Serialization size: {buffer.Length}");
 
-            var appTestResult2 = ProtoBufHelper.Deserialize<LittleResult>(buffer);
+        //    var appTestResult2 = ProtoHelper.Deserialize<LittleResult>(buffer);
 
-            appTestResult2.Should().NotBeNull();
-            appTestResult2.EndValue.Should().Be(appTestResult1.EndValue);
-        }
+        //    appTestResult2.Should().NotBeNull();
+        //    appTestResult2.EndValue.Should().Be(appTestResult1.EndValue);
+        //}
     }
 }

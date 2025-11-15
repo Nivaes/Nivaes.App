@@ -1,14 +1,14 @@
 ﻿namespace Nivaes.App.Shared.Test
 {
     using System;
-    using ProtoBuf;
+    using LightProto;
     using System.Runtime.Serialization;
 
     /// <summary>Implement a <see cref="Nivaes.App.DataModel"/> for test.</summary>
     [ProtoContract(Name = "TestDataModel01", ImplicitFields = ImplicitFields.AllPublic, ImplicitFirstTag = 100)]
     [DataContract(IsReference = false, Name = "TestDataModel01", Namespace = "http://test.crm")]
     [Serializable]
-    public class TestDataModel01
+    public partial class TestDataModel01
         : DataModel
     {
         #region TestDataModel01Id

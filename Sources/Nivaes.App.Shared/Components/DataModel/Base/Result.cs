@@ -1,10 +1,9 @@
 ﻿namespace Nivaes.App
 {
-    using ProtoBuf;
+    using LightProto;
 
     [ProtoContract(Name = "Result", ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
-    public abstract class Result
-        : IDataModelProtobuf
+    public abstract partial class Result
     {
         protected Result()
         { }

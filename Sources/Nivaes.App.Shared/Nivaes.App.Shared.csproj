@@ -1,10 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
 
     <AssemblyName>Nivaes.App.Shared</AssemblyName>
     <RootNamespace>Nivaes.App</RootNamespace>
+
+    <RunAOTAnalysis>true</RunAOTAnalysis>
+    <IsAotCompatible>true</IsAotCompatible>
+
+    <!--<PublishAot>true</PublishAot>-->
+
   </PropertyGroup>
 
   <PropertyGroup>
@@ -30,21 +36,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="LightProto" />
+    <PackageReference Include="MemoryPack" />
+    <PackageReference Include="MessagePack" />
     <PackageReference Include="Nivaes.Extensions" />
-    <PackageReference Include="protobuf-net.BuildTools">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="protobuf-net.Grpc" />
-    <PackageReference Include="System.Threading.Tasks.Extensions" />
-
     <ProjectReference Include="..\Nivaes.App.SourceGenerator\Nivaes.App.SourceGenerator.csproj">
       <OutputItemType>Analyzer</OutputItemType>
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
 
       <PrivateAssets>runtime; build; native; contentfiles; buildtransitive</PrivateAssets>
       <IncludeAssets>analyzers</IncludeAssets>
-      <ExcludeAssets>runtime; build; native; contentfiles; buildtransitive</ExcludeAssets>
     </ProjectReference>
   </ItemGroup>
 

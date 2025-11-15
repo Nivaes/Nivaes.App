@@ -6,14 +6,11 @@
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
     using System.Runtime.CompilerServices;
-    using System.Runtime.Serialization;
-    using ProtoBuf;
 
-    [ProtoContract(Name = "Model", ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
-    [DataContract(Name = "Model", Namespace = "http://nivaes")]
-    [Serializable]
-    public abstract class Model
-        : IModel, INotifyPropertyChanged
+    //[MessagePackObject]
+    //[MemoryPackable()]
+    public abstract partial class Model
+        : IModel
     {
         protected Model()
         { }

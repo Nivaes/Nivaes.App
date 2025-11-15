@@ -1,10 +1,10 @@
 ﻿namespace Nivaes.App.Shared.Test
 {
     using System.Runtime.Serialization;
-    using ProtoBuf;
+    using LightProto;
 
     [ProtoContract(Name = "ModelTest2", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None)]
-    public sealed class ModelTest2
+    public sealed partial class ModelTest2
         : DataModel
     {
         #region TestDataModel01Id

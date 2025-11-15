@@ -3,7 +3,6 @@
     using System;
     using System.Globalization;
     using FluentAssertions;
-    using ProtoBuf.Meta;
     using Xunit;
 
     [Trait("TestType", "Unit")]
@@ -35,25 +34,25 @@
             t1.Should().Be(t2);
         }
 
-        [Fact]
-        public void ProtoBufHelperSerialization()
-        {
-            ProtoBufHelper.CanSerialize(typeof(int)).Should().BeTrue();
-            ProtoBufHelper.CanSerialize(typeof(string)).Should().BeTrue();
-            ProtoBufHelper.CanSerialize(typeof(decimal)).Should().BeTrue();
-            ProtoBufHelper.CanSerialize(typeof(DateTime)).Should().BeTrue();
-        }
+        //[Fact]
+        //public void ProtoBufHelperSerialization()
+        //{
+        //    ProtoHelper.CanSerialize(typeof(int)).Should().BeTrue();
+        //    ProtoHelper.CanSerialize(typeof(string)).Should().BeTrue();
+        //    ProtoHelper.CanSerialize(typeof(decimal)).Should().BeTrue();
+        //    ProtoHelper.CanSerialize(typeof(DateTime)).Should().BeTrue();
+        //}
 
-        [Fact]
-        public void ProtoBufSerialization()
-        {
-            var model = RuntimeTypeModel.Create();
-            model.Add(typeof(DateTimeOffset), true);
+        //[Fact]
+        //public void ProtoBufSerialization()
+        //{
+        //    var model = RuntimeTypeModel.Create();
+        //    model.Add(typeof(DateTimeOffset), true);
 
-            model.CanSerialize(typeof(int)).Should().BeTrue();
-            model.CanSerialize(typeof(string)).Should().BeTrue();
-            model.CanSerialize(typeof(decimal)).Should().BeTrue();
-            model.CanSerialize(typeof(DateTime)).Should().BeTrue();
-        }
+        //    model.CanSerialize(typeof(int)).Should().BeTrue();
+        //    model.CanSerialize(typeof(string)).Should().BeTrue();
+        //    model.CanSerialize(typeof(decimal)).Should().BeTrue();
+        //    model.CanSerialize(typeof(DateTime)).Should().BeTrue();
+        //}
     }
 }

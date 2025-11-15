@@ -2,10 +2,10 @@
 {
     using System;
     using System.Runtime.Serialization;
-    using ProtoBuf;
+    using LightProto;
 
     [ProtoContract(Name = "ModelTest1", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None)]
-    public sealed class ModelTest1
+    public sealed partial class ModelTest1
         : DataModel
     {
         #region Dato01

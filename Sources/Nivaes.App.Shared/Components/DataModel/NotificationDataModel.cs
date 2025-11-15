@@ -2,56 +2,67 @@
 {
     using System;
     using System.Globalization;
-    using ProtoBuf;
+    using LightProto;
     using Nivaes;
 
-    [ProtoContract(Name = "Notification", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None)]
-    public sealed class NotificationDataModel
-        : DataModel
+    //[ProtoContract(Name = "Notification", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None)]
+    [DataModel]
+    public sealed partial class NotificationDataModel
+    //: IDataModel
     {
-        [ProtoMember(1, Name = "IdNotification")]
-        public Guid IdNotification { get; set; }
+        [AutoNotify]
+        private Guid idNotification;
 
-        #region IdUser
+        [AutoNotify]
+        private Guid name;
 
-        [ProtoMember(2, Name = "IdUser")]
-        public Guid IdUser { get; set; }
+        [AutoNotify]
+        private string? text;
 
-        #endregion IdUser
+        //[ProtoMember(1, Name = "IdNotification")]
+        //public Guid IdNotification { get; set; }
 
-        #region Text
+        //#region IdUser
 
-        private string mText = string.Empty;
 
-        [ProtoMember(3, Name = "Text")]
-        public string Text
-        {
-            get => mText;
-            set => base.SetProperty(ref mText, value);
-        }
+        //[ProtoMember(2, Name = "IdUser")]
+        //public Guid IdUser { get; set; }
 
-        #endregion Text
+        //#endregion IdUser
 
-        #region Date
+        //#region Text
 
-        private DateTime mDate;
+        //private string mText = string.Empty;
 
-        [ProtoMember(4, Name = "Date")]
-        public DateTime Date
-        {
-            get => mDate;
-            set
-            {
-                if (base.SetProperty(ref mDate, value))
-                {
-                    base.RaisePropertyChanged(nameof(DisplayData));
-                }
-            }
-        }
+        //[ProtoMember(3, Name = "Text")]
+        //public string Text
+        //{
+        //    get => mText;
+        //    set => this.SetProperty(ref mText, value);
+        //}
 
-        [ProtoIgnore]
-        public string DisplayData => string.Format(CultureInfo.CurrentCulture, "{0:f}", mDate).FirstCharToUpper();
+        //#endregion Text
 
-        #endregion Date
+        //#region Date
+
+        //private DateTime mDate;
+
+        //[ProtoMember(4, Name = "Date")]
+        //public DateTime Date
+        //{
+        //    get => mDate;
+        //    set
+        //    {
+        //        if (this.SetProperty(ref mDate, value))
+        //        {
+        //            this.RaisePropertyChanged(nameof(DisplayData));
+        //        }
+        //    }
+        //}
+
+        //[ProtoIgnore]
+        //public string DisplayData => string.Format(CultureInfo.CurrentCulture, "{0:f}", mDate).FirstCharToUpper();
+
+        //#endregion Date
     }
 }
