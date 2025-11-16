@@ -6,11 +6,7 @@
 
     public class KeyContainerManager<TValue>
     {
-#if NET8_0
-        private readonly object @lock = new();
-#elif NET9_0_OR_GREATER
         private readonly System.Threading.Lock @lock = new();
-#endif
 
         private KeyStoreItem[] mValues;
 

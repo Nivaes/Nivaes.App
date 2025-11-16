@@ -2,7 +2,12 @@
 {
     using System.Buffers;
     using System.Diagnostics;
+    using System.Runtime.Serialization;
+    using System.Runtime.Serialization.Json;
+    using System.Text;
+    using System.Text.Json;
     using LightProto;
+    using System.Text.Json.Serialization.Metadata;
 
     /// <summary>Helper for <see cref="IModel"/>.</summary>
     public static class ModelHelper

@@ -1,14 +1,13 @@
-﻿namespace Nivaes.App
+﻿using System;
+
+namespace Nivaes.App;
+
+[AttributeUsage(System.AttributeTargets.Field)]
+public sealed class AutoNotifyAttribute : Attribute
 {
-    using System;
+    public AutoNotifyAttribute() { }
 
-    [AttributeUsage(System.AttributeTargets.Field)]
-    public sealed class AutoNotifyAttribute : Attribute
-    {
-        public AutoNotifyAttribute() { }
+    public AutoNotifyAttribute(string propertyName) => PropertyName = propertyName;
 
-        public AutoNotifyAttribute(string propertyName) => PropertyName = propertyName;
-
-        public string? PropertyName { get; set; }
-    }
+    public string? PropertyName { get; set; }
 }

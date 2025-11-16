@@ -5,7 +5,7 @@
 
     [MemoryPackable]
     public partial class BigResult
-        : Result, IDataModelProtobuf
+        : Result
     {
         public BigDatamodel? ContentValue { get; set; }
     }

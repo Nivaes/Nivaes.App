@@ -39,12 +39,6 @@ public class AutoNotifyGenerator
             .Where(static s => s is not null)
             .SelectMany((symbols, _) => symbols!);
 
-        //// Filtrar solo los campos que tengan [AutoNotify]
-        //var autoNotifyFields = fieldsWithAttributes
-        //    .Where(static f =>
-        //        f!.GetAttributes().Any(a =>
-        //            a.AttributeClass?.ToDisplayString() == TargetAttributeMetadataName));
-
         context.RegisterSourceOutput(provider, GenerateProperty);
     }
 

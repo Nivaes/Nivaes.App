@@ -6,11 +6,14 @@
     <AssemblyName>Nivaes.App.Shared</AssemblyName>
     <RootNamespace>Nivaes.App</RootNamespace>
 
+  </PropertyGroup>
+
+  <PropertyGroup>
     <RunAOTAnalysis>true</RunAOTAnalysis>
     <IsAotCompatible>true</IsAotCompatible>
 
     <!--<PublishAot>true</PublishAot>-->
-
+    <WarningsAsErrors>IL2026;IL3002;IL2028</WarningsAsErrors>
   </PropertyGroup>
 
   <PropertyGroup>

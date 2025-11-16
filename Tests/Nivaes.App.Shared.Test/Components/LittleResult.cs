@@ -2,12 +2,11 @@
 {
     using LightProto;
 
-
-    [ProtoContract(Name = "LittleResult", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
+    //[ProtoContract(Name = "LittleResult", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
     public partial class LittleResult
-        : Result, IDataModelProtobuf
+        : Result
     {
-        [ProtoMember(1, Name = "EndValue")]
+        //[ProtoMember(1, Name = "EndValue")]
         public bool EndValue { get; set; }
     }
 }
