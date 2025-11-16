@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches-ignore:
-    - 'release/v**'
+    - 'release/v**'  
     paths-ignore:
     - '**/*.md'
     - '**/*.sln'
@@ -26,10 +26,10 @@ jobs:
       run: echo "$GITHUB_CONTEXT"
 
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v4
 
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v5
+      uses: actions/setup-dotnet@v4
       with:
         lobal-json-file: ./global.json
         source-url: https://nuget.pkg.github.com/Nivaes/index.json
@@ -44,4 +44,4 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Test
-      run: dotnet test --configuration Release --no-build --verbosity normal --no-restore
+      run: dotnet test --configuration Release --no-build --verbosity normal --no-restore --no-build

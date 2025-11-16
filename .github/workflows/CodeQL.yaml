@@ -36,16 +36,22 @@ jobs:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
+      uses: github/codeql-action/init@v4
       with:
         languages: ${{ matrix.language }}
+        config-file: ./.github/codeql/codeql-config.yaml
 
     # Necesario para proyectos C#
     - name: Restore dependencies
       run: dotnet restore
 
     - name: Build the project
-      run: dotnet build --configuration Release --no-restore
+      shell: pwsh
+      run: |
+        Get-ChildItem -Recurse -Filter .\sources\*.csproj |
+            ForEach-Object {
+                dotnet build $_.FullName --configuration Release --no-restore
+            }
 
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
+      uses: github/codeql-action/analyze@v4

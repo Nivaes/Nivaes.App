@@ -6,13 +6,14 @@ on:
       - released
       - prereleased
 
+permissions:
+  contents: read
+
 jobs:
   publish_release:
-
     runs-on: ubuntu-latest
 
     steps:
-
     - name: Get Version
       uses: nivaes/version-run-number@develop
       id: version_run_number
@@ -29,9 +30,6 @@ jobs:
     - name: prereleased
       if: github.event.action == 'prereleased'
       run: echo Prereleased
-
-    - name: Checkout
-      uses: actions/checkout@v5
 
     - name: Release
       run: |
@@ -51,4 +49,3 @@ jobs:
 
     - name: Publish packages
       run: dotnet nuget push ./Artifacts/*.nupkg --skip-duplicate --source nuget.org --api-key ${{ secrets.NIVAES_NUGET_TOKEN }}
-      # run: dotnet nuget push ./artifacts/*.nupkg --source https://nuget.pkg.github.com/Nivaes/index.json --skip-duplicate --api-key ${{secrets.GITHUB_TOKEN}}
