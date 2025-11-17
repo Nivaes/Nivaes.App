@@ -2,15 +2,15 @@
   <ItemGroup>
     <PackageVersion Include="FluentValidation" Version="11.9.0" />
     <PackageVersion Include="FluentAssertions" Version="8.8.0" />
-    <PackageVersion Include="LightProto" Version="0.8.4" />
+    <PackageVersion Include="LightProto" Version="0.8.5" />
     <PackageVersion Include="MemoryPack" Version="1.21.4" />
     <PackageVersion Include="MessagePack" Version="3.1.4" />
     <PackageVersion Include="Microsoft.Bcl.Memory" Version="10.0.0" />
     <PackageVersion Include="Nivaes.Extensions" Version="2.2.34" />
     <PackageVersion Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageVersion Condition="'$(TargetFramework)' == 'net8.0' OR '$(TargetFramework)' == 'net9.0' " Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.10" />
+    <PackageVersion Condition="'$(TargetFramework)' == 'net8.0' OR '$(TargetFramework)' == 'net9.0' " Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.11" />
     <PackageVersion Condition="'$(TargetFramework)' == 'net10.0'" Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.0" />
-    <PackageVersion Condition="'$(TargetFramework)' == 'net8.0' OR '$(TargetFramework)' == 'net9.0' " Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.10" />
+    <PackageVersion Condition="'$(TargetFramework)' == 'net8.0' OR '$(TargetFramework)' == 'net9.0' " Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.11" />
     <PackageVersion Condition="'$(TargetFramework)' == 'net10.0' " Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
     <PackageVersion Include="Moq" Version="4.20.72" />
