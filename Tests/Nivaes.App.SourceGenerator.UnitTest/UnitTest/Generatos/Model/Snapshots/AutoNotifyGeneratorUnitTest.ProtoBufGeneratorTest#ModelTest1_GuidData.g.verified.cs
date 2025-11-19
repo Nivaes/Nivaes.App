@@ -1,6 +1,7 @@
 ﻿//HintName: ModelTest1_GuidData.g.cs
 
 #nullable enable
+#pragma warning disable 1591
 using System.ComponentModel;
 using Nivaes.App;
 
