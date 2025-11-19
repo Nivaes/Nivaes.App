@@ -72,7 +72,7 @@
                 TimeStamp = DateTime.UtcNow
             };
 
-            var testDataModel2 = testDataModel.CloneProto();
+            var testDataModel2 = testDataModel.Clone();
 
             testDataModel2.Should().NotBeNull();
             testDataModel.TestDataModel01Id.Should().Be(testDataModel2?.TestDataModel01Id ?? Guid.Empty);

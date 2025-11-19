@@ -1,19 +1,19 @@
 ﻿namespace Nivaes.App.Shared.Test
 {
     using System;
-    using LightProto;
-    using System.Runtime.Serialization;
+    using MemoryPack;
 
     /// <summary>Implement a <see cref="Nivaes.App.DataModel"/> for test.</summary>
-    [ProtoContract(Name = "TestDataModel01", ImplicitFields = ImplicitFields.AllPublic, ImplicitFirstTag = 100)]
-    [DataContract(IsReference = false, Name = "TestDataModel01", Namespace = "http://test.crm")]
+    [MemoryPackable]
     [Serializable]
     public partial class TestDataModel01
         : DataModel
     {
         #region TestDataModel01Id
-        [ProtoMember(1, Name = "TestDataModel01Id")]
-        [DataMember(Name = "TestDataModel01Id")]
+        [MemoryPackInclude()]
+        [MemoryPackOrder(1)]
+        //[AutoNotify()]
+        //[DataMember(Name = "TestDataModel01Id")]
         public Guid TestDataModel01Id { get; set; }
         #endregion
 
@@ -22,8 +22,7 @@
         private string mStringValueReadOnly = string.Empty;
 
         /// <summary>String test value.</summary>
-        [ProtoMember(2, Name = "StringValueReadOnly")]
-        [DataMember(Name = "StringValueReadOnly")]
+        //[AutoNotify()]
         public string StringValueReadOnly
         {
             get => mStringValueReadOnly;
@@ -35,8 +34,6 @@
         /// <summary>Stirng test value.</summary>
         private string mStringValue = string.Empty;
 
-        [ProtoMember(3, Name = "StringValue")]
-        [DataMember(Name = "StringValue")]
         public string StringValue
         {
             get => mStringValue;
@@ -49,8 +46,6 @@
         private int? mIntValue;
 
         /// <summary>Int test value.</summary>
-        [ProtoMember(4, Name = "IntValue")]
-        [DataMember(Name = "IntValue")]
         public int? IntValue
         {
             get => mIntValue;
@@ -63,8 +58,6 @@
         private double? mDoubleValue;
 
         /// <summary>Double test value.</summary>
-        [ProtoMember(5, Name = "DoubleValue")]
-        [DataMember(Name = "DoubleValue")]
         public double? DoubleValue
         {
             get => mDoubleValue;
@@ -77,8 +70,6 @@
         private string mTelephone = string.Empty;
 
         /// <summary>Telephone.</summary>
-        [ProtoMember(6, Name = "Telephone")]
-        [DataMember(Name = "Telephone")]
         public string Telephone
         {
             get => mTelephone;

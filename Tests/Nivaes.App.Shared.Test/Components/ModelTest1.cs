@@ -2,14 +2,14 @@
 {
     using System;
     using System.Runtime.Serialization;
-    using LightProto;
+    using MemoryPack;
 
-    [ProtoContract(Name = "ModelTest1", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None)]
+    [MemoryPackable]
     public sealed partial class ModelTest1
         : DataModel
     {
         #region Dato01
-        [ProtoMember(1, Name = "GuidData")]
+        [MemoryPackInclude()]
         [DataMember(Name = "GuidData")]
         public Guid GuidData { get; set; }
         #endregion 

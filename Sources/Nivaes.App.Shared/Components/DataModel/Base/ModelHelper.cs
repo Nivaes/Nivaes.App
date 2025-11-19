@@ -14,7 +14,7 @@
         /// <param name="model">Original model object.</param>
         /// <returns>New model object, clone of original.</returns>
         [DebuggerStepThrough]
-        public static TModel? CloneProto<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] TModel>(this TModel model)
+        public static TModel? Clone<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] TModel>(this TModel model)
             where TModel : class, IModel
         {
             if (model == null)

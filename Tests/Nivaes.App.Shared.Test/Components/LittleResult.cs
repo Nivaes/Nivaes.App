@@ -1,12 +1,12 @@
 ﻿namespace Nivaes.App.Shared.Test
 {
-    using LightProto;
+     using MemoryPack;
 
-    //[ProtoContract(Name = "LittleResult", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None, SkipConstructor = true)]
+    [MemoryPackable]
     public partial class LittleResult
         : Result
     {
-        //[ProtoMember(1, Name = "EndValue")]
+        [MemoryPackInclude]
         public bool EndValue { get; set; }
     }
 }
