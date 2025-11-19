@@ -2,10 +2,11 @@
 {
     using System;
     using System.Globalization;
-    using LightProto;
+    using MemoryPack;
     using Nivaes;
 
     //[ProtoContract(Name = "Notification", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None)]
+    [MemoryPackable]
     [DataModel]
     public sealed partial class NotificationDataModel
     //: IDataModel
@@ -16,7 +17,7 @@
         [AutoNotify]
         private Guid name;
 
-        [AutoNotify(PropertyName="hola")]
+        [AutoNotify()]
         private string? text;
 
         //[ProtoMember(1, Name = "IdNotification")]
@@ -26,7 +27,7 @@
 
 
         //[ProtoMember(2, Name = "IdUser")]
-        //public Guid IdUser { get; set; }
+        public Guid IdUser { get; set; }
 
         //#endregion IdUser
 
@@ -44,8 +45,8 @@
         //#endregion Text
 
         //#region Date
-
-        //private DateTime mDate;
+        [AutoNotify()]
+        private DateTime mDate;
 
         //[ProtoMember(4, Name = "Date")]
         //public DateTime Date
@@ -60,8 +61,7 @@
         //    }
         //}
 
-        //[ProtoIgnore]
-        //public string DisplayData => string.Format(CultureInfo.CurrentCulture, "{0:f}", mDate).FirstCharToUpper();
+        public string DisplayData => string.Format(CultureInfo.CurrentCulture, "{0:f}", mDate).FirstCharToUpper();
 
         //#endregion Date
     }

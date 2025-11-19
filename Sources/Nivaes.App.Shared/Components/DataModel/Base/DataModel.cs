@@ -4,7 +4,6 @@
     using System.ComponentModel;
     using MemoryPack;
 
-    //[MemoryPackable]
     public abstract partial class DataModel
         : Model, IDataModel, INotifyPropertyChanged
     {
@@ -13,14 +12,14 @@
 
         private DateTime mTimeStamp;
 
-        //[MemoryPackIgnore]
+        [MemoryPackIgnore]
         public DateTime TimeStamp
         {
             get => mTimeStamp;
             set => mTimeStamp = value;
         }
 
-        //[MemoryPackInclude]
+        [MemoryPackInclude]
         public long TimeStampTicks
         {
             get => mTimeStamp.Ticks;

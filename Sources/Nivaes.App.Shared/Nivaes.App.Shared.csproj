@@ -39,9 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LightProto" />
     <PackageReference Include="MemoryPack" />
-    <PackageReference Include="MessagePack" />
     <PackageReference Include="Nivaes.Extensions" />
     <ProjectReference Include="..\Nivaes.App.SourceGenerator\Nivaes.App.SourceGenerator.csproj">
       <OutputItemType>Analyzer</OutputItemType>
