@@ -3,7 +3,6 @@
     using FluentAssertions;
     using Nivaes.App.Shared.Test;
     using Xunit;
-    using Xunit.Abstractions;
 
     [Trait("TestType", "Unit")]
     public sealed class LittleResultSerializationTest
