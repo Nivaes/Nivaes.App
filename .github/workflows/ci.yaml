@@ -25,16 +25,17 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
 
-    - name: Count runs of workflow on branch
-      env:
-        GH_TOKEN: ${{ github.token }}
-      run: |
-        count=$(gh api \
-          repos/${{ github.repository }}/actions/workflows/${{ github.workflow_ref }} \
-          --raw-field branch=${{ github.ref_name }} \
-          --jq '.total_count')
+    # - name: Count runs of workflow on branch
+    #   env:
+    #     GH_TOKEN: ${{ github.token }}
+    #   run: |
+    #     count=$(gh api \
+    #       repos/${{ github.repository }}/actions/workflows/${{ github.workflow_ref }} \
+    #       --raw-field branch=${{ github.ref_name }} \
+    #       --jq '.total_count')
           
-        echo "Número de ejecuciones: $count"
+        # echo "Número de ejecuciones: $count"
+
     - name: Checkout
       uses: actions/checkout@v5
 
