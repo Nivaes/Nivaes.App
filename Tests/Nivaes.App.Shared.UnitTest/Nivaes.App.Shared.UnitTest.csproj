@@ -27,7 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Nivaes.App.Shared.Test\Nivaes.App.Shared.Test.csproj" />
 
-    <ProjectReference Include="..\..\Sources\Nivaes.App.SourceGenerator\Nivaes.App.SourceGenerator.csproj">
+    <ProjectReference Include="..\..\Sources\Nivaes.App.Shared.SourceGenerator\Nivaes.App.Shared.SourceGenerator.csproj">
       <PrivateAssets>all</PrivateAssets>
       <OutputItemType>Analyzer</OutputItemType>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>

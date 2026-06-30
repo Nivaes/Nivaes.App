@@ -34,7 +34,7 @@
   
   <ItemGroup>
     <ProjectReference Include="..\..\Sources\Nivaes.App.Shared\Nivaes.App.Shared.csproj" />
-    <ProjectReference Include="..\..\Sources\Nivaes.App.SourceGenerator\Nivaes.App.SourceGenerator.csproj" />
+    <ProjectReference Include="..\..\Sources\Nivaes.App.Shared.SourceGenerator\Nivaes.App.Shared.SourceGenerator.csproj" />
   </ItemGroup>
   
   <ItemGroup>
