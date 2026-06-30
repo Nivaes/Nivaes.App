@@ -1,4 +1,4 @@
-﻿namespace Nivaes.App.SourceGenerator.UnitTest
+﻿namespace Nivaes.App.Shared.SourceGenerator.UnitTest
 {
     using System.Runtime.CompilerServices;
     using VerifyTests;

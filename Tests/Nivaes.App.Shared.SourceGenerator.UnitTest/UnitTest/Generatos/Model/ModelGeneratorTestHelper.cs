@@ -1,9 +1,9 @@
-﻿//namespace Nivaes.App.SourceGenerator.UnitTest
+﻿//namespace Nivaes.App.Shared.SourceGenerator.UnitTest
 //{
 //    using System.Threading.Tasks;
 //    using Microsoft.CodeAnalysis;
 //    using Microsoft.CodeAnalysis.CSharp;
-    
+
 //    internal class ModelGeneratorTestHelper
 //    {
 //        protected ModelGeneratorTestHelper()

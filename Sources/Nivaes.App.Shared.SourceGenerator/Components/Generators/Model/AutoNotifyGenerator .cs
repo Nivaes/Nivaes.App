@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Nivaes.App.SourceGenerator;
+namespace Nivaes.App.Shared.SourceGenerator;
 
 [Generator]
 public class AutoNotifyGenerator

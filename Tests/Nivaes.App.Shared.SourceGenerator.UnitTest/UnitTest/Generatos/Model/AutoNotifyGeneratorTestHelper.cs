@@ -1,9 +1,8 @@
-﻿namespace Nivaes.App.SourceGenerator.UnitTest
-{
-    using System.Threading.Tasks;
-    using Microsoft.CodeAnalysis;
-    using Microsoft.CodeAnalysis.CSharp;
+﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 
+namespace Nivaes.App.Shared.SourceGenerator.UnitTest
+{
     internal class AutoNotifyGeneratorTestHelper
     {
         protected AutoNotifyGeneratorTestHelper()

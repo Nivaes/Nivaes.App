@@ -1,4 +1,4 @@
-﻿//namespace Nivaes.App.SourceGenerator
+﻿//namespace Nivaes.App.Shared.SourceGenerator
 //{
 //    using System.Collections.Generic;
 //    using System.Linq;

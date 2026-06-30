@@ -1,4 +1,4 @@
-﻿//namespace Nivaes.App.SourceGenerator.UnitTest
+﻿//namespace Nivaes.App.Shared.SourceGenerator.UnitTest
 //{
 //    public class ModelGeneratorUnitTest
 //    {
