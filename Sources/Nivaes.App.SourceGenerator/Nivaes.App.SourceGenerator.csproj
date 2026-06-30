@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Nivaes.App.SourceGeneratort</PackageId>
+    <PackageId>Nivaes.App.SourceGenerator</PackageId>
     <Title>Nivaes compilers toolset</Title>
     <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
     <Product>Guid Compiler Toolset</Product>
