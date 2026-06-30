@@ -1,10 +1,10 @@
-﻿namespace Nivaes.App.Shared.UnitTest
-{
-    using System;
-    using System.Globalization;
-    using FluentAssertions;
-    using Xunit;
+﻿using System;
+using System.Globalization;
+using Shouldly;
+using Xunit;
 
+namespace Nivaes.App.Shared.UnitTest
+{
     [Trait("TestType", "Unit")]
     public class SerializationTest
     {
@@ -18,7 +18,7 @@
             DateTime t2 = DateTime.Parse(s, CultureInfo.InvariantCulture);
 
             Assert.Equal(t1, t2);
-            t1.Should().Be(t2);
+            t1.ShouldBe(t2);
         }
 
         [Fact]
@@ -31,28 +31,7 @@
             DateTimeOffset t2 = DateTimeOffset.Parse(s, CultureInfo.InvariantCulture);
 
             Assert.Equal(t1, t2);
-            t1.Should().Be(t2);
+            t1.ShouldBe(t2);
         }
-
-        //[Fact]
-        //public void ProtoBufHelperSerialization()
-        //{
-        //    ProtoHelper.CanSerialize(typeof(int)).Should().BeTrue();
-        //    ProtoHelper.CanSerialize(typeof(string)).Should().BeTrue();
-        //    ProtoHelper.CanSerialize(typeof(decimal)).Should().BeTrue();
-        //    ProtoHelper.CanSerialize(typeof(DateTime)).Should().BeTrue();
-        //}
-
-        //[Fact]
-        //public void ProtoBufSerialization()
-        //{
-        //    var model = RuntimeTypeModel.Create();
-        //    model.Add(typeof(DateTimeOffset), true);
-
-        //    model.CanSerialize(typeof(int)).Should().BeTrue();
-        //    model.CanSerialize(typeof(string)).Should().BeTrue();
-        //    model.CanSerialize(typeof(decimal)).Should().BeTrue();
-        //    model.CanSerialize(typeof(DateTime)).Should().BeTrue();
-        //}
     }
 }

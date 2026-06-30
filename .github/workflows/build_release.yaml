@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+    - name: Get Version
+      uses: nivaes/version-run-number@develop
+      id: version_run_number
+      
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}

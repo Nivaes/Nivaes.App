@@ -1,10 +1,8 @@
-﻿namespace Nivaes.App.Shared.UnitTest
-{
-    using System;
-    using FluentAssertions;
-    using Nivaes.App;
-    using Xunit;
+﻿using Shouldly;
+using Xunit;
 
+namespace Nivaes.App.Shared.UnitTest
+{
     [Trait("TestType", "Unit")]
     public class KeyContainerManagerTest
     {
@@ -43,20 +41,20 @@
             });
 
             var result1 = manager.TryGetValue(key1, out var instance1_2);
-            result1.Should().BeTrue();
+            result1.ShouldBeTrue();
 
-            instance1_1.Should().NotBeNull();
-            instance1_2.Should().NotBeNull();
-            instance1_1.Id.Should().Be(instance1_2!.Id);
-            instance1_1.Should().BeSameAs(instance1_2);
+            instance1_1.ShouldNotBeNull();
+            instance1_2.ShouldNotBeNull();
+            instance1_1.Id.ShouldBe(instance1_2!.Id);
+            instance1_1.ShouldBeSameAs(instance1_2);
 
             var result2 = manager.TryGetValue(key2, out var instance2_2);
-            result2.Should().BeTrue();
+            result2.ShouldBeTrue();
 
-            instance2_1.Should().NotBeNull();
-            instance2_2.Should().NotBeNull();
-            instance2_1.Id.Should().Be(instance2_2!.Id);
-            instance2_1.Should().BeSameAs(instance2_2);
+            instance2_1.ShouldNotBeNull();
+            instance2_2.ShouldNotBeNull();
+            instance2_1.Id.ShouldBe(instance2_2!.Id);
+            instance2_1.ShouldBeSameAs(instance2_2);
         }
 
 
@@ -99,20 +97,20 @@
             });
 
             var result1 = manager.TryGetValue(key1, out var instance1_2);
-            result1.Should().BeTrue();
+            result1.ShouldBeTrue();
 
-            instance1_1.Should().NotBeNull();
-            instance1_2.Should().NotBeNull();
-            instance1_1.Id.Should().Be(instance1_2!.Id);
-            instance1_1.Should().BeSameAs(instance1_2);
+            instance1_1.ShouldNotBeNull();
+            instance1_2.ShouldNotBeNull();
+            instance1_1.Id.ShouldBe(instance1_2!.Id);
+            instance1_1.ShouldBeSameAs(instance1_2);
 
             var result2 = manager.TryGetValue(key2, out var instance2_2);
-            result2.Should().BeTrue();
+            result2.ShouldBeTrue();
 
-            instance2_1.Should().NotBeNull();
-            instance2_2.Should().NotBeNull();
-            instance2_1.Id.Should().Be(instance2_2!.Id);
-            instance2_1.Should().BeSameAs(instance2_2);
+            instance2_1.ShouldNotBeNull();
+            instance2_2.ShouldNotBeNull();
+            instance2_1.Id.ShouldBe(instance2_2!.Id);
+            instance2_1.ShouldBeSameAs(instance2_2);
         }
     }
 }

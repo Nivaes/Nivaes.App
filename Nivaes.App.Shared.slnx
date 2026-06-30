@@ -1,0 +1,39 @@
+<Solution>
+  <Folder Name="/Documentation/">
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Documentation/docs/">
+    <File Path="docs/references.md" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Build.targets" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Solution Items/.github/">
+    <File Path=".github/dependabot.yml" />
+  </Folder>
+  <Folder Name="/Solution Items/.github/codeql/">
+    <File Path=".github/codeql/codeql-config.yaml" />
+  </Folder>
+  <Folder Name="/Solution Items/.github/workflows/">
+    <File Path=".github/workflows/build_release.yaml" />
+    <File Path=".github/workflows/ci.yaml" />
+    <File Path=".github/workflows/CodeQL.yaml" />
+    <File Path=".github/workflows/delete-old-runs.yaml" />
+    <File Path=".github/workflows/publish_release.yaml" />
+  </Folder>
+  <Folder Name="/Sources/">
+    <Project Path="Sources/Nivaes.App.Shared/Nivaes.App.Shared.csproj" />
+    <Project Path="Sources/Nivaes.App.SourceGenerator/Nivaes.App.SourceGenerator.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/Nivaes.App.Shared.Test/Nivaes.App.Shared.Test.csproj" />
+    <Project Path="Tests/Nivaes.App.Shared.UnitTest/Nivaes.App.Shared.UnitTest.csproj" />
+    <Project Path="Tests/Nivaes.App.SourceGenerator.UnitTest/Nivaes.App.SourceGenerator.UnitTest.csproj" />
+  </Folder>
+</Solution>
