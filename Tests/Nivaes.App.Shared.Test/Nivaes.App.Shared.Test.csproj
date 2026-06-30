@@ -6,8 +6,6 @@
     
     <AssemblyName>Nivaes.App.Shared.Test</AssemblyName>
     <RootNamespace>Nivaes.App.Shared.Test</RootNamespace>
-
-    <IsAotCompatible>true</IsAotCompatible>
   </PropertyGroup>
 
   <ItemGroup>
