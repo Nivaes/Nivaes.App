@@ -1,8 +1,8 @@
-﻿namespace Nivaes.App.Shared.UnitTest
+﻿using Nivaes.App.Shared.Test;
+using Xunit;
+
+namespace Nivaes.App.Shared.UnitTest
 {
-    using FluentAssertions;
-    using Nivaes.App.Shared.Test;
-    using Xunit;
 
     [Trait("TestType", "Unit")]
     public sealed class LittleResultSerializationTest
