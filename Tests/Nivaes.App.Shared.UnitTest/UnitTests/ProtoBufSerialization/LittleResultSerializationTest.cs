@@ -8,11 +8,11 @@ namespace Nivaes.App.Shared.UnitTest
     public sealed class LittleResultSerializationTest
         : IClassFixture<ProtoBufRegisterFixture>
     {
-        private readonly ITestOutputHelper mTestOutputHelper;
+        //private readonly ITestOutputHelper mTestOutputHelper;
 
         public LittleResultSerializationTest(ITestOutputHelper testOutputHelper)
         {
-            mTestOutputHelper = testOutputHelper;
+            //mTestOutputHelper = testOutputHelper;
         }
 
         //[Fact]
