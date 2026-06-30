@@ -47,7 +47,9 @@ jobs:
 
     - name: Remove SourceGenerator symbols
       run: |
-        rm -f ./Artifacts/Nivaes.App.SourceGeneratort.*.snupkg
+        ls ./Artifacts/*.SourceGeneratort.*.{nupkg,snupkg}
+        rm -f ./Artifacts/*.SourceGeneratort.*.snupkg
+        ls ./Artifacts/*.SourceGeneratort.*.{nupkg,snupkg}
 
     - name: Create Release
       id: create_release
