@@ -1,11 +1,5 @@
 ﻿namespace Nivaes.App
 {
-    using System;
-    using System.Diagnostics.CodeAnalysis;
-    //using Grpc.Core;
-
-    [SuppressMessage("Design", "CA1032:Implement standard exception constructors", Justification = "Force message description")]
-    [SuppressMessage("Design", "RCS1194:Implement exception constructors.", Justification = "Force message description")]
     public class CommunicationException
         : AppException
     {
