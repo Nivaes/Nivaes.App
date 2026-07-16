@@ -1,18 +1,16 @@
-﻿namespace Nivaes.App 
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
+namespace Nivaes.App 
+{
     public class KeyContainerManager<TValue>
     {
-        private readonly System.Threading.Lock @lock = new();
+        private readonly Lock @lock = new();
 
         private KeyStoreItem[] mValues;
 
         public struct KeyStoreItem
         {
-            public int Key { get; set; }
+            public nint Key { get; set; }
             public TValue Value { get; set; }
         }
 
@@ -75,7 +73,7 @@
             }
         }
 
-        protected internal bool TryGetValue(int key, [MaybeNullWhen(false)] out TValue presentationType)
+        protected internal bool TryGetValue(nint key, [MaybeNullWhen(false)] out TValue presentationType)
         {
             lock (@lock)
             {
@@ -94,7 +92,7 @@
             }
         }
 
-        protected bool TryGetValue(int key, [MaybeNullWhen(false)] out int position)
+        protected bool TryGetValue(nint key, [MaybeNullWhen(false)] out int position)
         {
             lock (@lock)
             {

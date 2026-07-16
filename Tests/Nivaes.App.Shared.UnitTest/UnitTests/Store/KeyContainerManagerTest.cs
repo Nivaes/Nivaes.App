@@ -57,7 +57,6 @@ namespace Nivaes.App.Shared.UnitTest
             instance2_1.ShouldBeSameAs(instance2_2);
         }
 
-
         [Fact]
         public void MergeContainerManagerTest()
         {
