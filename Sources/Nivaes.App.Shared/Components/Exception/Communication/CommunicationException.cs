@@ -7,6 +7,28 @@
 
         //public StatusCode? StatusCode { get; private set; }
 
+        public CommunicationException()
+          : base()
+        {
+        }
+
+        public CommunicationException(string message)
+          : base(message)
+        {
+        }
+
+        public CommunicationException(string messageFormat, params object?[] messageFormatArguments)
+            : base(string.Format(messageFormat, messageFormatArguments))
+        {
+        }
+
+        // the order of parameters here is slightly different to that normally expected in an exception
+        // - but this order allows us to put string.Format in place
+        public CommunicationException(Exception innerException, string messageFormat, params object?[] formatArguments)
+            : base(string.Format(messageFormat, formatArguments), innerException)
+        {
+        }
+
         public CommunicationException(string message, string callerMemberName)
             : base(message)
         {
