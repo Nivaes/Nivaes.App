@@ -25,7 +25,7 @@ namespace Nivaes.App
 
         public KeyContainerManager()
         {
-            mValues = Array.Empty<KeyStoreItem>();
+            mValues = [];
         }
 
         public KeyContainerManager(KeyStoreItem[] values)

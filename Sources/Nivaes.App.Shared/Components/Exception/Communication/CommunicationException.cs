@@ -25,7 +25,7 @@
         // the order of parameters here is slightly different to that normally expected in an exception
         // - but this order allows us to put string.Format in place
         public CommunicationException(Exception innerException, string messageFormat, params object?[] formatArguments)
-            : base(string.Format(messageFormat, formatArguments), innerException)
+            : base(innerException, string.Format(messageFormat, formatArguments))
         {
         }
 
@@ -36,7 +36,7 @@
         }
 
         public CommunicationException(string message, Exception innerException)
-           : base(message, innerException)
+           : base(innerException, message)
         {
         }
 
@@ -48,7 +48,7 @@
         //}
 
         public CommunicationException(string message, string callerMemberName, Exception innerException)
-           : base(message, innerException)
+           : base(innerException, message)
         {
             CallerMemberName = callerMemberName;
         }

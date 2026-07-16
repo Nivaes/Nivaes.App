@@ -13,8 +13,18 @@
             : base(message)
         { }
 
-        public ConnectionException(string message, Exception innerException)
-            : base(message, innerException)
+        public ConnectionException(string messageFormat, params object?[] messageFormatArguments)
+           : base(string.Format(messageFormat, messageFormatArguments))
+        {
+        }
+
+        public ConnectionException(Exception innerException, string messageFormat, params object?[] formatArguments)
+            : base(innerException, string.Format(messageFormat, formatArguments))
+        {
+        }
+
+        public ConnectionException(Exception innerException, string message)
+            : base(innerException, message)
         {
         }
 
