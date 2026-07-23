@@ -4,7 +4,7 @@
     <PackageVersion Include="MemoryPack" Version="1.21.4" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="Microsoft.Bcl.Memory" Version="10.0.10" />
-    <PackageVersion Include="Nivaes.Extensions" Version="2.4.0.1" />
+    <PackageVersion Include="Nivaes.Extensions" Version="2.4.0.2" />
     <PackageVersion Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
     <PackageVersion Include="Moq" Version="4.20.72" />
