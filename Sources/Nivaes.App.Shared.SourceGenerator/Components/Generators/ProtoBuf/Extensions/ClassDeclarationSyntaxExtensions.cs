@@ -1,12 +1,10 @@
-﻿namespace Nivaes.App.Shared.SourceGenerator
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-    using Microsoft.CodeAnalysis;
-    using Microsoft.CodeAnalysis.CSharp;
-    using Microsoft.CodeAnalysis.CSharp.Syntax;
+﻿using System.Text;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
+namespace Nivaes.App.Shared.SourceGenerator
+{
     internal static class ClassDeclarationSyntaxExtensions
     {
         private const string NESTED_CLASS_DELIMITER = "+";
