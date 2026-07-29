@@ -49,7 +49,6 @@
     <ProjectReference Include="..\Nivaes.App.Shared.SourceGenerator\Nivaes.App.Shared.SourceGenerator.csproj">
       <OutputItemType>Analyzer</OutputItemType>
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-
       <PrivateAssets>runtime; build; native; contentfiles; buildtransitive</PrivateAssets>
       <IncludeAssets>analyzers</IncludeAssets>
     </ProjectReference>
