@@ -1,11 +1,9 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using MemoryPack;
-using Nivaes;
 
 namespace Nivaes.App
 {
-     [MemoryPackable]
+    [MemoryPackable]
     [DataModel]
     public sealed partial class NotificationDataModel
     //: IDataModel

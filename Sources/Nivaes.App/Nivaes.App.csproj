@@ -46,6 +46,7 @@
   <ItemGroup>
     <PackageReference Include="MemoryPack" />
     <PackageReference Include="Nivaes.Extensions" />
+    <PackageReference Include="ValiCraft" />
     <ProjectReference Include="..\Nivaes.App.SourceGenerator\Nivaes.App.SourceGenerator.csproj">
       <OutputItemType>Analyzer</OutputItemType>
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
