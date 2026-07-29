@@ -46,7 +46,7 @@
   <ItemGroup>
     <PackageReference Include="MemoryPack" />
     <PackageReference Include="Nivaes.Extensions" />
-    <ProjectReference Include="..\Nivaes.App.Shared.SourceGenerator\Nivaes.App.SourceGenerator.csproj">
+    <ProjectReference Include="..\Nivaes.App.SourceGenerator\Nivaes.App.SourceGenerator.csproj">
       <OutputItemType>Analyzer</OutputItemType>
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
       <PrivateAssets>runtime; build; native; contentfiles; buildtransitive</PrivateAssets>
@@ -55,8 +55,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="Nivaes.App.Shared.UnitTest" />
-    <InternalsVisibleTo Include="Nivaes.App.Shared.SourceGenerator.UnitTest" />
+    <InternalsVisibleTo Include="Nivaes.App.UnitTest" />
+    <InternalsVisibleTo Include="Nivaes.App.SourceGenerator.UnitTest" />
   </ItemGroup>
 
   <ItemGroup>

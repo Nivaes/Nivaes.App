@@ -1,8 +1,6 @@
 <Solution>
-  <Folder Name="/Documentation/">
+  <Folder Name="/Docs/">
     <File Path="README.md" />
-  </Folder>
-  <Folder Name="/Documentation/docs/">
     <File Path="docs/references.md" />
   </Folder>
   <Folder Name="/Solution Items/">
@@ -26,12 +24,12 @@
     <File Path=".github/workflows/publish_release.yaml" />
   </Folder>
   <Folder Name="/Sources/">
-    <Project Path="Sources/Nivaes.App.Shared.SourceGenerator/Nivaes.App.SourceGenerator.csproj" />
-    <Project Path="Sources/Nivaes.App.Shared/Nivaes.App.csproj" />
+    <Project Path="Sources/Nivaes.App.SourceGenerator/Nivaes.App.SourceGenerator.csproj" />
+    <Project Path="Sources/Nivaes.App/Nivaes.App.csproj" />
   </Folder>
   <Folder Name="/Tests/">
-    <Project Path="Tests/Nivaes.App.Shared.SourceGenerator.UnitTest/Nivaes.App.SourceGenerator.UnitTest.csproj" />
-    <Project Path="Tests/Nivaes.App.Shared.Test/Nivaes.App.Test.csproj" />
-    <Project Path="Tests/Nivaes.App.Shared.UnitTest/Nivaes.App.UnitTest.csproj" />
+    <Project Path="Tests/Nivaes.App.SourceGenerator.UnitTest/Nivaes.App.SourceGenerator.UnitTest.csproj" />
+    <Project Path="Tests/Nivaes.App.Test/Nivaes.App.Test.csproj" />
+    <Project Path="Tests/Nivaes.App.UnitTest/Nivaes.App.UnitTest.csproj" />
   </Folder>
 </Solution>
