@@ -3,8 +3,8 @@
     <TargetFrameworks>net10.0</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <IsPackable>false</IsPackable>
-    <AssemblyName>Nivaes.App.Shared.UnitTest</AssemblyName>
-    <RootNamespace>Nivaes.App.Shared.UnitTest</RootNamespace>
+    <AssemblyName>Nivaes.App.UnitTest</AssemblyName>
+    <RootNamespace>Nivaes.App.UnitTest</RootNamespace>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   
@@ -25,9 +25,9 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\Nivaes.App.Shared.Test\Nivaes.App.Shared.Test.csproj" />
+    <ProjectReference Include="..\Nivaes.App.Shared.Test\Nivaes.App.Test.csproj" />
 
-    <ProjectReference Include="..\..\Sources\Nivaes.App.Shared.SourceGenerator\Nivaes.App.Shared.SourceGenerator.csproj">
+    <ProjectReference Include="..\..\Sources\Nivaes.App.Shared.SourceGenerator\Nivaes.App.SourceGenerator.csproj">
       <PrivateAssets>all</PrivateAssets>
       <OutputItemType>Analyzer</OutputItemType>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>

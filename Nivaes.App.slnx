@@ -26,12 +26,12 @@
     <File Path=".github/workflows/publish_release.yaml" />
   </Folder>
   <Folder Name="/Sources/">
-    <Project Path="Sources/Nivaes.App.Shared/Nivaes.App.Shared.csproj" />
-    <Project Path="Sources/Nivaes.App.Shared.SourceGenerator/Nivaes.App.Shared.SourceGenerator.csproj" />
+    <Project Path="Sources/Nivaes.App.Shared.SourceGenerator/Nivaes.App.SourceGenerator.csproj" />
+    <Project Path="Sources/Nivaes.App.Shared/Nivaes.App.csproj" />
   </Folder>
   <Folder Name="/Tests/">
-    <Project Path="Tests/Nivaes.App.Shared.Test/Nivaes.App.Shared.Test.csproj" />
-    <Project Path="Tests/Nivaes.App.Shared.UnitTest/Nivaes.App.Shared.UnitTest.csproj" />
     <Project Path="Tests/Nivaes.App.Shared.SourceGenerator.UnitTest/Nivaes.App.SourceGenerator.UnitTest.csproj" />
+    <Project Path="Tests/Nivaes.App.Shared.Test/Nivaes.App.Test.csproj" />
+    <Project Path="Tests/Nivaes.App.Shared.UnitTest/Nivaes.App.UnitTest.csproj" />
   </Folder>
 </Solution>

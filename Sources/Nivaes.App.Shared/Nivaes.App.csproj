@@ -3,7 +3,7 @@
     <OutputType>Library</OutputType>
     <TargetFrameworks>net10.0</TargetFrameworks>
 
-    <AssemblyName>Nivaes.App.Shared</AssemblyName>
+    <AssemblyName>Nivaes.App</AssemblyName>
     <RootNamespace>Nivaes.App</RootNamespace>
 
     <OptimizationPreference>Speed</OptimizationPreference>
@@ -21,12 +21,12 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Nivaes.App.Shared</PackageId>
-    <Title>Nivaes App Shared</Title>
+    <PackageId>Nivaes.App</PackageId>
+    <Title>Nivaes App</Title>
 
     <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
-    <Product>Nivaes App shared</Product>
-    <Description>Nivaes App shared.</Description>
+    <Product>Nivaes App</Product>
+    <Description>Nivaes App.</Description>
     <PackageTags>Nivaes;App</PackageTags>
 
     <IsAotCompatible>true</IsAotCompatible>
@@ -38,7 +38,7 @@
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <None Include="Images\icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
@@ -46,7 +46,7 @@
   <ItemGroup>
     <PackageReference Include="MemoryPack" />
     <PackageReference Include="Nivaes.Extensions" />
-    <ProjectReference Include="..\Nivaes.App.Shared.SourceGenerator\Nivaes.App.Shared.SourceGenerator.csproj">
+    <ProjectReference Include="..\Nivaes.App.Shared.SourceGenerator\Nivaes.App.SourceGenerator.csproj">
       <OutputItemType>Analyzer</OutputItemType>
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
       <PrivateAssets>runtime; build; native; contentfiles; buildtransitive</PrivateAssets>

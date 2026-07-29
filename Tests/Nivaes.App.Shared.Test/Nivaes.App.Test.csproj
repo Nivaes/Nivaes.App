@@ -4,14 +4,14 @@
     <TargetFrameworks>net10.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     
-    <AssemblyName>Nivaes.App.Shared.Test</AssemblyName>
-    <RootNamespace>Nivaes.App.Shared.Test</RootNamespace>
+    <AssemblyName>Nivaes.App.Test</AssemblyName>
+    <RootNamespace>Nivaes.App.Test</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Sources\Nivaes.App.Shared\Nivaes.App.Shared.csproj" />
+    <ProjectReference Include="..\..\Sources\Nivaes.App.Shared\Nivaes.App.csproj" />
     
-    <ProjectReference Include="..\..\Sources\Nivaes.App.Shared.SourceGenerator\Nivaes.App.Shared.SourceGenerator.csproj">
+    <ProjectReference Include="..\..\Sources\Nivaes.App.Shared.SourceGenerator\Nivaes.App.SourceGenerator.csproj">
       <PrivateAssets>all</PrivateAssets>
       <OutputItemType>Analyzer</OutputItemType>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
