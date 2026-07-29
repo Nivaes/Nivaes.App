@@ -52,7 +52,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <Folder Include="UnitTest\Generatos\Model\Snapshots\" />
+    <Folder Include="UnitTest\Generatos\Model\" />
   </ItemGroup>
 
 </Project>
