@@ -1,13 +1,10 @@
-﻿namespace Nivaes.App
-{
-    using System;
-    using System.Collections.Specialized;
-    using System.ComponentModel;
-    using System.Diagnostics;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Runtime.CompilerServices;
-    using MemoryPack;
+﻿using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
+namespace Nivaes.App
+{
     public abstract class Model
         : IModel
     {
@@ -66,7 +63,6 @@
 
         /// <summary>Change value of property.</summary>
         [DebuggerStepThrough]
-        [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", MessageId = "0#")]
         protected bool SetProperty<T>(ref T property, T newValue, [CallerMemberName] string propertyName = "")
         {
             if (object.Equals((object?)property, (object?)newValue))

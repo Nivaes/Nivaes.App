@@ -1,14 +1,13 @@
-﻿namespace Nivaes.App
-{
-    using System.Buffers;
-    using System.Diagnostics;
-    using System.Diagnostics.CodeAnalysis;
-    using MemoryPack;
+﻿using System.Buffers;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using MemoryPack;
 
+namespace Nivaes.App
+{
     /// <summary>Helper for <see cref="IModel"/>.</summary>
     public static class ModelHelper
     {
-
         /// <summary>Clone a <see cref="IModel"/> object.</summary>
         /// <typeparam name="TModel">Type of object.</typeparam>
         /// <param name="model">Original model object.</param>

@@ -1,29 +1,31 @@
-﻿namespace Nivaes.App
-{
-    using System;
-    using System.ComponentModel;
-    using MemoryPack;
+﻿using System.ComponentModel;
+using MemoryPack;
 
+namespace Nivaes.App
+{
     public abstract partial class DataModel
         : Model, IDataModel, INotifyPropertyChanged
     {
         protected DataModel()
         { }
 
-        private DateTime mTimeStamp;
-
         [MemoryPackIgnore]
         public DateTime TimeStamp
         {
-            get => mTimeStamp;
-            set => mTimeStamp = value;
+            get => new DateTime(TimeStampTicks, DateTimeKind.Utc);
+            set => TimeStampTicks = value.Ticks;
         }
 
         [MemoryPackInclude]
         public long TimeStampTicks
         {
-            get => mTimeStamp.Ticks;
-            set => mTimeStamp = new DateTime(value, DateTimeKind.Utc);
+            get
+            {
+                if(field == 0)
+                    field = DateTime.Now.Ticks;
+                return field;
+            }
+            set => field = value;
         }
     }
 }

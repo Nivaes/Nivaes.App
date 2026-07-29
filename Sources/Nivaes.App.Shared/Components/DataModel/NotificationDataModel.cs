@@ -1,12 +1,11 @@
-﻿namespace Nivaes.App
-{
-    using System;
-    using System.Globalization;
-    using MemoryPack;
-    using Nivaes;
+﻿using System;
+using System.Globalization;
+using MemoryPack;
+using Nivaes;
 
-    //[ProtoContract(Name = "Notification", ImplicitFirstTag = 100, ImplicitFields = ImplicitFields.None)]
-    [MemoryPackable]
+namespace Nivaes.App
+{
+     [MemoryPackable]
     [DataModel]
     public sealed partial class NotificationDataModel
     //: IDataModel
