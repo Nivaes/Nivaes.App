@@ -52,6 +52,7 @@
       <PrivateAssets>runtime; build; native; contentfiles; buildtransitive</PrivateAssets>
       <IncludeAssets>analyzers</IncludeAssets>
     </ProjectReference>
+    <ProjectReference Include="..\Nivaes.Extensions.Candidates\Nivaes.Extensions.Candidates.csproj" />
   </ItemGroup>
 
   <ItemGroup>

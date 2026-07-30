@@ -26,6 +26,7 @@
   <Folder Name="/Sources/">
     <Project Path="Sources/Nivaes.App.SourceGenerator/Nivaes.App.SourceGenerator.csproj" />
     <Project Path="Sources/Nivaes.App/Nivaes.App.csproj" />
+    <Project Path="Sources/Nivaes.Extensions.Candidates/Nivaes.Extensions.Candidates.csproj" Id="440b83de-3f1e-4149-993a-83c79d902d78" />
   </Folder>
   <Folder Name="/Tests/">
     <Project Path="Tests/Nivaes.App.SourceGenerator.UnitTest/Nivaes.App.SourceGenerator.UnitTest.csproj" />
