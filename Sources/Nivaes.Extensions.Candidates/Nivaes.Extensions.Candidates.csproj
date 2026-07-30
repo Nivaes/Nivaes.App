@@ -8,6 +8,18 @@
     
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <OptimizationPreference>Speed</OptimizationPreference>
+    <IsTrimmable>true</IsTrimmable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <RunAOTAnalysis>true</RunAOTAnalysis>
+    <PublishAot>true</PublishAot>
+    <WarningsAsErrors>IL2026;IL3002;IL2028</WarningsAsErrors>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MemoryPack" />
+    <PackageReference Include="Nivaes.Extensions" />
+  </ItemGroup>
 
 </Project>

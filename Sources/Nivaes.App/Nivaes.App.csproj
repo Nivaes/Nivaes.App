@@ -10,12 +10,6 @@
     <IsTrimmable>true</IsTrimmable>
     <IsAotCompatible>true</IsAotCompatible>
     <RunAOTAnalysis>true</RunAOTAnalysis>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <RunAOTAnalysis>true</RunAOTAnalysis>
-    <IsAotCompatible>true</IsAotCompatible>
-
     <PublishAot>true</PublishAot>
     <WarningsAsErrors>IL2026;IL3002;IL2028</WarningsAsErrors>
   </PropertyGroup>

@@ -50,7 +50,7 @@ public sealed class AccountDataModel
 
     public string FullName => string.Join(" ", new string[] { HonorificNamePrefix ?? string.Empty, GivenName ?? string.Empty, FamilyName ?? string.Empty, HonorificNameSuffix ?? string.Empty }.Where(s => !string.IsNullOrEmpty(s)));
 
-    public string Initials => GivenName?.Substring(0, 1) + mFamilyName?.Substring(0, 1);
+    public string Initials => GivenName?.Substring(0, 1) + FamilyName?.Substring(0, 1);
 
     public string? Email
     {
