@@ -1,7 +1,7 @@
 ﻿namespace Nivaes.App
 {
     public class CommunicationException
-        : AppException
+        : Exception
     {
         public string? CallerMemberName { get; }
 
