@@ -257,3 +257,6 @@ dotnet_diagnostic.S1066.severity = none
 
 # Default severity for analyzer diagnostics with category 'Critical Code Smell'
 dotnet_analyzer_diagnostic.category-Critical Code Smell.severity = none
+
+# IDE1006: Naming Styles
+dotnet_diagnostic.IDE1006.severity = none
