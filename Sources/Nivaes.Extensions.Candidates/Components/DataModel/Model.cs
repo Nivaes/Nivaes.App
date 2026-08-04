@@ -73,13 +73,11 @@ namespace Nivaes.App
             {
                 IModel? propertyModel = property as IModel;
 
-                if (propertyModel != null)
-                    propertyModel.PropertyChanged -= RaisePropertyChanged;
+                propertyModel?.PropertyChanged -= RaisePropertyChanged;
 
                 property = newValue;
 
-                if (propertyModel != null)
-                    propertyModel.PropertyChanged += RaisePropertyChanged;
+                propertyModel?.PropertyChanged += RaisePropertyChanged;
 
                 RaisePropertyChanged(propertyName);
 
@@ -100,13 +98,11 @@ namespace Nivaes.App
             {
                 IModel? propertyModel = property as IModel;
 
-                if (propertyModel != null)
-                    propertyModel.PropertyChanged -= RaisePropertyChanged;
+                propertyModel?.PropertyChanged -= RaisePropertyChanged;
 
                 property = newValue;
 
-                if (propertyModel != null)
-                    propertyModel.PropertyChanged += RaisePropertyChanged;
+                propertyModel?.PropertyChanged += RaisePropertyChanged;
 
                 if (!object.Equals(property, default(T)))
                     property.CollectionChanged += (o, e) => notificationCollectionChanged(e);
