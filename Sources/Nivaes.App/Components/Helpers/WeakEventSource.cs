@@ -86,7 +86,7 @@ namespace Nivaes.App
             #region Open handler generation and cache
 
             // ReSharper disable once StaticMemberInGenericType (by design)
-            private static readonly ConcurrentDictionary<MethodInfo, OpenEventHandler> OpenHandlerCache =
+            private readonly ConcurrentDictionary<MethodInfo, OpenEventHandler> OpenHandlerCache =
                 new ConcurrentDictionary<MethodInfo, OpenEventHandler>();
 
             private static OpenEventHandler CreateOpenHandler(MethodInfo method)
