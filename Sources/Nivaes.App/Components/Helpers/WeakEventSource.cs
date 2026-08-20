@@ -108,7 +108,7 @@ namespace Nivaes.App
                 {
                     var expr = Expression.Lambda<OpenEventHandler>(
                         Expression.Call(
-                            Expression.Convert(target, method.DeclaringType),
+                            Expression.Convert(target, method.DeclaringType!),
                             method,
                             sender, e),
                         target, sender, e);
@@ -170,11 +170,11 @@ namespace Nivaes.App
 
             public void Invoke(object sender, TEventArgs e)
             {
-                _openHandler(_target, sender, e);
+                _openHandler(_target!, sender, e);
             }
         }
 
-        private class DelegateCollection : IEnumerable<WeakDelegate>
+        private sealed class DelegateCollection : IEnumerable<WeakDelegate>
         {
             private List<WeakDelegate> _delegates;
 

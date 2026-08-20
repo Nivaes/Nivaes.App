@@ -211,7 +211,7 @@ namespace Nivaes.App
                 {
                     int index = indices[i];
                     if (_delegates[index] != null &&
-                        _delegates[index]!.IsMatch(singleHandler))
+                        _delegates[index].IsMatch(singleHandler))
                     {
                         _delegates.RemoveAt(index);
                         _deletedCount++;

@@ -37,7 +37,7 @@ public class AutoNotifyGenerator
                  return Array.Empty<IFieldSymbol>();
              })
             .Where(static s => s is not null)
-            .SelectMany((symbols, _) => symbols!);
+            .SelectMany((symbols, _) => symbols);
 
         context.RegisterSourceOutput(provider, GenerateProperty);
     }

@@ -18,7 +18,7 @@ namespace Nivaes.App
 
         //[AutoNotify()]
         //private string? text;
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         //[ProtoMember(1, Name = "IdNotification")]
         //public Guid IdNotification { get; set; }

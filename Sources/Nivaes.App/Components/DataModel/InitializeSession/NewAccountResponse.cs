@@ -15,6 +15,6 @@
         public bool AccountCreated { get; set; }
 
         [DataMember(Name = "Errors")]
-        public IEnumerable<IdentityErrorResponse> Errors { get; set; }
+        public IEnumerable<IdentityErrorResponse>? Errors { get; set; }
     }
 }
