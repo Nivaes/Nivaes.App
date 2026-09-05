@@ -49,12 +49,12 @@ namespace Nivaes.App.Shared.UnitTest
             var testDataModel2 = testDataModel.Clone();
 
             testDataModel2.ShouldNotBeNull();
-            testDataModel.TestDataModel01Id.ShouldBe(testDataModel2!.TestDataModel01Id);
-            testDataModel.StringValue.ShouldBe(testDataModel2!.StringValue);
-            testDataModel.StringValueReadOnly.ShouldBe(testDataModel2!.StringValueReadOnly);
-            testDataModel.DoubleValue.ShouldBe(testDataModel2!.DoubleValue);
-            testDataModel.IntValue.ShouldBe(testDataModel2!.IntValue);
-            testDataModel.TimeStampTicks.ShouldBe<long>(testDataModel2!.TimeStampTicks);
+            testDataModel.TestDataModel01Id.ShouldBe(testDataModel2.TestDataModel01Id);
+            testDataModel.StringValue.ShouldBe(testDataModel2.StringValue);
+            testDataModel.StringValueReadOnly.ShouldBe(testDataModel2.StringValueReadOnly);
+            testDataModel.DoubleValue.ShouldBe(testDataModel2.DoubleValue);
+            testDataModel.IntValue.ShouldBe(testDataModel2.IntValue);
+            testDataModel.TimeStampTicks.ShouldBe<long>(testDataModel2.TimeStampTicks);
             testDataModel.TimeStamp.ShouldBe(testDataModel2.TimeStamp);
         }
     }
