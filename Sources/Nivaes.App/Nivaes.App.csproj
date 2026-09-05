@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>net10.0</TargetFrameworks>
+    <TargetFramework>$(_CommonTargets)</TargetFramework>
 
     <AssemblyName>Nivaes.App</AssemblyName>
     <RootNamespace>Nivaes.App</RootNamespace>

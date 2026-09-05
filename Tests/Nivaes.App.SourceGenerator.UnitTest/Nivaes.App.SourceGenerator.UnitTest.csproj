@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net10.0</TargetFrameworks>
+    <TargetFrameworks>$(_CommonTargets)</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <AssemblyName>Nivaes.App.SourceGenerator.UnitTest</AssemblyName>
     <RootNamespace>Nivaes.App.SourceGenerator.UnitTest</RootNamespace>

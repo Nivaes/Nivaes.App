@@ -37,6 +37,10 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <_CommonTargets>net10.0</_CommonTargets>
+  </PropertyGroup>
+  
+  <PropertyGroup>
     <IsTestProject>$(MSBuildProjectName.Contains('UnitTest'))</IsTestProject>
     
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>

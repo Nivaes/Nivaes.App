@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net10.0</TargetFrameworks>
+    <TargetFrameworks>$(_CommonTargets)</TargetFrameworks>
     <IsPackable>false</IsPackable>
     
     <AssemblyName>Nivaes.App.Test</AssemblyName>
