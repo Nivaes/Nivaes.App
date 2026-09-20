@@ -39,6 +39,7 @@
 
   <ItemGroup>
     <PackageReference Include="MemoryPack" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
     <PackageReference Include="Nivaes.Extensions" />
     <PackageReference Include="ValiCraft" />
     <ProjectReference Include="..\Nivaes.App.SourceGenerator\Nivaes.App.SourceGenerator.csproj">

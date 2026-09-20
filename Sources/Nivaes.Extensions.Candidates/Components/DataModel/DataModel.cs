@@ -10,22 +10,29 @@ namespace Nivaes.App
         { }
 
         [MemoryPackIgnore]
-        public DateTime TimeStamp
+        public DateTime DateTimeStamp
         {
-            get => new DateTime(TimeStampTicks, DateTimeKind.Utc);
-            set => TimeStampTicks = value.Ticks;
+            get => new DateTime(DateTimeStampTicks, DateTimeKind.Utc);
+            set => DateTimeStampTicks = value.Ticks;
         }
 
         [MemoryPackInclude]
-        public long TimeStampTicks
+        public long DateTimeStampTicks
         {
-            get
-            {
-                if(field == 0)
-                    field = DateTime.Now.Ticks;
-                return field;
-            }
+            get => field == 0 ? DateTime.Now.Ticks : field;
             set => field = value;
         }
+
+        [MemoryPackIgnore]
+        public DateTime? DeleteDataTimeStamp
+        {
+            get => DeleteDateTimeStampTicks.HasValue
+                ? new(DeleteDateTimeStampTicks.Value, DateTimeKind.Utc)
+                : null;
+            set => DeleteDateTimeStampTicks = value?.Ticks;
+        }
+
+        [MemoryPackInclude]
+        public long? DeleteDateTimeStampTicks { get; set; }
     }
 }

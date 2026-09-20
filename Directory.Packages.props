@@ -2,6 +2,7 @@
   <ItemGroup>
     <PackageVersion Include="coverlet.msbuild" Version="10.0.1" />
     <PackageVersion Include="MemoryPack" Version="1.21.4" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.12" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="Microsoft.Bcl.Memory" Version="10.0.12" />
     <PackageVersion Include="Nivaes.Extensions" Version="2.4.0.4" />
