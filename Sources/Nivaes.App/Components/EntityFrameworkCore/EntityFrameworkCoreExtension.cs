@@ -16,7 +16,7 @@ public static class EntityFrameworkCoreExtension
 
         entity.Ignore(e => e.DeleteDataTimeStamp);
 
-        entity.Property(e => e.DeleteDataTimeStamp)
+        entity.Property(e => e.DeleteDateTimeStampTicks)
            .IsRequired(false);
 
         return entity;
