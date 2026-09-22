@@ -17,6 +17,7 @@ namespace Nivaes.App
         }
 
         [MemoryPackInclude]
+        [MemoryPackOrder(0)]
         public long DateTimeStampTicks
         {
             get => field == 0 ? DateTime.Now.Ticks : field;
@@ -33,6 +34,7 @@ namespace Nivaes.App
         }
 
         [MemoryPackInclude]
+        [MemoryPackOrder(1)]
         public long? DeleteDateTimeStampTicks { get; set; }
     }
 }
