@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using MemoryPack;
 
 namespace Nivaes.App
 {
@@ -9,22 +8,19 @@ namespace Nivaes.App
         protected DataModel()
         { }
 
-        [MemoryPackIgnore]
         public DateTime DateTimeStamp
         {
             get => new DateTime(DateTimeStampTicks, DateTimeKind.Utc);
             set => DateTimeStampTicks = value.Ticks;
         }
 
-        [MemoryPackInclude]
-        [MemoryPackOrder(0)]
         public long DateTimeStampTicks
         {
             get => field == 0 ? DateTime.Now.Ticks : field;
             set => field = value;
         }
 
-        [MemoryPackIgnore]
+        //[MemoryPackIgnore]
         public DateTime? DeleteDataTimeStamp
         {
             get => DeleteDateTimeStampTicks.HasValue
@@ -33,8 +29,6 @@ namespace Nivaes.App
             set => DeleteDateTimeStampTicks = value?.Ticks;
         }
 
-        [MemoryPackInclude]
-        [MemoryPackOrder(1)]
         public long? DeleteDateTimeStampTicks { get; set; }
     }
 }

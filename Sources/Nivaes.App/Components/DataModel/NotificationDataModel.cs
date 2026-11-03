@@ -1,10 +1,9 @@
 ﻿using System.Globalization;
-using MemoryPack;
+using Nivaes.Serializer;
 
 namespace Nivaes.App
 {
-    //[MemoryPackable]
-    //[DataModel]
+    [SerializePacker]
     public sealed class NotificationDataModel
         : DataModel
     {
