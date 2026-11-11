@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Library</OutputType>
     <TargetFrameworks>$(_CommonTargets)</TargetFrameworks>
 
     <AssemblyName>Nivaes.Extensions.Candidates</AssemblyName>

@@ -34,6 +34,12 @@
       <ExcludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</ExcludeAssets>
     </ProjectReference>
   </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+    <Using Include="Shouldly" />
+    <Using Include="AutoFixture.Xunit3" />
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers">

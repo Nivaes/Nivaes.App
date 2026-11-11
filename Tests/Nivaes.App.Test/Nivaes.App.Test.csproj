@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Nivaes.Serializer" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Sources\Nivaes.App\Nivaes.App.csproj" />
     
     <ProjectReference Include="..\..\Sources\Nivaes.App.SourceGenerator\Nivaes.App.SourceGenerator.csproj">

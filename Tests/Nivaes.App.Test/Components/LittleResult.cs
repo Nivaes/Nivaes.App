@@ -1,12 +1,10 @@
-﻿namespace Nivaes.App.Shared.Test
-{
-     using MemoryPack;
+﻿using Nivaes.Serializer;
 
-    [MemoryPackable]
-    public partial class LittleResult
-        : Result
-    {
-        [MemoryPackInclude]
-        public bool EndValue { get; set; }
-    }
+namespace Nivaes.App.Shared.Test;
+
+[SerializePacker]
+public partial class LittleResult
+    : Result
+{
+    public bool EndValue { get; set; }
 }

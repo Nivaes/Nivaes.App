@@ -1,17 +1,12 @@
-﻿namespace Nivaes.App.Shared.Test
-{
-    using System;
-    using System.Runtime.Serialization;
-    using MemoryPack;
+﻿using Nivaes.Serializer;
 
-    [MemoryPackable]
-    public sealed partial class ModelTest1
-        : DataModel
-    {
-        #region Dato01
-        [MemoryPackInclude()]
-        [DataMember(Name = "GuidData")]
-        public Guid GuidData { get; set; }
-        #endregion 
-    }
+namespace Nivaes.App.Shared.Test;
+
+[SerializePacker]
+public sealed partial class ModelTest1
+    : DataModel
+{
+    #region Dato01
+    public Guid GuidData { get; set; }
+    #endregion 
 }
