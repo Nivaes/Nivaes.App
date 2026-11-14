@@ -2,7 +2,7 @@
 
 namespace Nivaes.App.Shared.Test;
 
-[SerializePacker]
+[SerializeModel]
 public partial class LittleResult
     : Result
 {

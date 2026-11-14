@@ -3,7 +3,7 @@ using Nivaes.Serializer;
 
 namespace Nivaes.App
 {
-    [SerializePacker]
+    [SerializeModel]
     public sealed class NotificationDataModel
         : DataModel
     {

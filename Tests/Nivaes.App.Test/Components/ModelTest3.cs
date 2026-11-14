@@ -2,7 +2,7 @@
 
 namespace Nivaes.App.Shared.Test
 {
-    [SerializePacker]
+    [SerializeModel]
     public sealed partial class ModelTest3
         : DataModel
     {

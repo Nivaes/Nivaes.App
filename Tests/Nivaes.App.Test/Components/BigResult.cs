@@ -4,14 +4,14 @@ using Nivaes.Serializer;
 namespace Nivaes.App.Shared.Test;
 
 
-[SerializePacker]
+[SerializeModel]
 public class BigResult
     : Result
 {
     public BigDatamodel? ContentValue { get; set; }
 }
 
-[SerializePacker]
+[SerializeModel]
 public class BigDatamodel
     : DataModel
 {

@@ -3,7 +3,7 @@
 namespace Nivaes.App.Shared.Test
 {
     /// <summary>Implement a <see cref="Nivaes.App.DataModel"/> for test.</summary>
-    [SerializePacker]
+    [SerializeModel]
     public class TestDataModel01
         : DataModel
     {

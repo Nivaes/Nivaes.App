@@ -3,7 +3,7 @@
     <PackageVersion Include="AutoFixture.Xunit3" Version="4.19.0" />
     <PackageVersion Include="coverlet.msbuild" Version="10.1.0" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.15" />
-    <PackageVersion Include="Nivaes.Serializer" Version="0.1.0-preview.16" />
+    <PackageVersion Include="Nivaes.Serializer" Version="0.1.0-preview.17" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="Microsoft.Bcl.Memory" Version="11.0.0" />
     <PackageVersion Include="Nivaes.Extensions" Version="2.4.0.4" />

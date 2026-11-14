@@ -9,7 +9,7 @@ namespace Nivaes.App
         protected DataModel()
         { }
 
-        [IgnoreSerialize]
+        [SerializeIgnore]
         public DateTime DateTimeStamp
         {
             get => new DateTime(DateTimeStampTicks, DateTimeKind.Utc);
@@ -22,7 +22,7 @@ namespace Nivaes.App
             set => field = value;
         }
 
-        [IgnoreSerialize]
+        [SerializeIgnore]
         public DateTime? DeleteDateTimeStamp
         {
             get => DeleteDateTimeStampTicks.HasValue

@@ -22,12 +22,7 @@ namespace Nivaes.App.Shared.UnitTest
                 DeleteDateTimeStamp = DateTime.Now
             };
 
-            //var testDataModel2 = SerializePacker.Clone(testDataModel);
-            var cache = SerializePacker.Serialize(testDataModel);
-
-            Thread.Sleep(1000);
-
-            var testDataModel2 = SerializePacker.Deserialize<TestDataModel01>(cache);
+            var testDataModel2 = SerializeModel.Clone(testDataModel);
 
             testDataModel2.ShouldNotBeNull();
             testDataModel.TestDataModel01Id.ShouldBe(testDataModel2.TestDataModel01Id);
