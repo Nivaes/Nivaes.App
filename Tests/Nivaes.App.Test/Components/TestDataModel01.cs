@@ -4,7 +4,7 @@ namespace Nivaes.App.Shared.Test
 {
     /// <summary>Implement a <see cref="Nivaes.App.DataModel"/> for test.</summary>
     [SerializePacker]
-    public partial class TestDataModel01
+    public class TestDataModel01
         : DataModel
     {
         #region TestDataModel01Id

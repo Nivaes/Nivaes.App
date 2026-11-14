@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <PackageReference Include="Nivaes.Extensions" />
+    <PackageReference Include="Nivaes.Serializer" />
   </ItemGroup>
 
   <ItemGroup>

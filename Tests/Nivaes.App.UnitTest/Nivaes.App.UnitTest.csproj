@@ -9,6 +9,8 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <PackageReference Include="AutoFixture.Xunit3" />
+    <PackageReference Include="Nivaes.Serializer" />
     <PackageReference Include="coverlet.msbuild">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

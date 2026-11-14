@@ -1,13 +1,15 @@
 ﻿using System.ComponentModel;
+using Nivaes.Serializer;
 
 namespace Nivaes.App
 {
-    public abstract partial class DataModel
+    public abstract class DataModel
         : Model, IDataModel, INotifyPropertyChanged
     {
         protected DataModel()
         { }
 
+        [IgnoreSerialize]
         public DateTime DateTimeStamp
         {
             get => new DateTime(DateTimeStampTicks, DateTimeKind.Utc);
@@ -16,12 +18,12 @@ namespace Nivaes.App
 
         public long DateTimeStampTicks
         {
-            get => field == 0 ? DateTime.Now.Ticks : field;
+            get => field == 0 ? field = DateTime.Now.Ticks : field;
             set => field = value;
         }
 
-        //[MemoryPackIgnore]
-        public DateTime? DeleteDataTimeStamp
+        [IgnoreSerialize]
+        public DateTime? DeleteDateTimeStamp
         {
             get => DeleteDateTimeStampTicks.HasValue
                 ? new(DeleteDateTimeStampTicks.Value, DateTimeKind.Utc)

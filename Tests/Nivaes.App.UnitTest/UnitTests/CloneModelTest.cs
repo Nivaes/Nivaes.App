@@ -1,4 +1,5 @@
 ﻿using Nivaes.App.Shared.Test;
+using Nivaes.Serializer;
 using Shouldly;
 using Xunit;
 
@@ -18,10 +19,15 @@ namespace Nivaes.App.Shared.UnitTest
                 StringValueReadOnly = "StringValueReadOnly",
                 DoubleValue = 10.3,
                 IntValue = 3,
-                TimeStamp = DateTime.Now
+                DeleteDateTimeStamp = DateTime.Now
             };
 
-            var testDataModel2 = testDataModel.Clone();
+            //var testDataModel2 = SerializePacker.Clone(testDataModel);
+            var cache = SerializePacker.Serialize(testDataModel);
+
+            Thread.Sleep(1000);
+
+            var testDataModel2 = SerializePacker.Deserialize<TestDataModel01>(cache);
 
             testDataModel2.ShouldNotBeNull();
             testDataModel.TestDataModel01Id.ShouldBe(testDataModel2.TestDataModel01Id);
@@ -29,33 +35,16 @@ namespace Nivaes.App.Shared.UnitTest
             testDataModel.StringValueReadOnly.ShouldBe(testDataModel2.StringValueReadOnly);
             testDataModel.DoubleValue.ShouldBe(testDataModel2.DoubleValue);
             testDataModel.IntValue.ShouldBe(testDataModel2.IntValue);
-            testDataModel.TimeStampTicks.ShouldBe<long>(testDataModel2.TimeStampTicks);
-            testDataModel.TimeStamp.ShouldBe(testDataModel2.TimeStamp);
-        }
 
-        [Fact]
-        public void CloneModelProtoBufTest()
-        {
-            TestDataModel01 testDataModel = new TestDataModel01()
-            {
-                TestDataModel01Id = Guid.NewGuid(),
-                StringValue = "StringValue",
-                StringValueReadOnly = "StringValueReadOnly",
-                DoubleValue = 10.3,
-                IntValue = 3,
-                TimeStamp = DateTime.UtcNow
-            };
+            testDataModel.DateTimeStamp.ShouldBe(testDataModel2.DateTimeStamp);
+            testDataModel.DateTimeStamp.Ticks.ShouldBe(testDataModel2.DateTimeStamp.Ticks);
 
-            var testDataModel2 = testDataModel.Clone();
+            testDataModel.DateTimeStampTicks.ShouldBe(testDataModel2.DateTimeStampTicks);
 
-            testDataModel2.ShouldNotBeNull();
-            testDataModel.TestDataModel01Id.ShouldBe(testDataModel2.TestDataModel01Id);
-            testDataModel.StringValue.ShouldBe(testDataModel2.StringValue);
-            testDataModel.StringValueReadOnly.ShouldBe(testDataModel2.StringValueReadOnly);
-            testDataModel.DoubleValue.ShouldBe(testDataModel2.DoubleValue);
-            testDataModel.IntValue.ShouldBe(testDataModel2.IntValue);
-            testDataModel.TimeStampTicks.ShouldBe<long>(testDataModel2.TimeStampTicks);
-            testDataModel.TimeStamp.ShouldBe(testDataModel2.TimeStamp);
+            testDataModel.DeleteDateTimeStamp.ShouldBe(testDataModel2.DeleteDateTimeStamp);
+            testDataModel.DeleteDateTimeStamp.Value.Ticks.ShouldBe(testDataModel2.DeleteDateTimeStamp!.Value.Ticks);
+
+            testDataModel.DeleteDateTimeStampTicks.ShouldBe(testDataModel2.DeleteDateTimeStampTicks);
         }
     }
 }
